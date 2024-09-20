@@ -1,35 +1,61 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState, useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import './App.css';
+import Home from './components/pages/Home/Home.jsx';
+import AboutEvent from './components/pages/AboutEvent/AboutEvent.jsx';
+import Register from './components/pages/Register/Register.jsx';
+import axios from 'axios';
+import { ToastContainer } from 'react-toastify';
+import ToastNotification from './components/ToastNotification/ToastNotification.jsx';
+import { parseDate } from './components/utils/dateUtils.js';
 
-function App() {
-  const [count, setCount] = useState(0)
+const SPREADSHEET_ID = '16V0Yg-Vz9LcqHBcrUjGEx_lfA38l4c3X4zq4t0VikDE';
+const API_KEY = 'AIzaSyBGLpJ8vDTlkxn2dS7quFPn7qpiVdn3Rsg';
+
+const App = () => {
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const response = await axios.get(
+          `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/EventSheet1?key=${API_KEY}`
+        );
+        const rows = response.data.values;
+        const formattedEvents = rows.slice(1).map((row, index) => ({
+          id: row[0], // Event ID
+          title: row[1], // Event Title
+          description: row[2], // Event Description
+          date: parseDate(row[3]), // Парсинг дати
+          organizer: row[4], // Organizer
+        }));
+        setEvents(formattedEvents);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchEvents();
+  }, []);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Routes>
+        <Route path="/" element={<Home events={events} loading={loading} />} />
+        <Route path="/register/:eventId" element={<Register />} />
+        <Route path="/participants/:eventId" element={<AboutEvent />} />
+      </Routes>
+      <ToastContainer />
+      <ToastNotification />
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
+{
+  /* <Route path="/event/:eventId" element={<AboutEvent />} />; */
+}

@@ -1,0 +1,27 @@
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.eventCard {
+  flex: 0 0 23%;
+  margin: 10px;
+  box-sizing: border-box;
+}
+/* /це горизонтальний скрол */
+.cardContainer::-webkit-scrollbar {
+  height: 10px;
+}
+
+.cardContainer::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.cardContainer::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/* ______________________________________________ */

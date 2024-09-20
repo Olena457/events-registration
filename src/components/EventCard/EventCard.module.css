@@ -1,0 +1,43 @@
+.eventContainer {
+  flex-direction: column;
+  gap: 8px;
+  display: flex;
+  background-color: white;
+}
+
+.eventInfo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.eventName {
+  font-weight: bold;
+}
+
+.registerBtn {
+  width: 100px;
+  height: 50px;
+  background-color: #f24e5e;
+  color: #333333;
+  margin: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: 1px solid #474f52;
+  box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
+    10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+}
+.viewBtn {
+  width: 100px;
+  height: 50px;
+  background-color: #f24e5e;
+  color: #333333;
+  margin: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: 1px solid #474f52;
+  box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
+    10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+}
