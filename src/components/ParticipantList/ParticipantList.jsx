@@ -1,64 +1,52 @@
-//  import { useSelector } from 'react-redux';
-// import css from './ParticipantList.module.css';
-// import Participant from '../Participant/Participant.jsx';
-// import Loading from '../Loading/Loading.jsx';
-
-// //   selectError,
-// //   selectFilteredparticipant,
-// //   selectLoading,
-// // } from '../../store/participant/selectorsparticipant.js';
-
-// function ParticipantList() {
-//   const loading = useSelector(selectLoading);
-//   const error = useSelector(selectError);
-//   const participant = useSelector(selectFilteredparticipant);
-
-//   return (
-//     <ul className={css.list}>
-//       {loading && <Loading />}
-//       {!loading && !error && participant.length === 0 && (
-//         <h4 className={css.subTitle}>
-//           Unfortunftely,thtre is no participant in this event yet.
-//         </h4>
-//       )}
-//       {!loading &&
-//         participant &&
-//         !error &&
-//         participant.map(({ email, name, id }) => (
-//           <li className={css.item} key={id}>
-//             <Participant id={id} email={email} name={name} />
-//           </li>
-//         ))}
-//       {error && <div>Error: {error}</div>}
-//     </ul>
-//   );
-// }
-
-// export default ParticipantList;
-// ________________________________________
-import React from 'react';
-import css from './ParticipantList.module.css';
+import css from './PartisipantList.module.css';
 import Participant from '../Participant/Participant.jsx';
 import Loading from '../Loading/Loading.jsx';
+import GridLayout from 'react-grid-layout';
+import 'react-grid-layout/css/styles.css';
+import 'react-resizable/css/styles.css';
+import { Container } from '../Container/container.jsx';
+import { Section } from './../Section/Section';
 
 const ParticipantList = ({ participants, loading, error }) => {
+  const layout = participants.map((participant, index) => ({
+    i: participant.id.toString(),
+    x: (index % 4) * 3,
+    y: Math.floor(index / 4),
+    w: 1,
+    h: 1,
+  }));
+
   return (
-    <ul className={css.list}>
-      {loading && <Loading />}
-      {!loading && !error && participants.length === 0 && (
-        <h4 className={css.subTitle}>
-          Unfortunately, there are no participants in this event yet.
-        </h4>
-      )}
-      {!loading &&
-        !error &&
-        participants.map(({ email, fullName, id }) => (
-          <li className={css.item} key={id}>
-            <Participant id={id} email={email} name={fullName} />
-          </li>
-        ))}
-      {error && <div>Error: {error}</div>}
-    </ul>
+    <>
+      <Section>
+        <Container>
+          <GridLayout
+            className={css.cardContainer}
+            layout={layout}
+            cols={12}
+            rowHeight={150}
+            width={1200}
+            isResizable={false}
+            isDraggable={false}
+          >
+            {loading && <Loading />}
+            {!loading && !error && participants.length === 0 && (
+              <h4 className={css.subTitle}>
+                No participants in this event yet.
+              </h4>
+            )}
+            {!loading &&
+              !error &&
+              participants.map(({ email, fullName, id }) => (
+                <div key={id} className={css.eventCard}>
+                  <Participant id={id} email={email} name={fullName} />
+                </div>
+              ))}
+            {error && <p className={css.error}>Error loading participants.</p>}
+          </GridLayout>
+        </Container>
+      </Section>
+    </>
   );
 };
 

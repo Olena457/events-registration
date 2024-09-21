@@ -1,10 +1,11 @@
-import { Oval } from 'react-loader-spinner';
-import css from '../Loading/Loading.module.css';
+import { ClimbingBoxLoader } from 'react-spinners';
 
-export default function Loading() {
+import css from './Loading.module.css';
+
+export const Loading = () => {
   return (
-    <div className={`${css.loader} ${css.centered} ${css.popup}`}>
-      <Oval color="#008000" height={70} width={70} />
+    <div className={css.backdrop}>
+      <ClimbingBoxLoader color="#36bed6" />
     </div>
   );
-}
+};

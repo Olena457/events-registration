@@ -27,11 +27,3 @@
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.btnHome:hover,
-.btnHome:focus {
-  font-size: 19px;
-  font-weight: 500;
-  background-color: #61a8eb;
-  color: black;
-  border: 2px solid #a09797;
-}

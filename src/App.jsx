@@ -1,61 +1,43 @@
-import React, { useState, useEffect } from 'react';
+// import './App.css';
+import React, { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import './App.css';
-import Home from './components/pages/Home/Home.jsx';
-import AboutEvent from './components/pages/AboutEvent/AboutEvent.jsx';
-import Register from './components/pages/Register/Register.jsx';
-import axios from 'axios';
-import { ToastContainer } from 'react-toastify';
-import ToastNotification from './components/ToastNotification/ToastNotification.jsx';
-import { parseDate } from './components/utils/dateUtils.js';
+// import Home from './components/pages/Home/Home.jsx';
+// import AboutEvent from './components/pages/AboutEvent/AboutEvent.jsx';
+// import Register from './components/pages/Register/Register.jsx';
+// import PageNotFound from './components/pages/PageNotFound/PageNotFound.jsx';
+// import CreateEventPage from './components/pages/CreateEventPage/CreateEventPage.jsx';
+// import Layout from './components/Layout/Layout.jsx';
+// import ToastNotification from './components/ToastNotification/ToastNotification.jsx';
 
-const SPREADSHEET_ID = '16V0Yg-Vz9LcqHBcrUjGEx_lfA38l4c3X4zq4t0VikDE';
-const API_KEY = 'AIzaSyBGLpJ8vDTlkxn2dS7quFPn7qpiVdn3Rsg';
+const AboutEvent = lazy(() =>
+  import('./components/pages/AboutEvent/AboutEvent.jsx')
+);
+const Register = lazy(() => import('./components/pages/Register/Register.jsx'));
+const PageNotFound = lazy(() =>
+  import('./components/pages/PageNotFound/PageNotFound.jsx')
+);
+const CreateEventPage = lazy(() =>
+  import('./components/pages/CreateEventPage/CreateEventPage.jsx')
+);
 
 const App = () => {
-  const [events, setEvents] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        const response = await axios.get(
-          `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/EventSheet1?key=${API_KEY}`
-        );
-        const rows = response.data.values;
-        const formattedEvents = rows.slice(1).map((row, index) => ({
-          id: row[0], // Event ID
-          title: row[1], // Event Title
-          description: row[2], // Event Description
-          date: parseDate(row[3]), // Парсинг дати
-          organizer: row[4], // Organizer
-        }));
-        setEvents(formattedEvents);
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchEvents();
-  }, []);
-
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Home events={events} loading={loading} />} />
-        <Route path="/register/:eventId" element={<Register />} />
-        <Route path="/participants/:eventId" element={<AboutEvent />} />
-      </Routes>
-      <ToastContainer />
-      <ToastNotification />
+      <Layout>
+        <Routes>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/register/:eventId" element={<Register />} />
+            <Route path="/about/:eventId" element={<AboutEvent />} />
+            <Route path="/create/:eventId" element={<CreateEventPage />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </Routes>
+
+        <ToastNotification />
+      </Layout>
     </>
   );
 };
 
 export default App;
-{
-  /* <Route path="/event/:eventId" element={<AboutEvent />} />; */
-}

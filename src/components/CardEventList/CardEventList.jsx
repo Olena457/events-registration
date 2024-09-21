@@ -1,64 +1,53 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
 import css from './CardEventlist.module.css';
 import EventCard from './../EventCard/EventCard.jsx';
 
-const SPREADSHEET_ID = '16V0Yg-Vz9LcqHBcrUjGEx_lfA38l4c3X4zq4t0VikDE';
-const SHEET_NAME = 'EventSheet1';
+import React from 'react';
+import GridLayout from 'react-grid-layout';
+import 'react-grid-layout/css/styles.css';
+import 'react-resizable/css/styles.css';
+import css from './YourStyles.module.css';
+import { Container } from '../Container/container.jsx';
+import { Section } from './../Section/Section';
 
-const API_KEY = 'AIzaSyBGLpJ8vDTlkxn2dS7quFPn7qpiVdn3Rsg';
-
-const CardEventList = ({ event, participants }) => {
-  const [events, setEvents] = useState([]);
-
-  useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        const response = await axios.get(
-          `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${SHEET_NAME}?key=${API_KEY}`
-        );
-        const rows = response.data.values;
-        const formattedEvents = rows.slice(1).map(row => ({
-          id: row[0], // Event ID
-          title: row[1], // Event Title
-          description: row[2], // Event Description
-          date: row[3], // Event Date
-          organizer: row[4], // Organizer
-          participants: participants.filter(p => p.eventId === row[0]), // Фільтрація учасників за подією
-        }));
-        setEvents(formattedEvents);
-      } catch (error) {
-        console.error('Error fetching events:', error);
-      }
-    };
-
-    fetchEvents();
-  }, [participants]);
-
-  const handleRegister = id => {
-    console.log(`Registering for event ID: ${id}`);
-  };
-
-  const handleView = id => {
-    console.log(`Viewing participants for event ID: ${id}`);
-  };
+const CardEventList = ({ events, participantsId }) => {
+  const layout = events.map((event, index) => ({
+    i: event.id.toString(),
+    x: (index % 4) * 3,
+    y: Math.floor(index / 4),
+    w: 1,
+    h: 1,
+  }));
 
   return (
-    <div className={css.cardContainer}>
-      {events.map(event => (
-        <EventCard
-          key={event.id}
-          title={event.title}
-          description={event.description}
-          id={event.id}
-          onRegister={handleRegister}
-          onView={handleView}
-          participants={event.participants} // Передача учасників до CardComponent
-          className={css.eventCard} // Додавання класу для стилізації
-        />
-      ))}
-    </div>
+    <>
+      <Section>
+        <Container>
+          <GridLayout
+            className={css.cardContainer}
+            layout={layout}
+            cols={12}
+            rowHeight={150}
+            width={1200}
+            isResizable={false}
+            isDraggable={false}
+          >
+            {events.map(event => (
+              <div key={event.id} className={css.eventCard}>
+                <EventCard
+                  title={event.title}
+                  description={event.description}
+                  id={event.id}
+                  onRegister={handleRegister}
+                  onView={handleView}
+                  participantsId={event.participantsId}
+                />
+              </div>
+            ))}
+          </GridLayout>
+        </Container>
+      </Section>
+    </>
   );
 };
 
-export default EventCard;
+export default CardEventList;
