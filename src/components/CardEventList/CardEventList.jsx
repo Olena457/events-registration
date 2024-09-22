@@ -1,51 +1,26 @@
-import css from './CardEventlist.module.css';
-import EventCard from './../EventCard/EventCard.jsx';
 import React from 'react';
-import GridLayout from 'react-grid-layout';
-import 'react-grid-layout/css/styles.css';
-import 'react-resizable/css/styles.css';
+import EventCard from './../EventCard/EventCard.jsx';
+import css from './CardEventList.module.css';
 
-import { Container } from '../Container/container.jsx';
-import { Section } from './../Section/Section';
-
-const CardEventList = ({ events, participantsId }) => {
-  const layout = events.map((event, index) => ({
-    i: event.id.toString(),
-    x: (index % 4) * 3,
-    y: Math.floor(index / 4),
-    w: 1,
-    h: 1,
-  }));
-
+const CardEventList = ({ events, handleRegister, handleView }) => {
   return (
-    <>
-      <Section>
-        <Container>
-          <GridLayout
-            className={css.cardContainer}
-            layout={layout}
-            cols={12}
-            rowHeight={150}
-            width={1200}
-            isResizable={false}
-            isDraggable={false}
-          >
-            {events.map(event => (
-              <div key={event.id} className={css.eventCard}>
-                <EventCard
-                  title={event.title}
-                  description={event.description}
-                  id={event.id}
-                  onRegister={handleRegister}
-                  onView={handleView}
-                  participantsId={event.participantsId}
-                />
-              </div>
-            ))}
-          </GridLayout>
-        </Container>
-      </Section>
-    </>
+    <div className={css.containerList}>
+      <ul className={css.gallery}>
+        {events.map(event => (
+          <li key={event.id} className={css.galleryItem}>
+            <EventCard
+              title={event.title}
+              description={event.description}
+              id={event.id}
+              organizerFullName={event.organizerFullName}
+              eventDate={event.eventDate}
+              registeredUsers={event.registeredUsers}
+              handleRegister={handleRegister}
+            />
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 

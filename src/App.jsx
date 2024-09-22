@@ -4,7 +4,9 @@ import { Suspense, lazy } from 'react';
 import ToastNotification from './components/ToastNotification/ToastNotification.jsx';
 
 const Home = lazy(() => import('./components/pages/Home/Home.jsx'));
-const Register = lazy(() => import('./components/pages/Register/Register.jsx'));
+const RegisterPage = lazy(() =>
+  import('./components/pages/RegisterPage/RegisterPage.jsx')
+);
 const AboutEvent = lazy(() =>
   import('./components/pages/AboutEvent/AboutEvent.jsx')
 );
@@ -22,9 +24,9 @@ const App = () => {
       <Suspense>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/register/:eventId" element={<Register />} />
+          <Route path="/user" element={<RegisterPage />} />
           <Route path="/event/:eventId" element={<AboutEvent />} />
-          <Route path="/create/:eventId" element={<CreateEventPage />} />
+          <Route path="/events" element={<CreateEventPage />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Suspense>
@@ -34,24 +36,3 @@ const App = () => {
 };
 
 export default App;
-
-// const App = () => {
-//   return (
-//     <>
-//       <Layout/>
-//         <Routes>
-//           <Routes>
-//             <Route path="/" element={<Home />} />
-//             <Route path="/register/:eventId" element={<Register />} />
-//             <Route path="/about/:eventId" element={<AboutEvent />} />
-//             <Route path="/create/:eventId" element={<CreateEventPage />} />
-//             <Route path="*" element={<PageNotFound />} />
-//           </Routes>
-//         </Routes>
-//         <ToastNotification />
-//
-//     </>
-//   );
-// };
-
-// export default App;

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import { format } from 'date-fns';
 import css from './CreateEventForm.module.css';
 
 const CreateEventForm = () => {
@@ -17,10 +19,27 @@ const CreateEventForm = () => {
     });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    // Тут можна додати логіку для відправки даних на сервер або інші дії
-    console.log('Form submitted:', formData);
+    try {
+      const formattedDate = format(new Date(formData.date), 'yyyy-MM-dd');
+      const dataToSend = { ...formData, date: formattedDate };
+
+      const response = await axios.post(
+        'https://reqres.in/api/events',
+        dataToSend
+      );
+      console.log('Event created:', response.data);
+
+      setFormData({
+        title: '',
+        description: '',
+        date: '',
+        organizer: '',
+      });
+    } catch (error) {
+      console.error('Error creating event:', error);
+    }
   };
 
   return (

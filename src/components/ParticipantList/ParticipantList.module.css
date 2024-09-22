@@ -1,12 +1,23 @@
-/* .cardContainer {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  padding: 10px;
+.containerList {
+  max-width: 1440px;
+  height: auto;
 }
 
-.eventCard {
-  flex: 0 0 25%;
-  box-sizing: border-box;
-  padding: 10px;
-} */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  max-width: 1128px;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 0 auto;
+}
+
+.galleryItem {
+  /* position: relative; */
+  border: 1px solid red;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 0 calc(33.33% - 24px);
+}

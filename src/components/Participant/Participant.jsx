@@ -4,19 +4,16 @@ import css from './Participant.module.css';
 
 const Participant = ({ id, email, fullName }) => {
   return (
-    <>
-      <div className={css.partCard}>
-        <div className={css.partInfo}>
-          <RiUser3Fill />
-          <p className={css.partName}>{fullName}</p>
-        </div>
-
-        <div className={css.partInfo}>
-          <MdEmail />
-          <p className={css.partName}>{email}</p>
-        </div>
+    <div className={css.partCard}>
+      <div className={css.partInfo}>
+        <RiUser3Fill />
+        <p className={css.partName}>{fullName}</p>
       </div>
-    </>
+      <div className={css.partInfo}>
+        <MdEmail />
+        <p className={css.partName}>{email}</p>
+      </div>
+    </div>
   );
 };
 

@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import ParticipantList from '../../ParticipantList/ParticipantList.jsx';
-import { Section } from './../../Section/Section.jsx';
-import { Container } from './../../Container/container.jsx';
-import { Link } from 'react-router-dom';
+import Container from './../../Container/container.jsx';
 import css from './AboutEvent.module.css';
 
 const AboutEvent = () => {
@@ -15,7 +13,7 @@ const AboutEvent = () => {
 
   useEffect(() => {
     axios
-      .get(`https://mockapi.io/api/v1/events/${eventId}/participants`)
+      .get(`https://reqres.in/api/events/:${eventId}`)
       .then(response => {
         setParticipants(response.data);
         setLoadingParticipants(false);
@@ -28,23 +26,14 @@ const AboutEvent = () => {
   }, [eventId]);
 
   return (
-    <>
-      <Section>
-        <Container>
-          <h1>Participants for Event {eventId}</h1>
-          <ParticipantList
-            participants={participants}
-            loading={loadingParticipants}
-            error={error}
-          />
-          <>
-            <Link to="/" className={css.btnHome}>
-              Home
-            </Link>
-          </>
-        </Container>
-      </Section>
-    </>
+    <Container>
+      <h1 className={css.title}>Participants for Event {eventId}</h1>
+      <ParticipantList
+        participants={participants}
+        loading={loadingParticipants}
+        error={error}
+      />
+    </Container>
   );
 };
 

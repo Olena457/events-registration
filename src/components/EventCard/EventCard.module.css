@@ -1,8 +1,14 @@
 .eventContainer {
-  flex-direction: column;
-  gap: 8px;
   display: flex;
-  background-color: white;
+  flex-direction: column;
+  gap: 4px;
+  flex-wrap: wrap;
+  color: black;
+  background: linear-gradient(to right, #61a8eb, #bfdbfe);
+  padding-top: 100px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 5px;
 }
 
 .eventInfo {
@@ -14,30 +20,52 @@
 .eventName {
   font-weight: bold;
 }
+@media (max-width: 768px) {
+  .eventContainer {
+    width: 100%;
+    padding: 8px;
+  }
+}
 
 .registerBtn {
-  width: 100px;
-  height: 50px;
+  width: 100%;
+  height: 30px;
   background-color: #f24e5e;
   color: #333333;
-  margin: 10px;
-  padding: 5px 10px;
+  /* margin-right: 50px; */
+  padding: 2px 2px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   border: 1px solid #474f52;
   box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
     10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
 }
-.viewBtn {
-  width: 100px;
-  height: 50px;
+.registerBtn:hover {
+  color: #c61f30;
+}
+.button {
+  display: inline-block;
+  padding-right: auto;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  /* padding: 0.6em 1.2em; */
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
   background-color: #f24e5e;
   color: #333333;
-  margin: 10px;
-  padding: 5px 10px;
-  cursor: pointer;
+  text-align: center;
   transition: background-color 0.3s ease;
   border: 1px solid #474f52;
   box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
     10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+}
+
+.button:hover {
+  color: #c61f30;
+}
+
+.button:focus,
+.button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
 }

@@ -1,3 +1,5 @@
+import { FaArrowDown } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 import css from './PageNotFound.module.css';
 import { Link } from 'react-router-dom';
 
@@ -6,13 +8,18 @@ const PageNotFound = () => {
     <>
       <div className={css.containerPage404}>
         <div className={css.table}>
-          <h2 className={css.titlePage}>404</h2>
-          <p>Page Not Found</p>
+          <h2 className={css.titlePage}>Page Not Found 404</h2>
         </div>
-        <div className={css.arrow}></div>
-        <p className={css.message}>{`Press "Go Back" to return.`}</p>
-        <Link to="/" className={css.goBack}>
-          Go Home
+        <h1 className={css.message}>Please press the bottom Home</h1>
+        <motion.div
+          className={css.arrow}
+          animate={{ y: [0, 20, 0] }}
+          transition={{ repeat: Infinity, duration: 1 }}
+        >
+          <FaArrowDown size={80} color="red" />
+        </motion.div>
+        <Link to="/" className={css.btn}>
+          Home
         </Link>
       </div>
     </>
