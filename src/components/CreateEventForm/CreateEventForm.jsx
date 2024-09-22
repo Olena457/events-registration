@@ -1,4 +1,3 @@
-import css from './CreateEventForm.module.css';
 import React, { useState } from 'react';
 import css from './CreateEventForm.module.css';
 

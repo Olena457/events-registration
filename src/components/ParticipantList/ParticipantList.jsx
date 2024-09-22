@@ -1,6 +1,6 @@
-import css from './PartisipantList.module.css';
+import css from './ParticipantList.module.css';
 import Participant from '../Participant/Participant.jsx';
-import Loading from '../Loading/Loading.jsx';
+import { Loading } from '../Loading/Loading.jsx';
 import GridLayout from 'react-grid-layout';
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';

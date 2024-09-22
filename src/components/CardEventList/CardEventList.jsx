@@ -1,11 +1,10 @@
 import css from './CardEventlist.module.css';
 import EventCard from './../EventCard/EventCard.jsx';
-
 import React from 'react';
 import GridLayout from 'react-grid-layout';
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
-import css from './YourStyles.module.css';
+
 import { Container } from '../Container/container.jsx';
 import { Section } from './../Section/Section';
 

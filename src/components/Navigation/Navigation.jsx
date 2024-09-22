@@ -16,7 +16,7 @@ const Navigation = () => {
       <NavLink className={activeLink} to="/about/:eventId">
         About Event
       </NavLink>
-      <NavLink className={activeLink} to="/createEvent/:eventId">
+      <NavLink className={activeLink} to="/create/:eventId">
         Create Event
       </NavLink>
     </div>

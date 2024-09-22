@@ -56,10 +56,13 @@ export default function EventCard({ title, description, id, registeredUsers }) {
       <div className={css.eventInfo}>
         <p className={css.eventName}>{eventDate}</p>
       </div>
-      <Link to={`/register/${id}`} className={css.registerBtn}>
+      <Link
+        to={`/register/${id}`}
+        className={`${css.btn} && ${css.registerBtn}`}
+      >
         Register
       </Link>
-      <Link to={viewLink} className={css.viewBtn}>
+      <Link to={viewLink} className={`${css.btn} && ${css.registerBtn}`}>
         View
       </Link>
     </div>

@@ -6,20 +6,18 @@ import CardEventList from '../../CardEventList/CardEventList.jsx';
 import { Container } from './../../Container/container.jsx';
 import { Loading } from '../../Loading/Loading.jsx';
 import { Section } from '../../Section/Section.jsx';
-
 const Home = () => {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const API_KEY = '258bb3d0';
+  const SCHEMA_NAME = 'event/:eventid'; // Замість YOUR_SCHEMA_NAME вкажіть ім'я вашої схеми
+
   useEffect(() => {
     axios
-      .get('https://mockapi.io/api/v1/events')
+      .get(`https://api.mockaroo.com/api/${SCHEMA_NAME}?key=${API_KEY}`)
       .then(response => {
         setEvents(response.data);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error('Error fetching events:', error);
         setLoading(false);
       });
   }, []);
@@ -28,7 +26,7 @@ const Home = () => {
     <>
       <Section>
         <Container>
-          <h2 className={css.title}>Welcome to the event board!</h2>
+          <h5 className={css.title}>Welcome to the event board!</h5>
           {loading ? (
             <p>Loading...</p> && <Loading />
           ) : (
