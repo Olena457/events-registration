@@ -10,9 +10,7 @@ export default function EventCard({
   registeredUsers,
 }) {
   const viewLink =
-    registeredUsers && registeredUsers.length > 0
-      ? `/event/:eventId ${id}`
-      : '*';
+    registeredUsers && registeredUsers.length > 0 ? `/event/{Id}` : '*';
 
   return (
     <div className={css.eventContainer}>
@@ -31,6 +29,7 @@ export default function EventCard({
       <Link to="/user" className={css.button}>
         Register
       </Link>
+
       <Link to={viewLink} className={css.button}>
         View
       </Link>

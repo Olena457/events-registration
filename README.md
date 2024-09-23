@@ -1,8 +1,32 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This template provides a minimal setup to get React working in Vite with HMR and
+some ESLint rules.
 
 Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md)
+  uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc)
+  uses [SWC](https://swc.rs/)
+
+  for Fast Refresh
+  <!-- ___________________________________________________________________________ -->
+
+  Доброго вечора.Хоча вже минуло три ,я не сподіваюсь ні на що ,але дуже хотіла
+  б отримати відгк як можливо було зробити краще та простіше можливо при
+  розробці цього додатку,адже думка професіоналів це виликий досвід ,а ще нові
+  знання це процес до особистого професійного розвитку.Я дуже ціную критику та
+  адекватно сприймаю адже це вдосконалення та зростання.На жаль чи на щастя не
+  знаю коли відкрила завдання через годину приблизно зникла електрика та
+  інтернет і майже пів доби не було,тому я мала менше часу дуже хотіла
+  підключити до реального арі ,але нажаль майже всі не зберігають метод post,або
+  не надають можливості створювати свої запити.(зате який досвід отримала з
+  арі)Але форми працюють запити відправляються Ще моя остання спроба
+  піідключитись до таблиці Goole Sheets,але в 4:30 ранку вже погано розумію, що
+  не так.Нажаль мушу поки залишити це завдання, але все одно підключу його
+  напишу свою невеличку базу.Зараз іде фінальний проект і я scrum master ьайже
+  на дві доби залишила команду,повертаюсь до команди.Дякую за цікаве завдання.
+  <!-- ___________________________________________________________ -->
+
+                          BASE LEVEL

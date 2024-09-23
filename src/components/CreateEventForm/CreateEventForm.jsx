@@ -10,6 +10,7 @@ const CreateEventForm = () => {
     date: '',
     organizer: '',
   });
+  const [message, setMessage] = useState('');
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -26,11 +27,15 @@ const CreateEventForm = () => {
       const dataToSend = { ...formData, date: formattedDate };
 
       const response = await axios.post(
-        'https://reqres.in/api/events',
+        'https://events-registration-ten.vercel.app/api/events',
         dataToSend
       );
-      console.log('Event created:', response.data);
 
+      if (response.status !== 201) {
+        throw new Error('Failed to create event');
+      }
+
+      setMessage('Event created successfully!');
       setFormData({
         title: '',
         description: '',
@@ -38,7 +43,7 @@ const CreateEventForm = () => {
         organizer: '',
       });
     } catch (error) {
-      console.error('Error creating event:', error);
+      console.error('Error creating event:' + error.message);
     }
   };
 

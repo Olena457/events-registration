@@ -29,7 +29,7 @@ const RegistrationForm = () => {
       const dataToSend = { ...formData, dateOfBirth: formattedDate };
 
       const response = await axios.post(
-        'https://reqres.in/api/user',
+        ' https://dummyapi.io/data/v1/user?created=1',
         dataToSend
       );
       console.log('Registration successful:', response.data);
