@@ -10,11 +10,17 @@ const PageNotFound = () => {
         <div className={css.table}>
           <h2 className={css.titlePage}>Page Not Found 404</h2>
         </div>
-        <h1 className={css.message}>Please press the bottom Home</h1>
+        <motion.h1
+          className={css.message}
+          animate={{ color: ['#000000', '#FF0000', '#000000'] }}
+          transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+        >
+          Please press the bottom Home
+        </motion.h1>
         <motion.div
           className={css.arrow}
           animate={{ y: [0, 20, 0] }}
-          transition={{ repeat: Infinity, duration: 1 }}
+          transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
         >
           <FaArrowDown size={80} color="red" />
         </motion.div>
