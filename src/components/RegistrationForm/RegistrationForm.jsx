@@ -80,42 +80,44 @@ const RegistrationForm = () => {
           required
         />
       </label>
-      <fieldset className={css.fieldset}>
-        <legend>Where did you hear about this event?</legend>
-        <label className={css.label}>
-          <input
-            type="radio"
-            name="eventSource"
-            value="socialMedia"
-            checked={formData.eventSource === 'socialMedia'}
-            onChange={handleChange}
-            className={css.radioField}
-          />
-          Social Media
-        </label>
-        <label className={css.label}>
-          <input
-            type="radio"
-            name="eventSource"
-            value="friends"
-            checked={formData.eventSource === 'friends'}
-            onChange={handleChange}
-            className={css.radioField}
-          />
-          Friends
-        </label>
-        <label className={css.label}>
-          <input
-            type="radio"
-            name="eventSource"
-            value="self"
-            checked={formData.eventSource === 'self'}
-            onChange={handleChange}
-            className={css.radioField}
-          />
-          Found Myself
-        </label>
-      </fieldset>
+      <div className={css.radioWrapper}>
+        <fieldset className={css.fieldset}>
+          <legend>Where did you hear about this event?</legend>
+          <label className={css.label}>
+            <input
+              type="radio"
+              name="eventSource"
+              value="socialMedia"
+              checked={formData.eventSource === 'socialMedia'}
+              onChange={handleChange}
+              className={css.radioField}
+            />
+            Social Media
+          </label>
+          <label className={css.label}>
+            <input
+              type="radio"
+              name="eventSource"
+              value="friends"
+              checked={formData.eventSource === 'friends'}
+              onChange={handleChange}
+              className={css.radioField}
+            />
+            Friends
+          </label>
+          <label className={css.label}>
+            <input
+              type="radio"
+              name="eventSource"
+              value="self"
+              checked={formData.eventSource === 'self'}
+              onChange={handleChange}
+              className={css.radioField}
+            />
+            Found Myself
+          </label>
+        </fieldset>
+      </div>
       <button type="submit" className={css.submitButton}>
         Register
       </button>

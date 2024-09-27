@@ -1,13 +1,13 @@
-import Container from '../../Container/container.jsx';
 import CreateEventForm from '../../CreateEventForm/CreateEventForm.jsx';
 import css from './CreateEventPage.module.css';
+import ContainerWrapper from './../../ContainerWrapper/ContainerWrapper.jsx';
 const CreateEventPage = () => {
   return (
     <>
-      <Container>
+      <ContainerWrapper>
         <h2 className={css.title}>Create a New Event!</h2>
         <CreateEventForm />
-      </Container>
+      </ContainerWrapper>
     </>
   );
 };

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import RegistrationForm from '../../RegistrationForm/RegistrationForm.jsx';
-import Container from '../../Container/container.jsx';
 
 import css from './RegisterPage.module.css';
+import ContainerWrapper from '../../ContainerWrapper/ContainerWrapper.jsx';
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
@@ -34,14 +34,14 @@ const RegisterPage = () => {
 
   return (
     <>
-      <Container>
+      <ContainerWrapper>
         <h3 className={css.title}>Registration Page</h3>
         <RegistrationForm
           handleSubmit={handleSubmit}
           formData={formData}
           handleChange={handleChange}
         />
-      </Container>
+      </ContainerWrapper>
     </>
   );
 };
