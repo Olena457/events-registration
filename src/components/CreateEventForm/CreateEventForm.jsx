@@ -1,19 +1,25 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { format } from 'date-fns';
+import { v4 as uuidv4 } from 'uuid';
 import css from './CreateEventForm.module.css';
 
 const CreateEventForm = () => {
   const [formData, setFormData] = useState({
     title: '',
-    description: '',
+    descriptionEvent: '',
     date: '',
-    organizer: '',
+    organizerFullName: '',
+    idEvent: uuidv4(),
+    type: 'Card',
   });
-  const [message, setMessage] = useState('');
+  // const [message, setMessage] = useState('');
 
   const handleChange = e => {
     const { name, value } = e.target;
+    if (name === 'description' && value.split('\n').length > 2) {
+      return;
+    }
     setFormData({
       ...formData,
       [name]: value,
@@ -27,23 +33,26 @@ const CreateEventForm = () => {
       const dataToSend = { ...formData, date: formattedDate };
 
       const response = await axios.post(
-        'https://events-registration-ten.vercel.app/api/events',
+        // 'https://sheet.best/api/sheets/6a64ce6b-9f5b-4c04-8f8c-fdb7e8011a9b',
         dataToSend
       );
 
-      if (response.status !== 201) {
-        throw new Error('Failed to create event');
-      }
+      // if (response.status !== 201) {
+      //   throw new Error('Failed to create event');
+      // }
 
-      setMessage('Event created successfully!');
+      // setMessage('Event created successfully!');
+      console.log('Event created successfully:', response.data);
       setFormData({
         title: '',
-        description: '',
+        descriptionEvent: '',
         date: '',
-        organizer: '',
+        organizerFullName: '',
+        idEvent: uuidv4(),
+        type: 'Card',
       });
     } catch (error) {
-      console.error('Error creating event:' + error.message);
+      console.error('Error creating event:', error);
     }
   };
 
@@ -57,18 +66,17 @@ const CreateEventForm = () => {
           value={formData.title}
           onChange={handleChange}
           className={css.input}
-          required
         />
       </label>
       <label className={css.label}>
         Description:
-        <input
-          type="text"
-          name="description"
-          value={formData.description}
+        <textarea
+          name="descriptionEvent"
+          value={formData.descriptionEvent}
           onChange={handleChange}
-          className={css.input}
-          required
+          className={css.textarea}
+          rows="2" // Обмеження кількості рядків
+          maxLength="200" // Обмеження кількості символів
         />
       </label>
       <label className={css.label}>
@@ -79,18 +87,16 @@ const CreateEventForm = () => {
           value={formData.date}
           onChange={handleChange}
           className={css.input}
-          required
         />
       </label>
       <label className={css.label}>
-        Organizer:
+        organizer:
         <input
           type="text"
-          name="organizer"
-          value={formData.organizer}
+          name="organizerFullName"
+          value={formData.organizerFullName}
           onChange={handleChange}
           className={css.input}
-          required
         />
       </label>
       <button type="submit" className={css.registerBtn}>

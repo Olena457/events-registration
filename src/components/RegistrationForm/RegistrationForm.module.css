@@ -4,11 +4,8 @@
   max-width: 450px;
   margin: 0 auto;
   margin-top: 20px;
-  margin-top: 20px;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  padding-right: 70px;
-  padding-left: 60px;
+  margin-top: 10px;
+  padding: 50px 60px;
   border: 1px solid gray;
   border-radius: 8px;
   background-color: #f9f9f9;
@@ -22,28 +19,35 @@
 }
 
 .inputField {
-  width: 100%;
-  max-width: 100%;
   padding: 8px;
   margin-top: 5px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 .radioWrapper {
-  margin: 20px 0;
-  margin: auto;
-}
-
-.radioField {
-  margin-left: 30px;
-}
-
-.fieldset {
+  display: flex;
+  align-items: baseline;
+  align-items: stretch;
+  justify-content: space-evenly;
   margin-bottom: 15px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+.radio {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.radioInput {
+  margin-right: 10px;
+}
+.radio:not(:first-child) {
+  gap: 12px;
 }
 
 .submitButton {

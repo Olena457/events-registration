@@ -60,9 +60,26 @@ const Home = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get('https://reqres.in/api/events');
-        setEvents(response.data.data);
-        setLoading(false);
+        const response = await axios
+          .get
+          // 'https://docs.google.com/spreadsheets/d/1mIvJyfDOlJ5M1DDygqsdN89M6dLNbidJ2khJK-dokHE/edit?usp=sharing'
+          ();
+        const rows = response.data.values;
+
+        if (Array.isArray(rows)) {
+          if (rows.length > 1) {
+            const formattedEvents = rows.slice(1).map(row => ({
+              id: row[0] || 'No Id',
+              title: row[1] || 'No Title',
+              description: row[2] || 'No Description',
+              date: row[3] || 'No Date',
+              organizer: row[4] || 'No Organizer',
+            }));
+            setEvents(response.data.data);
+            setEvents(formattedEvents);
+            setLoading(false);
+          }
+        }
       } catch (error) {
         console.error('Error fetching events:', error);
         setLoading(false);
@@ -91,13 +108,15 @@ const Home = () => {
 };
 
 export default Home;
+
+// ________________________________________________________________________
 // import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
 // import css from './Home.module.css';
 // import CardEventList from '../../CardEventList/CardEventList.jsx';
 // import Loading from '../../Loading/Loading.jsx';
-// import Container from '../../Container/container.jsx';
-import Section from './../../Section/Section';
+// import ContainerWrapper from '../../ContainerWrapper/ContainerWrapper.jsx';
+// import ContainerWrapper from './../../ContainerWrapper/ContainerWrapper';
 
 // const Home = () => {
 //   const [events, setEvents] = useState([]);
@@ -129,14 +148,14 @@ import Section from './../../Section/Section';
 
 //   return (
 //     <>
-//       <Container>
+//       <ContainerWrapper>
 //         <h5 className={css.title}>Welcome to the event board!</h5>
 //         {loading ? (
 //           <Loading />
 //         ) : (
 //           <CardEventList events={events} handleRegister={handleRegister} />
 //         )}
-//       </Container>
+//       </ContainerWrapper>
 //     </>
 //   );
 // };

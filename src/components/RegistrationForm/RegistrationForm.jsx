@@ -1,22 +1,24 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { format } from 'date-fns';
+import { v4 as uuidv4 } from 'uuid';
 import css from './RegistrationForm.module.css';
-
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
     dateOfBirth: '',
-    eventSource: 'socialMedia',
+    source: 'Social Media',
+    Id: uuidv4(),
+    type: 'User',
   });
 
   const handleChange = e => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setFormData(prevData => ({
+      ...prevData,
       [name]: value,
-    });
+    }));
   };
 
   const handleSubmit = async e => {
@@ -28,8 +30,10 @@ const RegistrationForm = () => {
       );
       const dataToSend = { ...formData, dateOfBirth: formattedDate };
 
+      console.log('Data to send:', dataToSend);
+
       const response = await axios.post(
-        ' https://dummyapi.io/data/v1/user?created=1',
+        // 'https://sheet.best/api/sheets/6a64ce6b-9f5b-4c04-8f8c-fdb7e8011a9b',
         dataToSend
       );
       console.log('Registration successful:', response.data);
@@ -38,7 +42,9 @@ const RegistrationForm = () => {
         fullName: '',
         email: '',
         dateOfBirth: '',
-        eventSource: 'socialMedia',
+        source: 'Social Media',
+        Id: uuidv4(),
+        type: 'User',
       });
     } catch (error) {
       console.error('Error registering:', error);
@@ -55,7 +61,6 @@ const RegistrationForm = () => {
           value={formData.fullName}
           onChange={handleChange}
           className={css.inputField}
-          required
         />
       </label>
       <label className={css.label}>
@@ -66,7 +71,6 @@ const RegistrationForm = () => {
           value={formData.email}
           onChange={handleChange}
           className={css.inputField}
-          required
         />
       </label>
       <label className={css.label}>
@@ -77,47 +81,48 @@ const RegistrationForm = () => {
           value={formData.dateOfBirth}
           onChange={handleChange}
           className={css.inputField}
-          required
         />
       </label>
-      <div className={css.radioWrapper}>
-        <fieldset className={css.fieldset}>
-          <legend>Where did you hear about this event?</legend>
-          <label className={css.label}>
-            <input
-              type="radio"
-              name="eventSource"
-              value="socialMedia"
-              checked={formData.eventSource === 'socialMedia'}
-              onChange={handleChange}
-              className={css.radioField}
-            />
+      <label className={css.label}>
+        Where did you hear about this event?
+        <div className={css.radioWrapper}>
+          <label className={css.radio}>
             Social Media
-          </label>
-          <label className={css.label}>
             <input
               type="radio"
-              name="eventSource"
-              value="friends"
-              checked={formData.eventSource === 'friends'}
+              name="source"
+              value="Social Media"
+              checked={formData.source === 'Social Media'}
               onChange={handleChange}
-              className={css.radioField}
+              className={css.radioInput}
             />
+          </label>
+
+          <label className={css.radio}>
             Friends
-          </label>
-          <label className={css.label}>
             <input
               type="radio"
-              name="eventSource"
-              value="self"
-              checked={formData.eventSource === 'self'}
+              name="source"
+              value="Friends"
+              checked={formData.source === 'Friends'}
               onChange={handleChange}
-              className={css.radioField}
+              className={css.radioInput}
             />
-            Found Myself
           </label>
-        </fieldset>
-      </div>
+
+          <label className={css.radio}>
+            Myself
+            <input
+              type="radio"
+              name="source"
+              value="Myself"
+              checked={formData.source === 'Myself'}
+              onChange={handleChange}
+              className={css.radioInput}
+            />
+          </label>
+        </div>
+      </label>
       <button type="submit" className={css.submitButton}>
         Register
       </button>
