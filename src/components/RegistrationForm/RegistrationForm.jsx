@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { format } from 'date-fns';
+import { toast } from 'react-hot-toast';
 import { v4 as uuidv4 } from 'uuid';
 import css from './RegistrationForm.module.css';
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
+    type: 'User',
     fullName: '',
     email: '',
     dateOfBirth: '',
     source: 'Social Media',
     Id: uuidv4(),
-    type: 'User',
   });
 
   const handleChange = e => {
@@ -33,21 +34,23 @@ const RegistrationForm = () => {
       console.log('Data to send:', dataToSend);
 
       const response = await axios.post(
-        // 'https://sheet.best/api/sheets/6a64ce6b-9f5b-4c04-8f8c-fdb7e8011a9b',
+        'https://sheet.best/api/sheets/6a64ce6b-9f5b-4c04-8f8c-fdb7e8011a9b',
         dataToSend
       );
       console.log('Registration successful:', response.data);
+      toast.success('Registration successful!');
 
       setFormData({
+        type: 'User',
         fullName: '',
         email: '',
         dateOfBirth: '',
         source: 'Social Media',
         Id: uuidv4(),
-        type: 'User',
       });
     } catch (error) {
       console.error('Error registering:', error);
+      toast.error('Error registering: ' + error.message);
     }
   };
 

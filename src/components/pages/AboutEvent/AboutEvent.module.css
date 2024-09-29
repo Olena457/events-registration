@@ -7,3 +7,10 @@
     4px 4px 0 #ffffff, 5px 5px 0 #555555, 6px 6px 0 #444444, 7px 7px 0 #333333,
     8px 8px 7px #111111;
 }
+.wrapperCard {
+  display: flex;
+  padding: 10px;
+  outline: 1px solid blue;
+  width: auto;
+  justify-content: space-evenly;
+}

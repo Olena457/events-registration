@@ -35,7 +35,7 @@ const RegisterPage = () => {
   return (
     <>
       <ContainerWrapper>
-        <h3 className={css.title}>Registration Page</h3>
+        <h4 className={css.title}>Registration Page</h4>
         <RegistrationForm
           handleSubmit={handleSubmit}
           formData={formData}

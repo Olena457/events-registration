@@ -1,41 +1,37 @@
-.containerList {
-  min-width: 1440px;
-  height: auto;
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
 /* .containerList {
-  width: 1200px;
+  width: auto;
   display: flex;
   overflow-x: auto;
   white-space: nowrap;
+  height: auto;
 } */
-.gallery {
+
+/* .containerList {
+  width: auto;
+  margin-top: 40px;
+  overflow-x: auto;
+  white-space: nowrap;
+  margin-bottom: 40px;
+  height: 600px;
+} */
+/* .gallery {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 24px;
-  max-width: 1440px;
+
   justify-content: center;
   align-items: center;
   list-style: none;
   margin: 0 auto;
 }
-/* .galleryItem {
-  flex: 0 0 auto;
-  width: 200px;
-  margin-right: 10px;
-} */
-/* ________________________________ */
-
-/* ____________________________ */
 
 .galleryEvent {
   border: 1px solid red;
   flex-direction: column;
   align-items: center;
   flex: 0 0 calc(33.33% - 24px);
-}
-/* _________________________________ */
+} */
+
 /*tn */
 /* .cardContainer {
   display: flex;
@@ -57,7 +53,7 @@
   margin: 10px;
 } */
 
-.containerList::-webkit-scrollbar {
+/* .containerList::-webkit-scrollbar {
   height: 10px;
 }
 
@@ -68,4 +64,93 @@
 
 .containerList::-webkit-scrollbar-thumb:hover {
   background: #555;
+} */
+/* CardList.css */
+/* .containerList {
+  height: 600px;
+  display: flex;
+  flex-wrap: nowrap; 
+  overflow-x: auto; 
+  padding: 10px;
+}
+
+.galleryEvent {
+  flex: 0 0 calc(33.333% - 20px);
+  margin: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 20px;
+} */
+
+/* .card h3 {
+  margin: 0 0 10px;
+}
+
+.card p {
+  margin: 0;
+} */
+.containerList {
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+  overflow-x: auto; /* Додає горизонтальний скролінг */
+  padding: 10px 0;
+  height: 550px;
+}
+
+.gallery {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.galleryEvent {
+  flex: 0 0 calc(100% / 5 - 20px);
+  margin-right: 10px;
+  background-color: #f0f0f0;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); /* Додає тіні */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Центрування по вертикалі */
+  align-items: center; /* Центрування по горизонталі */
+  height: 150px; /* Зменшено висоту */
+}
+
+.partCard {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: black;
+  background: linear-gradient(to right, #61a8eb, #bfdbfe);
+  box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
+    10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5); /* Додає тіні */
+  height: 150px; /* Зменшено висоту */
+  width: auto;
+  justify-content: center; /* Центрування по вертикалі */
+  align-items: center; /* Центрування по горизонталі */
+}
+
+.partName {
+  color: #333;
+  font-weight: bold;
+  text-align: center; /* Центрування тексту */
+}
+
+.partInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Центрування іконок */
+}
+
+@media (max-width: 768px) {
+  .containerList {
+    width: 100%;
+    padding: 8px;
+  }
 }

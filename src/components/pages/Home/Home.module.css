@@ -1,7 +1,13 @@
+.wrapperCard {
+  display: flex;
+  min-width: 100%;
+  outline: 2px solid green;
+  max-height: 600px;
+}
 .title {
-  margin-left: 30px;
+  margin-left: 40px;
   font-size: x-large;
-  /* padding-top: 16px; */
+  margin-bottom: 30px;
   color: black;
   text-shadow: 1px 1px 0 #000000, 2px 2px 0 #777777, 3px 3px 0 #666666,
     4px 4px 0 #ffffff, 5px 5px 0 #555555, 6px 6px 0 #444444, 7px 7px 0 #333333,

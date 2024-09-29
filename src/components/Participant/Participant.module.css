@@ -1,15 +1,129 @@
-.partCard {
-  flex-direction: column;
-  gap: 8px;
+/* .partCard {
   display: flex;
-  background-color: black;
+  flex-direction: column;
+  gap: 4px;
+  flex-wrap: wrap;
+  color: black;
+  background: linear-gradient(to right, #61a8eb, #bfdbfe);
+  padding-top: 150px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 20px;
+  box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
+    10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+}
+
+.partName {
+  color: #333;
+  font-weight: bold;
 }
 
 .partInfo {
   display: flex;
   align-items: center;
-  gap: 4px;
 }
+
+@media (max-width: 768px) {
+  .eventContainer {
+    width: 100%;
+    padding: 8px;
+  }
+} */
+
+/* _______________________________________________ */
+/* .partCard {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-wrap: wrap;
+  color: black;
+  background: linear-gradient(to right, #61a8eb, #bfdbfe);
+  padding-top: 150px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 20px;
+  box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
+    10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+}
+
 .partName {
+  color: #333;
   font-weight: bold;
+}
+
+.partInfo {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .eventContainer {
+    width: 100%;
+    padding: 8px;
+  }
+} */
+/* padding-top: 150px;
+padding-left: 15px;
+padding-right: 15px;
+padding-bottom: 20px; */
+/* .partCard {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: black;
+  background: linear-gradient(to right, #61a8eb, #bfdbfe);
+  box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
+    10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  height: 180px;
+  width: auto;
+}
+
+.partName {
+  color: #333;
+  font-weight: bold;
+}
+
+.partInfo {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .eventContainer {
+    width: 100%;
+    padding: 8px;
+  }
+} */
+.partCard {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: black;
+  background: linear-gradient(to right, #61a8eb, #bfdbfe);
+  box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
+    10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  height: 140px; /* Зменшено висоту */
+  width: 260px;
+
+  justify-content: center; /* Центрування по вертикалі */
+  align-items: stretch; /* Центрування по горизонталі */
+}
+
+.partName {
+  color: #333;
+  font-weight: bold;
+  text-align: center; /* Центрування тексту */
+}
+
+.partInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Центрування іконок */
+}
+
+@media (max-width: 768px) {
+  .eventContainer {
+    width: 100%;
+    padding: 8px;
+  }
 }

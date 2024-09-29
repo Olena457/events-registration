@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { format } from 'date-fns';
+import { toast } from 'react-hot-toast';
 import { v4 as uuidv4 } from 'uuid';
 import css from './CreateEventForm.module.css';
 
 const CreateEventForm = () => {
   const [formData, setFormData] = useState({
+    type: 'Event',
     title: '',
-    descriptionEvent: '',
+    description: '',
     date: '',
-    organizerFullName: '',
+    organizer: '',
     idEvent: uuidv4(),
-    type: 'Card',
   });
-  // const [message, setMessage] = useState('');
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -31,28 +31,27 @@ const CreateEventForm = () => {
     try {
       const formattedDate = format(new Date(formData.date), 'yyyy-MM-dd');
       const dataToSend = { ...formData, date: formattedDate };
+      console.log('Data to send:', dataToSend);
 
       const response = await axios.post(
-        // 'https://sheet.best/api/sheets/6a64ce6b-9f5b-4c04-8f8c-fdb7e8011a9b',
+        'https://sheet.best/api/sheets/6a64ce6b-9f5b-4c04-8f8c-fdb7e8011a9b',
         dataToSend
       );
 
-      // if (response.status !== 201) {
-      //   throw new Error('Failed to create event');
-      // }
-
-      // setMessage('Event created successfully!');
       console.log('Event created successfully:', response.data);
+      toast.success('Registration successful!');
+
       setFormData({
+        type: 'Event',
         title: '',
-        descriptionEvent: '',
+        description: '',
         date: '',
-        organizerFullName: '',
+        organizer: '',
         idEvent: uuidv4(),
-        type: 'Card',
       });
     } catch (error) {
       console.error('Error creating event:', error);
+      toast.error('Error registering: ' + error.message);
     }
   };
 
@@ -71,12 +70,13 @@ const CreateEventForm = () => {
       <label className={css.label}>
         Description:
         <textarea
-          name="descriptionEvent"
-          value={formData.descriptionEvent}
+          name="description"
+          value={formData.description}
           onChange={handleChange}
           className={css.textarea}
-          rows="2" // Обмеження кількості рядків
-          maxLength="200" // Обмеження кількості символів
+          rows="2"
+          maxLength="200"
+          placeholder="Max length 200"
         />
       </label>
       <label className={css.label}>
@@ -93,10 +93,11 @@ const CreateEventForm = () => {
         organizer:
         <input
           type="text"
-          name="organizerFullName"
+          name="organizer"
           value={formData.organizerFullName}
           onChange={handleChange}
           className={css.input}
+          placeholder="Full name"
         />
       </label>
       <button type="submit" className={css.registerBtn}>
