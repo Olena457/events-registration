@@ -43,3 +43,6 @@
   background-color: red;
   transition: width 0.5s;
 }
+.hiddenLink {
+  visibility: hidden;
+}

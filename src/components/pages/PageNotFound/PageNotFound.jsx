@@ -15,7 +15,7 @@ const PageNotFound = () => {
           animate={{ color: ['#000000', '#FF0000', '#000000'] }}
           transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
         >
-          Please press the bottom Home
+          Press the bottom Home
         </motion.h1>
         <motion.div
           className={css.arrow}

@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Layout from './components/Layout/Layout.jsx';
 import { Routes, Route } from 'react-router-dom';
 import { Suspense } from 'react';
@@ -15,9 +16,13 @@ const App = () => {
       <Suspense>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/user" element={<RegisterPage />} />
-          <Route path="/event/:eventId" element={<AboutEvent />} />
-          <Route path="/events" element={<CreateEventPage />} />
+          <Route path="/participant" element={<RegisterPage />} />
+          {/* <Route path="/event/:eventId" element={<AboutEvent />} /> */}
+          <Route
+            path="/event/:eventId/participant/:participantId"
+            element={<AboutEvent />}
+          />
+          <Route path="/create-event" element={<CreateEventPage />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Suspense>

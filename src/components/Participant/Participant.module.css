@@ -121,9 +121,9 @@ padding-bottom: 20px; */
   justify-content: center; /* Центрування іконок */
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .eventContainer {
     width: 100%;
     padding: 8px;
   }
-}
+} */

@@ -95,7 +95,7 @@
   justify-content: center;
 
   width: 100%;
-  overflow-x: auto; /* Додає горизонтальний скролінг */
+  overflow-x: auto;
   padding: 10px 0;
   height: 550px;
 }
@@ -110,18 +110,18 @@
 }
 
 .galleryEvent {
-  flex: 0 0 calc(100% / 5 - 20px);
-  margin-right: 10px;
+  flex: 0 0 calc(100% / 3 - 65px);
+  margin-right: 20px;
   background-color: #f0f0f0;
-  padding: 20px;
+  padding: 10px 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); /* Додає тіні */
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Центрування по вертикалі */
-  align-items: center; /* Центрування по горизонталі */
-  height: 150px; /* Зменшено висоту */
+  justify-content: center;
 }
-
+.galleryEvent:first-child {
+  margin-left: 20px; /* Застосовує відступ зліва тільки до першого елемента */
+}
 .partCard {
   display: flex;
   flex-direction: column;

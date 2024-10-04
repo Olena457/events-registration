@@ -7,9 +7,9 @@ const ParticipantList = ({ participants }) => {
     <div className={css.cardListContainer}>
       <ul className={css.participantList}>
         {participants.map(participant => (
-          <li key={participant.id} className={css.participantItem}>
+          <li key={participant.participantId} className={css.participantItem}>
             <Participant
-              id={participant.id}
+              participantId={participant.participantId}
               email={participant.email}
               fullName={participant.fullName}
             />
