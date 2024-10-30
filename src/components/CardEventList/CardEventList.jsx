@@ -7,7 +7,7 @@ const CardEventList = ({ events, handleRegister }) => {
     <div className={css.containerList}>
       <ul className={css.gallery}>
         {events.map(event => (
-          <li key={event.id} className={css.galleryEvent}>
+          <li key={event.idEvent} className={css.galleryEvent}>
             <EventCard
               title={event.title}
               description={event.description}

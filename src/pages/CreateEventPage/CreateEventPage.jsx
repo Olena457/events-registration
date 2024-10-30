@@ -1,6 +1,6 @@
-import CreateEventForm from '../../CreateEventForm/CreateEventForm.jsx';
+import CreateEventForm from '../../components/CreateEventForm/CreateEventForm.jsx';
 import css from './CreateEventPage.module.css';
-import ContainerWrapper from './../../ContainerWrapper/ContainerWrapper.jsx';
+import ContainerWrapper from '../../components/ContainerWrapper/ContainerWrapper.jsx';
 const CreateEventPage = () => {
   return (
     <>

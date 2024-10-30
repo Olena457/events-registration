@@ -3,14 +3,6 @@ import { MdEmail } from 'react-icons/md';
 import css from './Participant.module.css';
 
 const Participant = ({ participantId, email, fullName }) => {
-  const handleEdit = () => {
-    console.log(`Редагувати учасника з ID: ${participantId}`);
-  };
-
-  const handleDelete = () => {
-    console.log(`Видалити учасника з ID: ${participantId}`);
-  };
-
   return (
     <div className={css.partCard}>
       <div className={css.partInfo}>
@@ -21,14 +13,21 @@ const Participant = ({ participantId, email, fullName }) => {
         <MdEmail />
         <p className={css.partName}>{email}</p>
       </div>
-      <button onClick={handleEdit} className={css.editButton}>
-        Edit
-      </button>
-      <button onClick={handleDelete} className={css.deleteButton}>
-        Delete
-      </button>
     </div>
   );
 };
 
 export default Participant;
+// const handleEdit = () => {
+//   console.log(`Редагувати учасника з ID: ${participantId}`);
+// };
+
+// const handleDelete = () => {
+//   console.log(`Видалити учасника з ID: ${participantId}`);
+// };
+// <button onClick={handleEdit} className={css.editButton}>
+//         Edit
+//       </button>
+//       <button onClick={handleDelete} className={css.deleteButton}>
+//         Delete
+//       </button>

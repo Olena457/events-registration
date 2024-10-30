@@ -148,9 +148,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import css from './Home.module.css';
-import CardEventList from '../../CardEventList/CardEventList.jsx';
-import Loading from '../../Loading/Loading.jsx';
+
+import Loading from '../../components/Loading/Loading.jsx';
 import { Link } from 'react-router-dom';
+import CardEventList from '../../components/CardEventList/CardEventList.jsx';
 
 const Home = () => {
   const [events, setEvents] = useState([]);
@@ -160,9 +161,9 @@ const Home = () => {
     const fetchEvents = async () => {
       try {
         const response = await axios.get(
-          'https://sheet.best/api/sheets/6a64ce6b-9f5b-4c04-8f8c-fdb7e8011a9b'
+          'https://api.sheety.co/a495f86796cd08ee8b02d7c38d704926/events/events'
         );
-        const eventsData = response.data;
+        const eventsData = response.data.events;
 
         if (Array.isArray(eventsData) && eventsData.length > 0) {
           const formattedEvents = eventsData.map(event => ({

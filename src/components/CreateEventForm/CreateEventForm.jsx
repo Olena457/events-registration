@@ -108,7 +108,7 @@
 // };
 
 // export default CreateEventForm;
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import { format } from 'date-fns';
 import { toast } from 'react-hot-toast';
@@ -117,12 +117,13 @@ import css from './CreateEventForm.module.css';
 
 const CreateEventForm = () => {
   const [formData, setFormData] = useState({
-    // type: 'event',
+    type: 'events',
     title: '',
     description: '',
     dateEvent: '',
     organizer: '',
     idEvent: uuidv4(),
+    participants: [],
   });
 
   const handleChange = e => {
@@ -151,11 +152,17 @@ const CreateEventForm = () => {
 
     try {
       const formattedDate = format(new Date(formData.dateEvent), 'yyyy-MM-dd');
-      const dataToSend = { ...formData, dateEvent: formattedDate };
+      const dataToSend = {
+        event: {
+          ...formData,
+          dateEvent: formattedDate,
+          participants: [],
+        },
+      };
       console.log('Data to send:', dataToSend);
 
       const response = await axios.post(
-        'https://sheet.best/api/sheets/6a64ce6b-9f5b-4c04-8f8c-fdb7e8011a9b',
+        'https://api.sheety.co/a495f86796cd08ee8b02d7c38d704926/events/events',
         dataToSend
       );
 
@@ -163,12 +170,13 @@ const CreateEventForm = () => {
       toast.success('Registration successful!');
 
       setFormData({
-        // type: 'event',
+        type: 'events',
         title: '',
         description: '',
         dateEvent: '',
         organizer: '',
         idEvent: uuidv4(),
+        participants: [],
       });
     } catch (error) {
       console.error('Error creating event:', error);

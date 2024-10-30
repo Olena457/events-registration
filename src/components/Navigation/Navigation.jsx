@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
 import css from './Navigation.module.css';
 
-const Navigation = () => {
+const Navigation = ({ eventId }) => {
   const activeLink = ({ isActive }) => clsx(css.link, isActive && css.active);
 
   return (
@@ -10,14 +10,12 @@ const Navigation = () => {
       <NavLink className={activeLink} to="/">
         Home
       </NavLink>
-      <NavLink className={activeLink} to="/user">
+      <NavLink className={activeLink} to={`/register-event/${eventId}`}>
         Register
       </NavLink>
-
-      <NavLink className={activeLink} to="/event/:eventId">
+      <NavLink className={activeLink} to={`/event/${eventId}/participants`}>
         About Event
       </NavLink>
-
       <NavLink className={activeLink} to="/create-event">
         Create
       </NavLink>
