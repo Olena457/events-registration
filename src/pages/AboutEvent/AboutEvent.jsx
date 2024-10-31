@@ -151,7 +151,7 @@
 //     const fetchParticipants = async () => {
 //       try {
 //         const response = await axios.get(
-//           'https://api.sheety.co/a495f86796cd08ee8b02d7c38d704926/events/participants'
+//           'https://api.sheety.co/a495f86796cd08ee8b02d7c38d704926/events/events/`${idEvent}/partisipsnt'
 //         );
 //         const filteredParticipants = response.data.filter(
 //           participant => participant.idEvent === id
@@ -252,77 +252,12 @@
 
 // export default AboutEvent;
 // __________________________________________________________
-// import { useState, useEffect } from 'react';
-// import { useParams, useNavigate } from 'react-router-dom';
-// import axios from 'axios';
-// import { toast } from 'react-hot-toast';
-// import ParticipantList from './../../ParticipantList/ParticipantList.jsx';
-
-// const AboutEvent = () => {
-//   const { id } = useParams();
-//   const [participants, setParticipants] = useState([]);
-//   const [loading, setLoading] = useState(true);
-//   const navigate = useNavigate();
-
-//   useEffect(() => {
-//     const fetchParticipants = async () => {
-//       try {
-//         const response = await axios.get(
-//           `https://api.sheety.co/a495f86796cd08ee8b02d7c38d704926/events/events/${id}`
-//         );
-
-//         if (
-//           response.data &&
-//           response.data.event &&
-//           response.data.event.participants
-//         ) {
-//           const participantsData = response.data.event.participants;
-//           if (participantsData.length === 0) {
-//             toast.error('No participants registered for this event.');
-//             setTimeout(() => {
-//               navigate('*');
-//             }, 3000);
-//           } else {
-//             setParticipants(participantsData);
-//           }
-//         } else {
-//           toast.error('No participants data found.');
-//           setTimeout(() => {
-//             navigate('*');
-//           }, 3000);
-//         }
-//         setLoading(false);
-//       } catch (error) {
-//         console.error('Error fetching participants:', error);
-//         setLoading(false);
-//       }
-//     };
-
-//     fetchParticipants();
-//   }, [id, navigate]);
-
-//   if (loading) {
-//     return <div>Loading...</div>;
-//   }
-
-//   return (
-//     <div>
-//       <h2>Participants for Event {id}</h2>
-//       <ParticipantList participants={participants} />
-//     </div>
-//   );
-// };
-
-// export default AboutEven;
-import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import ParticipantList from '../../components/ParticipantList/ParticipantList.jsx';
 import css from './AboutEvent.module.css';
-import Loading from '../../components/Loading/Loading.jsx';
-
 const AboutEvent = () => {
   const { id } = useParams();
   const [participants, setParticipants] = useState([]);
@@ -333,31 +268,25 @@ const AboutEvent = () => {
     const fetchParticipants = async () => {
       try {
         const response = await axios.get(
-          'https://api.sheety.co/a495f86796cd08ee8b02d7c38d704926/events/events'
+          `https://api.sheety.co/a495f86796cd08ee8b02d7c38d704926/events/events/${id}/particspant`
         );
 
-        if (response.data && response.data.events) {
-          const event = response.data.events.find(
-            event => event.idEvent === id
-          );
-          if (event && event.participants) {
-            const participantsData = JSON.parse(event.participants);
-            if (participantsData.length === 0) {
-              toast.error('No participants registered for this event.');
-              setTimeout(() => {
-                navigate('*');
-              }, 3000);
-            } else {
-              setParticipants(participantsData);
-            }
-          } else {
-            toast.error('No participants data found.');
+        if (
+          response.data &&
+          response.data.event &&
+          response.data.event.participants
+        ) {
+          const participantsData = response.data.event.participants;
+          if (participantsData.length === 0) {
+            toast.error('No participants registered for this event.');
             setTimeout(() => {
               navigate('*');
             }, 3000);
+          } else {
+            setParticipants(participantsData);
           }
         } else {
-          toast.error('No events data found.');
+          toast.error('No participants data found.');
           setTimeout(() => {
             navigate('*');
           }, 3000);
@@ -372,22 +301,87 @@ const AboutEvent = () => {
     fetchParticipants();
   }, [id, navigate]);
 
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
-    <>
-      <h1 className={css.title}>Participants for Event {idEvent}</h1>
-      {loading ? (
-        <Loading />
-      ) : (
-        <div className={css.wrapperCard}>
-          <ParticipantList participants={participants} />
-        </div>
-      )}
-    </>
+    <div className={css.wrapperCard}>
+      <h2 className={css.title}>Participants for Event {id}</h2>
+      <ParticipantList participants={participants} />
+    </div>
   );
 };
 
 export default AboutEvent;
+// LAST CODE____________________________________
+// import React from 'react';
+// import { useState, useEffect } from 'react';
+// import { useParams } from 'react-router-dom';
+// import axios from 'axios';
+// import { toast } from 'react-hot-toast';
+// import ParticipantList from '../../components/ParticipantList/ParticipantList.jsx';
+// import css from './AboutEvent.module.css';
+// import Loading from '../../components/Loading/Loading.jsx';
+
+// const AboutEvent = () => {
+//   const { id } = useParams();
+//   const [participants, setParticipants] = useState([]);
+//   const [loading, setLoading] = useState(true);
+
+//   useEffect(() => {
+//     const fetchParticipants = async () => {
+//       try {
+//         const response = await axios.get(
+//           'https://api.sheety.co/a495f86796cd08ee8b02d7c38d704926/events/events'
+//         );
+
+//         if (response.data && response.data.events) {
+//           const event = response.data.events.find(
+//             event => event.idEvent === id
+//           );
+//           if (event && event.participants) {
+//             const participantsData = JSON.parse(event.participants);
+//             if (participantsData.length === 0) {
+//               toast.error('No participants registered for this event.');
+//               setTimeout(() => {}, 3000);
+//             } else {
+//               setParticipants(participantsData);
+//             }
+//           } else {
+//             toast.error('No participants data found.');
+//             setTimeout(() => {}, 3000);
+//           }
+//         } else {
+//           toast.error('No events data found.');
+//           setTimeout(() => {}, 3000);
+//         }
+//         setLoading(false);
+//       } catch (error) {
+//         console.error('Error fetching participants:', error);
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchParticipants();
+//   }, [idEvent]);
+
+//   // if (loading) {
+//   //   return <div>Loading...</div>;
+//   // }
+
+//   return (
+//     <>
+//       <h1 className={css.title}>Participants for Event {idEvent}</h1>
+//       {loading ? (
+//         <Loading />
+//       ) : (
+//         <div className={css.wrapperCard}>
+//           <ParticipantList participants={participants} />
+//         </div>
+//       )}
+//     </>
+//   );
+// };
+
+// export default AboutEvent;

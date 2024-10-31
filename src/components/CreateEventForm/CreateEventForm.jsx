@@ -1,113 +1,3 @@
-// import React, { useState } from 'react';
-// import axios from 'axios';
-// import { format } from 'date-fns';
-// import { toast } from 'react-hot-toast';
-// import { v4 as uuidv4 } from 'uuid';
-// import css from './CreateEventForm.module.css';
-
-// const CreateEventForm = () => {
-//   const [formData, setFormData] = useState({
-//     type: 'Event',
-//     title: '',
-//     description: '',
-//     date: '',
-//     organizer: '',
-//     idEvent: uuidv4(),
-//   });
-
-//   const handleChange = e => {
-//     const { name, value } = e.target;
-//     if (name === 'description' && value.split('\n').length > 2) {
-//       return;
-//     }
-//     setFormData({
-//       ...formData,
-//       [name]: value,
-//     });
-//   };
-
-//   const handleSubmit = async e => {
-//     e.preventDefault();
-//     try {
-//       const formattedDate = format(new Date(formData.date), 'yyyy-MM-dd');
-//       const dataToSend = { ...formData, date: formattedDate };
-//       console.log('Data to send:', dataToSend);
-
-//       const response = await axios.post(
-//         'https://sheet.best/api/sheets/6a64ce6b-9f5b-4c04-8f8c-fdb7e8011a9b',
-//         dataToSend
-//       );
-
-//       console.log('Event created successfully:', response.data);
-//       toast.success('Registration successful!');
-
-//       setFormData({
-//         type: 'Event',
-//         title: '',
-//         description: '',
-//         date: '',
-//         organizer: '',
-//         idEvent: uuidv4(),
-//       });
-//     } catch (error) {
-//       console.error('Error creating event:', error);
-//       toast.error('Error registering: ' + error.message);
-//     }
-//   };
-
-//   return (
-//     <form onSubmit={handleSubmit} className={css.formContainer}>
-//       <label className={css.label}>
-//         Title:
-//         <input
-//           type="text"
-//           name="title"
-//           value={formData.title}
-//           onChange={handleChange}
-//           className={css.input}
-//         />
-//       </label>
-//       <label className={css.label}>
-//         Description:
-//         <textarea
-//           name="description"
-//           value={formData.description}
-//           onChange={handleChange}
-//           className={css.textarea}
-//           rows="2"
-//           maxLength="200"
-//           placeholder="Max length 200"
-//         />
-//       </label>
-//       <label className={css.label}>
-//         Date:
-//         <input
-//           type="date"
-//           name="date"
-//           value={formData.date}
-//           onChange={handleChange}
-//           className={css.input}
-//         />
-//       </label>
-//       <label className={css.label}>
-//         organizer:
-//         <input
-//           type="text"
-//           name="organizer"
-//           value={formData.organizer}
-//           onChange={handleChange}
-//           className={css.input}
-//           placeholder="Full name"
-//         />
-//       </label>
-//       <button type="submit" className={css.registerBtn}>
-//         Create Event
-//       </button>
-//     </form>
-//   );
-// };
-
-// export default CreateEventForm;
 import { useState } from 'react';
 import axios from 'axios';
 import { format } from 'date-fns';
@@ -115,22 +5,26 @@ import { toast } from 'react-hot-toast';
 import { v4 as uuidv4 } from 'uuid';
 import css from './CreateEventForm.module.css';
 
+const API_KEY = '$2a$10$G0xTCqlf0n.eU/u68dEKs.14a0dwsMLKMICywBgC6rUGwz/Jk5vFe';
+const MY_BIN_ID = '67235bc6e41b4d34e44bd6ab';
+
 const CreateEventForm = () => {
   const [formData, setFormData] = useState({
-    type: 'events',
     title: '',
     description: '',
-    dateEvent: '',
+    event_date: '',
     organizer: '',
-    idEvent: uuidv4(),
     participants: [],
   });
 
+  // const formatDate = dateStr => {
+  //   const [day, month, year] = dateStr.split('.');
+  //   return `${year}-${month}-${day}`;
+  // };
+  // name === 'event_date' ? formatDate(value) :
+
   const handleChange = e => {
     const { name, value } = e.target;
-    if (name === 'description' && value.split('\n').length > 2) {
-      return;
-    }
     setFormData({
       ...formData,
       [name]: value,
@@ -139,48 +33,39 @@ const CreateEventForm = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-
-    if (
-      !formData.title ||
-      !formData.description ||
-      !formData.dateEvent ||
-      !formData.organizer
-    ) {
-      toast.error('Please fill in all fields.');
-      return;
-    }
-
     try {
-      const formattedDate = format(new Date(formData.dateEvent), 'yyyy-MM-dd');
-      const dataToSend = {
-        event: {
-          ...formData,
-          dateEvent: formattedDate,
-          participants: [],
-        },
+      const formattedDate = format(new Date(formData.event_date), 'yyyy-MM-dd');
+      const eventData = {
+        ...formData,
+        idEvent: uuidv4(),
+        event_date: formattedDate,
       };
-      console.log('Data to send:', dataToSend);
+      console.log('Data to send:', eventData);
 
       const response = await axios.post(
-        'https://api.sheety.co/a495f86796cd08ee8b02d7c38d704926/events/events',
-        dataToSend
+        `https://api.jsonbin.io/v3/b/${MY_BIN_ID}`,
+
+        { record: eventData },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Master-Key': API_KEY,
+          },
+        }
       );
+      console.log('Event created:', response.data);
 
-      console.log('Event created successfully:', response.data);
-      toast.success('Registration successful!');
-
+      toast.success('Event created successfully!');
       setFormData({
-        type: 'events',
         title: '',
         description: '',
-        dateEvent: '',
+        event_date: '',
         organizer: '',
-        idEvent: uuidv4(),
         participants: [],
       });
     } catch (error) {
       console.error('Error creating event:', error);
-      toast.error('Error registering: ' + error.message);
+      toast.error('Error creating event: ' + error.message);
     }
   };
 
@@ -214,8 +99,8 @@ const CreateEventForm = () => {
         Date:
         <input
           type="date"
-          name="dateEvent"
-          value={formData.dateEvent}
+          name="event_date"
+          value={formData.event_date}
           onChange={handleChange}
           className={css.input}
           required
@@ -229,7 +114,7 @@ const CreateEventForm = () => {
           value={formData.organizer}
           onChange={handleChange}
           className={css.input}
-          placeholder="Full name"
+          placeholder="Organization name"
           required
         />
       </label>

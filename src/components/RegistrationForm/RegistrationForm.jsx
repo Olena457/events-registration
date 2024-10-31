@@ -135,156 +135,160 @@
 
 // export default RegistrationForm;
 // ________________________________________________________________________________________________
-// import React, { useState } from 'react';
-// import { useParams } from 'react-router-dom';
-// import axios from 'axios';
-// import { format } from 'date-fns';
-// import { toast } from 'react-hot-toast';
-// import { v4 as uuidv4 } from 'uuid';
-// import css from './RegistrationForm.module.css';
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import { format } from 'date-fns';
+import { toast } from 'react-hot-toast';
+import { v4 as uuidv4 } from 'uuid';
+import css from './RegistrationForm.module.css';
 
-// const RegistrationForm = () => {
-//   const { eventId } = useParams();
-//   const [formData, setFormData] = useState({
-//     fullName: '',
-//     email: '',
-//     dateOfBirth: '',
-//     source: 'Social Media',
-//     participantId: uuidv4(),
-//     idEvent: eventId,
-//     type: 'participant',
-//   });
+const RegistrationForm = () => {
+  const { eventId } = useParams();
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    dateOfBirth: '',
+    source: 'Social Media',
+    participantId: uuidv4(),
+    idEvent: eventId,
+    type: 'participant',
+  });
 
-//   const handleChange = e => {
-//     const { name, value } = e.target;
-//     setFormData(prevData => ({
-//       ...prevData,
-//       [name]: value,
-//     }));
-//   };
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setFormData(prevData => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
-//   const handleSubmit = async e => {
-//     e.preventDefault();
+  const handleSubmit = async e => {
+    e.preventDefault();
 
-//     if (!formData.fullName || !formData.email || !formData.dateOfBirth) {
-//       toast.error('Please fill in all fields.');
-//       return;
-//     }
+    if (!formData.fullName || !formData.email || !formData.dateOfBirth) {
+      toast.error('Please fill in all fields.');
+      return;
+    }
 
-//     try {
-//       const formattedDate = format(
-//         new Date(formData.dateOfBirth),
-//         'yyyy-MM-dd'
-//       ).toString();
-//       const dataToSend = { ...formData, dateOfBirth: formattedDate };
+    try {
+      const formattedDate = format(
+        new Date(formData.dateOfBirth),
+        'yyyy-MM-dd'
+      ).toString();
+      const dataToSend = {
+        participant: {
+          // включаємо у властивість participant
+          ...formData,
+          dateOfBirth: formattedDate,
+          participants: formData.participantId,
+          eventId: formData.idEvent,
+        },
+      };
+      console.log('Data to send:', dataToSend);
 
-//       console.log('Data to send:', dataToSend);
+      const response = await axios.put(dataToSend);
+      console.log('Registration successful:', response.data);
+      toast.success('Registration successful!');
 
-//       const response = await axios.post(
-//         'https://api.sheety.co/a495f86796cd08ee8b02d7c38d704926/events/participants',
-//         { partisipant: dataToSend }
-//       );
-//       console.log('Registration successful:', response.data);
-//       toast.success('Registration successful!');
+      setFormData({
+        fullName: '',
+        email: '',
+        dateOfBirth: '',
+        source: 'Social Media',
+        participantId: uuidv4(),
+        idEvent: eventId,
+        type: 'participant',
+      });
+    } catch (error) {
+      console.error('Error registering:', error);
+      toast.error('Error registering: ' + error.message);
+    }
+  };
 
-//       setFormData({
-//         fullName: '',
-//         email: '',
-//         dateOfBirth: '',
-//         source: 'Social Media',
-//         participantId: uuidv4(),
-//         idEvent: eventId,
-//         type: 'participant',
-//       });
-//     } catch (error) {
-//       console.error('Error registering:', error);
-//       toast.error('Error registering: ' + error.message);
-//     }
-//   };
+  return (
+    <form onSubmit={handleSubmit} className={css.registrationForm}>
+      <label className={css.label}>
+        Full Name:
+        <input
+          type="text"
+          name="fullName"
+          value={formData.fullName}
+          onChange={handleChange}
+          className={css.inputField}
+          required
+        />
+      </label>
+      <label className={css.label}>
+        Email:
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          className={css.inputField}
+          required
+        />
+      </label>
+      <label className={css.label}>
+        Date of Birth:
+        <input
+          type="date"
+          name="dateOfBirth"
+          value={formData.dateOfBirth}
+          onChange={handleChange}
+          className={css.inputField}
+          required
+        />
+      </label>
+      <label className={css.label}>
+        Where did you hear about this event?
+        <div className={css.radioWrapper}>
+          <label className={css.radio}>
+            Social Media
+            <input
+              type="radio"
+              name="source"
+              value="Social Media"
+              checked={formData.source === 'Social Media'}
+              onChange={handleChange}
+              className={css.radioInput}
+            />
+          </label>
 
-//   return (
-//     <form onSubmit={handleSubmit} className={css.registrationForm}>
-//       <label className={css.label}>
-//         Full Name:
-//         <input
-//           type="text"
-//           name="fullName"
-//           value={formData.fullName}
-//           onChange={handleChange}
-//           className={css.inputField}
-//           required
-//         />
-//       </label>
-//       <label className={css.label}>
-//         Email:
-//         <input
-//           type="email"
-//           name="email"
-//           value={formData.email}
-//           onChange={handleChange}
-//           className={css.inputField}
-//           required
-//         />
-//       </label>
-//       <label className={css.label}>
-//         Date of Birth:
-//         <input
-//           type="date"
-//           name="dateOfBirth"
-//           value={formData.dateOfBirth}
-//           onChange={handleChange}
-//           className={css.inputField}
-//           required
-//         />
-//       </label>
-//       <label className={css.label}>
-//         Where did you hear about this event?
-//         <div className={css.radioWrapper}>
-//           <label className={css.radio}>
-//             Social Media
-//             <input
-//               type="radio"
-//               name="source"
-//               value="Social Media"
-//               checked={formData.source === 'Social Media'}
-//               onChange={handleChange}
-//               className={css.radioInput}
-//             />
-//           </label>
+          <label className={css.radio}>
+            Friends
+            <input
+              type="radio"
+              name="source"
+              value="Friends"
+              checked={formData.source === 'Friends'}
+              onChange={handleChange}
+              className={css.radioInput}
+            />
+          </label>
 
-//           <label className={css.radio}>
-//             Friends
-//             <input
-//               type="radio"
-//               name="source"
-//               value="Friends"
-//               checked={formData.source === 'Friends'}
-//               onChange={handleChange}
-//               className={css.radioInput}
-//             />
-//           </label>
+          <label className={css.radio}>
+            Myself
+            <input
+              type="radio"
+              name="source"
+              value="Myself"
+              checked={formData.source === 'Myself'}
+              onChange={handleChange}
+              className={css.radioInput}
+            />
+          </label>
+        </div>
+      </label>
+      <button type="submit" className={css.submitButton}>
+        Register
+      </button>
+    </form>
+  );
+};
 
-//           <label className={css.radio}>
-//             Myself
-//             <input
-//               type="radio"
-//               name="source"
-//               value="Myself"
-//               checked={formData.source === 'Myself'}
-//               onChange={handleChange}
-//               className={css.radioInput}
-//             />
-//           </label>
-//         </div>
-//       </label>
-//       <button type="submit" className={css.submitButton}>
-//         Register
-//       </button>
-//     </form>
-//   );
-// };
-
-// export default RegistrationForm;
+export default RegistrationForm;
 // __________________________________________________
 // import React, { useState } from 'react';
 // import { useParams } from 'react-router-dom';
@@ -931,179 +935,180 @@
 // };
 
 // export default RegistrationForm;
-import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
-import { format } from 'date-fns';
-import { toast } from 'react-hot-toast';
-import { v4 as uuidv4 } from 'uuid';
-import css from './RegistrationForm.module.css';
+// останній код____________________________________________
+// import React, { useState } from 'react';
+// import { useParams } from 'react-router-dom';
+// import axios from 'axios';
+// import { format } from 'date-fns';
+// import { toast } from 'react-hot-toast';
+// import { v4 as uuidv4 } from 'uuid';
+// import css from './RegistrationForm.module.css';
 
-const RegistrationForm = () => {
-  const { eventId } = useParams();
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    dateOfBirth: '',
-    source: 'Social Media',
-    participantId: uuidv4(),
-    idEvent: eventId,
-  });
+// const RegistrationForm = () => {
+//   const { eventId } = useParams();
+//   const [formData, setFormData] = useState({
+//     fullName: '',
+//     email: '',
+//     dateOfBirth: '',
+//     source: 'Social Media',
+//     participantId: uuidv4(),
+//     idEvent: eventId,
+//   });
 
-  const handleChange = e => {
-    const { name, value } = e.target;
-    setFormData(prevData => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+//   const handleChange = e => {
+//     const { name, value } = e.target;
+//     setFormData(prevData => ({
+//       ...prevData,
+//       [name]: value,
+//     }));
+//   };
 
-  const handleSubmit = async e => {
-    e.preventDefault();
-    console.log('Form submitted');
-    if (!formData.fullName || !formData.email || !formData.dateOfBirth) {
-      toast.error('Please fill in all fields.');
-      return;
-    }
+//   const handleSubmit = async e => {
+//     e.preventDefault();
+//     console.log('Form submitted');
+//     if (!formData.fullName || !formData.email || !formData.dateOfBirth) {
+//       toast.error('Please fill in all fields.');
+//       return;
+//     }
 
-    try {
-      const formattedDate = format(
-        new Date(formData.dateOfBirth),
-        'yyyy-MM-dd'
-      );
-      const participantData = {
-        fullName: formData.fullName,
-        email: formData.email,
-        dateOfBirth: formattedDate,
-        source: formData.source,
-        participantId: formData.participantId,
-        idEvent: formData.idEvent,
-      };
+//     try {
+//       const formattedDate = format(
+//         new Date(formData.dateOfBirth),
+//         'yyyy-MM-dd'
+//       );
+//       const participantData = {
+//         fullName: formData.fullName,
+//         email: formData.email,
+//         dateOfBirth: formattedDate,
+//         source: formData.source,
+//         participantId: formData.participantId,
+//         idEvent: formData.idEvent,
+//       };
 
-      // Отримуємо всі події та фільтруємо потрібну подію
-      const eventsResponse = await axios.get(
-        'https://api.sheety.co/a495f86796cd08ee8b02d7c38d704926/events/events'
-      );
-      const event = eventsResponse.data.events.find(
-        event => event.idEvent === eventId
-      );
+//       // Отримуємо всі події та фільтруємо потрібну подію
+//       const eventsResponse = await axios.get(
+//         'https://api.sheety.co/a495f86796cd08ee8b02d7c38d704926/events/events'
+//       );
+//       const event = eventsResponse.data.events.find(
+//         event => event.idEvent === eventId
+//       );
 
-      if (!event) {
-        toast.error('Event not found');
-        return;
-      }
+//       if (!event) {
+//         toast.error('Event not found');
+//         return;
+//       }
 
-      const participants = event.participants
-        ? JSON.parse(event.participants)
-        : [];
-      participants.push(participantData.participantId);
+//       const participants = event.participants
+//         ? JSON.parse(event.participants)
+//         : [];
+//       participants.push(participantData.participantId);
 
-      // Оновлюємо подію з новими учасниками
-      const updateResponse = await axios.put(
-        `https://api.sheety.co/a495f86796cd08ee8b02d7c38d704926/events/events/${eventId}`,
-        { event: { participants: JSON.stringify(participants) } }
-      );
+//       // Оновлюємо подію з новими учасниками
+//       const updateResponse = await axios.put(
+//         `https://api.sheety.co/a495f86796cd08ee8b02d7c38d704926/events/events/${eventId}`,
+//         { event: { participants: JSON.stringify(participants) } }
+//       );
 
-      console.log('Registration successful:', updateResponse.data);
-      toast.success('Registration successful!');
-      setFormData({
-        fullName: '',
-        email: '',
-        dateOfBirth: '',
-        source: 'Social Media',
-        participantId: uuidv4(),
-        idEvent: eventId,
-      });
+//       console.log('Registration successful:', updateResponse.data);
+//       toast.success('Registration successful!');
+//       setFormData({
+//         fullName: '',
+//         email: '',
+//         dateOfBirth: '',
+//         source: 'Social Media',
+//         participantId: uuidv4(),
+//         idEvent: eventId,
+//       });
 
-      // Додатково зберігаємо інформацію про учасника
-      await axios.post(
-        'https://api.sheety.co/a495f86796cd08ee8b02d7c38d704926/events/participants',
-        { participant: participantData }
-      );
-    } catch (error) {
-      console.error('Error registering:', error);
-      toast.error('Error registering: ' + error.message);
-    }
-  };
+//       // Додатково зберігаємо інформацію про учасника
+//       await axios.post(
+//         'https://api.sheety.co/a495f86796cd08ee8b02d7c38d704926/events/participants',
+//         { participant: participantData }
+//       );
+//     } catch (error) {
+//       console.error('Error registering:', error);
+//       toast.error('Error registering: ' + error.message);
+//     }
+//   };
 
-  return (
-    <form onSubmit={handleSubmit} className={css.registrationForm}>
-      <label className={css.label}>
-        Full Name:
-        <input
-          type="text"
-          name="fullName"
-          value={formData.fullName}
-          onChange={handleChange}
-          className={css.inputField}
-          required
-        />
-      </label>
-      <label className={css.label}>
-        Email:
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          className={css.inputField}
-          required
-        />
-      </label>
-      <label className={css.label}>
-        Date of Birth:
-        <input
-          type="date"
-          name="dateOfBirth"
-          value={formData.dateOfBirth}
-          onChange={handleChange}
-          className={css.inputField}
-          required
-        />
-      </label>
-      <label className={css.label}>
-        Where did you hear about this event?
-        <div className={css.radioWrapper}>
-          <label className={css.radio}>
-            Social Media
-            <input
-              type="radio"
-              name="source"
-              value="Social Media"
-              checked={formData.source === 'Social Media'}
-              onChange={handleChange}
-              className={css.radioInput}
-            />
-          </label>
-          <label className={css.radio}>
-            Friends
-            <input
-              type="radio"
-              name="source"
-              value="Friends"
-              checked={formData.source === 'Friends'}
-              onChange={handleChange}
-              className={css.radioInput}
-            />
-          </label>
-          <label className={css.radio}>
-            Myself
-            <input
-              type="radio"
-              name="source"
-              value="Myself"
-              checked={formData.source === 'Myself'}
-              onChange={handleChange}
-              className={css.radioInput}
-            />
-          </label>
-        </div>
-      </label>
-      <button type="submit" className={css.submitButton}>
-        Register
-      </button>
-    </form>
-  );
-};
+//   return (
+//     <form onSubmit={handleSubmit} className={css.registrationForm}>
+//       <label className={css.label}>
+//         Full Name:
+//         <input
+//           type="text"
+//           name="fullName"
+//           value={formData.fullName}
+//           onChange={handleChange}
+//           className={css.inputField}
+//           required
+//         />
+//       </label>
+//       <label className={css.label}>
+//         Email:
+//         <input
+//           type="email"
+//           name="email"
+//           value={formData.email}
+//           onChange={handleChange}
+//           className={css.inputField}
+//           required
+//         />
+//       </label>
+//       <label className={css.label}>
+//         Date of Birth:
+//         <input
+//           type="date"
+//           name="dateOfBirth"
+//           value={formData.dateOfBirth}
+//           onChange={handleChange}
+//           className={css.inputField}
+//           required
+//         />
+//       </label>
+//       <label className={css.label}>
+//         Where did you hear about this event?
+//         <div className={css.radioWrapper}>
+//           <label className={css.radio}>
+//             Social Media
+//             <input
+//               type="radio"
+//               name="source"
+//               value="Social Media"
+//               checked={formData.source === 'Social Media'}
+//               onChange={handleChange}
+//               className={css.radioInput}
+//             />
+//           </label>
+//           <label className={css.radio}>
+//             Friends
+//             <input
+//               type="radio"
+//               name="source"
+//               value="Friends"
+//               checked={formData.source === 'Friends'}
+//               onChange={handleChange}
+//               className={css.radioInput}
+//             />
+//           </label>
+//           <label className={css.radio}>
+//             Myself
+//             <input
+//               type="radio"
+//               name="source"
+//               value="Myself"
+//               checked={formData.source === 'Myself'}
+//               onChange={handleChange}
+//               className={css.radioInput}
+//             />
+//           </label>
+//         </div>
+//       </label>
+//       <button type="submit" className={css.submitButton}>
+//         Register
+//       </button>
+//     </form>
+//   );
+// };
 
-export default RegistrationForm;
+// export default RegistrationForm;
