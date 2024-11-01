@@ -8,7 +8,6 @@ import css from './RegistrationForm.module.css';
 
 const API_KEY = '$2a$10$G0xTCqlf0n.eU/u68dEKs.14a0dwsMLKMICywBgC6rUGwz/Jk5vFe';
 const MY_BIN_ID = '6724e2e9e41b4d34e44c73cd';
-const BIN_NAME = events;
 const RegistrationForm = () => {
   const { eventId } = useParams();
   const [formData, setFormData] = useState({
@@ -78,7 +77,7 @@ const RegistrationForm = () => {
           {
             headers: {
               'X-Master-Key': API_KEY,
-              'X-Bin-Name': BIN_NAME,
+              // 'X-Bin-Name': BIN_NAME,
               'Content-Type': 'application/json',
             },
           }

@@ -6,8 +6,8 @@ import { v4 as uuidv4 } from 'uuid';
 import css from './CreateEventForm.module.css';
 
 const API_KEY = '$2a$10$G0xTCqlf0n.eU/u68dEKs.14a0dwsMLKMICywBgC6rUGwz/Jk5vFe';
-const BIN_ID = '6724e2e9e41b4d34e44c73cd';
-// const BIN_NAME = 'events';
+const MY_BIN_ID = '6724e2e9e41b4d34e44c73cd';
+const BIN_NAME = 'events';
 
 const CreateEventForm = () => {
   const [formData, setFormData] = useState({
@@ -23,7 +23,7 @@ const CreateEventForm = () => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value.trim(),
+      [name]: value,
     });
   };
 
@@ -41,14 +41,14 @@ const CreateEventForm = () => {
       console.log('Data to send:', eventData);
 
       const response = await axios.post(
-        `https://api.jsonbin.io/v3/b/${BIN_ID}`,
+        `https://api.jsonbin.io/v3/b/${MY_BIN_ID}`,
 
         { record: eventData },
         {
           headers: {
             'Content-Type': 'application/json',
             'X-Master-Key': API_KEY,
-            // 'X-Bin-Name': BIN_NAME,
+            'X-Bin-Name': BIN_NAME,
           },
         }
       );

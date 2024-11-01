@@ -15,16 +15,16 @@ export default function EventCard({
   return (
     <div className={css.eventContainer}>
       <div className={css.eventInfo}>
-        <p className={css.eventName}>{title}</p>
+        <p className={css.eventName}>Title: {title}</p>
       </div>
       <div className={css.eventInfo}>
-        <p className={css.eventDescription}> {description}</p>
+        <p className={css.eventDescription}>Description: {description}</p>
       </div>
       <div className={css.eventInfo}>
-        <p className={css.eventName}> {organizer}</p>
+        <p className={css.eventName}>Organizer: {organizer}</p>
       </div>
       <div className={css.eventInfo}>
-        <p className={css.eventName}>{event_date}</p>
+        <p className={css.eventName}>Date: {event_date}</p>
       </div>
       <div className={css.btnContainer}>
         <Link to={`/event/${idEvent}/register`} className={css.btn}>
