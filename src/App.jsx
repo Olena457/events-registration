@@ -14,12 +14,11 @@ const App = () => {
       <Suspense>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route
-            path="/events/:idEvent/participants"
-            element={<AboutEvent />}
-          />
           <Route path="/create-event" element={<CreateEventPage />} />
-          <Route path="/register-event/:idEvent" element={<RegisterPage />} />
+          <Route path="/events/:id" element={<EventsPages />}>
+            <Route path="participants" element={<AboutEvent />} />
+            <Route path="register" element={<RegisterPage />} />
+          </Route>
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Suspense>

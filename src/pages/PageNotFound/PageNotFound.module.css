@@ -5,14 +5,13 @@
   position: relative;
   text-align: center;
   height: 100vh;
-  background: linear-gradient(to right, #61a8eb, #bfdbfe);
+  /* background: linear-gradient(to right, #61a8eb, #bfdbfe); */
   color: black;
 }
 .titlePage {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 .table {
-  background-color: #ef5050;
   text-align: center;
   margin-bottom: 50px;
   font-size: 26px;
@@ -23,7 +22,7 @@
 
 .arrow {
   position: absolute;
-  top: 25%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -37,21 +36,27 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.btn {
+.btnGo {
+  width: 173px;
+  height: 56px;
   display: flex;
-  margin-bottom: 50px;
-  width: 100px;
-  height: 40px;
   justify-content: center;
-  margin-left: 50%;
-  padding: 6px 10px;
-  outline: 1px solid black;
-  font-size: 24px;
+  align-items: center;
+  gap: 10;
+  padding: 15px 60px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 25px 0px 0px 125px;
+  border-radius: 200px;
+  font-size: 16px;
   font-weight: 500;
-  border-radius: 10px;
-  cursor: pointer;
-  background-color: #ef5050;
-  color: black;
+  line-height: 1.5;
+  letter-spacing: -0.5%;
+  white-space: nowrap;
+  transition: all 250ms ease-in-out;
+  color: #fff;
+  background: #e44848;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
@@ -60,8 +65,8 @@
     color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.btn:hover,
-.btn:focus {
+.btnGo:hover,
+.btnGo:focus {
   font-size: 24px;
   font-weight: 500;
   background-color: #e32525;

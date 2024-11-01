@@ -11,7 +11,7 @@ const PageNotFound = () => {
         </div>
         Press the bottom Home
         <FaArrowDown size={80} color="red" />
-        <Link to="/" className={css.btn}>
+        <Link to="/" className={css.btnGo}>
           Home
         </Link>
       </div>

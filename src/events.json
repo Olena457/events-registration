@@ -1,11 +1,4 @@
-import axios from 'axios'
-
-const API_KEY = '$2a$10$G0xTCqlf0n.eU/u68dEKs.14a0dwsMLKMICywBgC6rUGwz/Jk5vFe';
-const BIN_ID = '67235bc6e41b4d34e44bd6ab';
-
-const jsonData = {
-
-
+{
   "events": [
     {
       "idEvent": "1",
@@ -15,14 +8,14 @@ const jsonData = {
       "organizer": "Tech World Inc.",
       "participants": [
         {
-          "participantId": "1",
+          "participantId": "13",
           "fullName": "Mary Martin",
           "email": "steven65@morales.com",
           "dateOfBirth": "1982-07-30",
           "source": "Social Media"
         },
         {
-          "participantId": "1",
+          "participantId": "14",
           "fullName": "Donald Anderson",
           "email": "cynthiaruiz@simmons-dunn.com",
           "dateOfBirth": "1976-09-22",
@@ -38,14 +31,14 @@ const jsonData = {
       "organizer": "Wellness Gurus",
       "participants": [
         {
-          "participantId": "2",
+          "participantId": "15",
           "fullName": "Rachel Morrow",
           "email": "phillipswilliam@gmail.com",
           "dateOfBirth": "1968-02-23",
           "source": "Social Media"
         },
         {
-          "participantId": "2",
+          "participantId": "16",
           "fullName": "Adam Bryant",
           "email": "sandraacosta@gmail.com",
           "dateOfBirth": "2000-01-23",
@@ -55,20 +48,59 @@ const jsonData = {
     },
     {
       "idEvent": "3",
-      "title": "Startup Pitch Night",
-      "description": "Entrepreneurs pitch their ideas to investors and potential partners.",
-      "event_date": "2025-01-22",
-      "organizer": "Startup Hub",
+      "title": "Tech Conference 2024",
+      "description": "A conference exploring the latest in technology and innovation.",
+      "event_date": "2024-11-15",
+      "organizer": "Tech World Inc.",
       "participants": [
         {
-          "participantId": "3",
-          "fullName": "Amanda Lynch",
-          "email": "william17@hotmail.com",
-          "dateOfBirth": "1994-09-06",
+          "participantId": "17",
+          "fullName": "Mary Martin",
+          "email": "steven65@morales.com",
+          "dateOfBirth": "1982-07-30",
           "source": "Social Media"
         },
         {
-          "participantId": "3",
+          "participantId": "18",
+          "fullName": "Donald Anderson",
+          "email": "cynthiaruiz@simmons-dunn.com",
+          "dateOfBirth": "1976-09-22",
+          "source": "Social Media"
+        }
+      ]
+    },
+    {
+      "idEvent": "4",
+      "title": "Health & Wellness Expo",
+      "description": "Join health experts and enthusiasts for a day of wellness activities.",
+      "event_date": "2024-12-01",
+      "organizer": "Wellness Gurus",
+      "participants": [
+        {
+          "participantId": "19",
+          "fullName": "Rachel Morrow",
+          "email": "phillipswilliam@gmail.com",
+          "dateOfBirth": "1968-02-23",
+          "source": "Social Media"
+        },
+        {
+          "participantId": "20",
+          "fullName": "Adam Bryant",
+          "email": "sandraacosta@gmail.com",
+          "dateOfBirth": "2000-01-23",
+          "source": "Friends"
+        }
+      ]
+    },
+    {
+      "idEvent": "5",
+      "title": "Non-Profit Fundraising Gala",
+      "description": "An evening of philanthropy to support various non-profit organizations.",
+      "event_date": "2024-11-28",
+      "organizer": "Global Charity Network",
+      "participants": [
+        {
+          "participantId": "21",
           "fullName": "Ryan Turner",
           "email": "brian65@yahoo.com",
           "dateOfBirth": "2004-05-02",
@@ -77,21 +109,21 @@ const jsonData = {
       ]
     },
     {
-      "idEvent": "4",
+      "idEvent": "6",
       "title": "Art & Design Workshop",
       "description": "A hands-on workshop for aspiring artists and designers.",
       "event_date": "2024-10-18",
       "organizer": "Creative Minds",
       "participants": [
         {
-          "participantId": "4",
+          "participantId": "22",
           "fullName": "Kathryn Romero",
           "email": "jordannelson@barron.net",
           "dateOfBirth": "2003-08-27",
           "source": "Friends"
         },
         {
-          "participantId": "4",
+          "participantId": "23",
           "fullName": "Michael Horne",
           "email": "llewis@acevedo.info",
           "dateOfBirth": "1966-05-22",
@@ -100,28 +132,28 @@ const jsonData = {
       ]
     },
     {
-      "idEvent": "5",
+      "idEvent": "7",
       "title": "Business Networking Event",
       "description": "Expand your professional network with industry leaders.",
       "event_date": "2024-11-30",
       "organizer": "Global Entrepreneurs",
       "participants": [
         {
-          "participantId": "5",
+          "participantId": "24",
           "fullName": "Jennifer Hughes",
           "email": "hgarcia@hotmail.com",
           "dateOfBirth": "1998-06-03",
           "source": "Social Media"
         },
         {
-          "participantId": "5",
+          "participantId": "25",
           "fullName": "Anthony Andrews",
           "email": "thomas25@hotmail.com",
           "dateOfBirth": "1998-07-12",
           "source": "Friends"
         },
         {
-          "participantId": "5",
+          "participantId": "26",
           "fullName": "Susan Hale",
           "email": "vruiz@spence.com",
           "dateOfBirth": "1967-01-04",
@@ -130,21 +162,21 @@ const jsonData = {
       ]
     },
     {
-      "idEvent": "6",
+      "idEvent": "8",
       "title": "Environmental Summit",
       "description": "A summit discussing environmental issues and sustainable solutions.",
       "event_date": "2024-12-05",
       "organizer": "Green Earth Org.",
       "participants": [
         {
-          "participantId": "6",
+          "participantId": "27",
           "fullName": "Erin Tanner",
           "email": "michael49@jackson.org",
           "dateOfBirth": "2005-12-02",
           "source": "Friends"
         },
         {
-          "participantId": "6",
+          "participantId": "28",
           "fullName": "Edward Jordan",
           "email": "clydekent@yahoo.com",
           "dateOfBirth": "1997-09-06",
@@ -153,14 +185,14 @@ const jsonData = {
       ]
     },
     {
-      "idEvent": "7",
+      "idEvent": "9",
       "title": "Music Festival 2025",
       "description": "A weekend full of music from various genres and artists.",
       "event_date": "2025-03-15",
       "organizer": "Music Fest Productions",
       "participants": [
         {
-          "participantId": "7",
+          "participantId": "29",
           "fullName": "Anthony Andrews",
           "email": "thomas25@hotmail.com",
           "dateOfBirth": "1998-07-12",
@@ -169,14 +201,14 @@ const jsonData = {
       ]
     },
     {
-      "idEvent": "8",
+      "idEvent": "10",
       "title": "Coding Bootcamp",
       "description": "A two-week intensive bootcamp for aspiring software developers.",
       "event_date": "2024-11-07",
       "organizer": "Code Academy",
       "participants": [
         {
-          "participantId": "8",
+          "participantId": "30",
           "fullName": "Michael Horne",
           "email": "llewis@acevedo.info",
           "dateOfBirth": "1966-05-22",
@@ -185,14 +217,14 @@ const jsonData = {
       ]
     },
     {
-      "idEvent": "9",
+      "idEvent": "11",
       "title": "Film Screening & Discussion",
       "description": "Watch an indie film followed by a panel discussion with the creators.",
       "event_date": "2024-12-12",
       "organizer": "Indie Film Collective",
       "participants": [
         {
-          "participantId": "9",
+          "participantId": "31",
           "fullName": "Julie Tyler",
           "email": "hvaldez@nicholson-chavez.com",
           "dateOfBirth": "1968-09-19",
@@ -201,21 +233,21 @@ const jsonData = {
       ]
     },
     {
-      "idEvent": "10",
+      "idEvent": "12",
       "title": "Fitness Challenge",
       "description": "A community-driven fitness challenge with prizes for top performers.",
       "event_date": "2025-01-10",
       "organizer": "FitLife",
       "participants": [
         {
-          "participantId": "10",
+          "participantId": "32",
           "fullName": "Thomas Klein",
           "email": "mhernandez@yahoo.com",
           "dateOfBirth": "1986-07-22",
           "source": "Friends"
         },
         {
-          "participantId": "10",
+          "participantId": "33",
           "fullName": "Brenda Nelson",
           "email": "danieladams@clayton.net",
           "dateOfBirth": "1981-03-15",
@@ -223,6 +255,7 @@ const jsonData = {
         }
       ]
     },
+
     {
       "idEvent": "11",
       "title": "Blockchain Symposium",
@@ -377,45 +410,6 @@ const jsonData = {
       "event_date": "2025-03-10",
       "organizer": "Fashion Forward",
       "participants": []
-    },
-    {
-      "idEvent": "19",
-      "title": "Non-Profit Fundraising Gala",
-      "description": "An evening of philanthropy to support various non-profit organizations.",
-      "event_date": "2024-11-28",
-      "organizer": "Global Charity Network",
-      "participants": [
-        {
-          "participantId": "19",
-          "fullName": "Ryan Turner",
-          "email": "brian65@yahoo.com",
-          "dateOfBirth": "2004-05-02",
-          "source": "Myself"
-        }
-      ]
-    },
-    {
-      "idEvent": "20",
-      "title": "Yoga Retreat",
-      "description": "A relaxing weekend retreat focusing on yoga and mindfulness.",
-      "event_date": "2025-02-05",
-      "organizer": "Zen Wellness",
-      "participants": []
     }
   ]
 }
-
-axios.put(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
-  record: jsonData
-}, {
-  headers: {
-    'X-Master-Key': API_KEY,
-    'Content-Type': 'application/json'
-  }
-})
-.then(response => {
-  console.log('Data added successfully:', response.data);
-})
-.catch(error => {
-  console.error('Error adding data:', error.response.data);
-});

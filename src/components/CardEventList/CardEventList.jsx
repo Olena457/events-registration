@@ -12,8 +12,8 @@ const CardEventList = ({ events, handleRegister }) => {
               title={event.title}
               description={event.description}
               organizer={event.organizer}
-              dateEvent={event.dateEvent}
-              registeredUsers={event.registeredUsers}
+              dateEvent={event.event_date}
+              participantId={event.participantId}
               handleRegister={handleRegister}
               viewLink={event.viewLink}
             />
