@@ -1,6 +1,3 @@
-//     registeredUsers && registeredUsers.length > 0 ? `/event/{idEvent}/participants` : 'participant not found';
-
-//
 import React from 'react';
 import { Link } from 'react-router-dom';
 import css from './EventCard.module.css';
@@ -24,16 +21,15 @@ export default function EventCard({
         <p className={css.eventName}>Organizer: {organizer}</p>
       </div>
       <div className={css.eventInfo}>
-        <p className={css.eventName}>Date: {event_date}</p>
+        <p className={`${css.eventDate} ${css.eventName}`}>
+          Date: {event_date}
+        </p>
       </div>
       <div className={css.btnContainer}>
         <Link to={`/event/${idEvent}/register`} className={css.btn}>
           Register
         </Link>
-        <Link
-          to={`/event/${idEvent}/participants`}
-          className={`${css.btnView} ${css.btn}`}
-        >
+        <Link to={`/event/${idEvent}/participants`} className={css.btn}>
           View
         </Link>
       </div>

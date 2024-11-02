@@ -13,8 +13,8 @@ const CreateEventForm = () => {
     idEvent: uuidv4(),
     title: '',
     description: '',
-    event_date: '',
     organizer: '',
+    event_date: '',
     participants: [],
   });
 
@@ -41,7 +41,6 @@ const CreateEventForm = () => {
 
       const response = await axios.post(
         `https://api.jsonbin.io/v3/b/${MY_BIN_ID}`,
-
         { record: eventData },
         {
           headers: {

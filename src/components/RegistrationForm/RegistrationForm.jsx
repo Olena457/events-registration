@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { EventsContext } from '../../contexts/EventsContext.js';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { format } from 'date-fns';
@@ -10,7 +11,9 @@ const ACCESS_KEY_GET = `$2a$10$gTYy/AwiYnRyarOfEWwMjOr6oPAXTi5Pd5Mrg/uFvCXLlKymY
 const ACCESS_KEY_PUT = `$2a$10$0OY1hsQ73R3Hlid/hgKPnO7wLOXvkG4G1WmjEcwa/trzqCRDLKNJS`;
 
 const MY_BIN_ID = '6724e2e9e41b4d34e44c73cd';
+
 const RegistrationForm = () => {
+  const contextEvents = useContext(EventsContext);
   const { eventId } = useParams();
   const [formData, setFormData] = useState({
     participantId: uuidv4(),
@@ -20,7 +23,7 @@ const RegistrationForm = () => {
     source: 'Social Media',
     idEvent: eventId,
   });
-  const [events, setEvents] = useState([]);
+  const [localEvents, setLocalEvents] = useState([]);
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -33,7 +36,7 @@ const RegistrationForm = () => {
             },
           }
         );
-        setEvents(response.data.record.events);
+        setLocalEvents(response.data.record.events);
       } catch (error) {
         toast.error('Error fetching events.');
       }
@@ -70,13 +73,15 @@ const RegistrationForm = () => {
         },
       };
 
-      const event = events.find(event => event.idEvent === eventId);
+      const event =
+        contextEvents.find(event => event.idEvent === eventId) ||
+        localEvents.find(event => event.idEvent === eventId);
       if (event) {
         event.participants = event.participants || [];
         event.participants.push(dataToSend.participant);
         const response = await axios.put(
           `https://api.jsonbin.io/v3/b/${MY_BIN_ID}`,
-          { record: { events } },
+          { record: { events: localEvents } },
           {
             headers: {
               'X-Access-Key': ACCESS_KEY_PUT,

@@ -18,9 +18,9 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/create-event" element={<CreateEventPage />} />
-          <Route path="/events/:id" element={<EventsPage />}>
-            <Route path="participants" element={<AboutEvent />} />
-            <Route path="register" element={<RegisterPage />} />
+          <Route path="/events" element={<EventsPage />}>
+            <Route path=":idEvent/register" element={<RegisterPage />} />
+            <Route path=":idEvent/participants" element={<AboutEvent />} />
           </Route>
           <Route path="*" element={<PageNotFound />} />
         </Routes>

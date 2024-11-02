@@ -18,16 +18,3 @@ const Participant = ({ participantId, email, fullName }) => {
 };
 
 export default Participant;
-// const handleEdit = () => {
-//   console.log(`Редагувати учасника з ID: ${participantId}`);
-// };
-
-// const handleDelete = () => {
-//   console.log(`Видалити учасника з ID: ${participantId}`);
-// };
-// <button onClick={handleEdit} className={css.editButton}>
-//         Edit
-//       </button>
-//       <button onClick={handleDelete} className={css.deleteButton}>
-//         Delete
-//       </button>

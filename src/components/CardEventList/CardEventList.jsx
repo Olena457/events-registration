@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { EventsContext } from '../../contexts/EventsContext.js';
 import EventCard from './../EventCard/EventCard.jsx';
 import css from './CardEventList.module.css';
 
-const CardEventList = ({ events, handleRegister }) => {
+const CardEventList = () => {
+  const events = useContext(EventsContext);
   return (
     <div className={css.containerList}>
       <ul className={css.gallery}>
@@ -15,7 +17,6 @@ const CardEventList = ({ events, handleRegister }) => {
               event_date={event.event_date}
               idEvent={event.idEvent}
               participantId={event.participantId}
-              handleRegister={handleRegister}
             />
           </li>
         ))}

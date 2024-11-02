@@ -10,10 +10,13 @@ const Navigation = ({ eventId }) => {
       <NavLink className={activeLink} to="/">
         Home
       </NavLink>
+      <NavLink className={activeLink} to="/events">
+        Events
+      </NavLink>
       <NavLink className={activeLink} to={`/events/${eventId}/register`}>
         Register
       </NavLink>
-      <NavLink className={activeLink} to={`/events/${eventId}/particspants`}>
+      <NavLink className={activeLink} to={`/events/${eventId}/participants`}>
         About Event
       </NavLink>
       <NavLink className={activeLink} to="/create-event">

@@ -1,16 +1,18 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
+// import React, { useContext } from 'react';
+// import { EventsContext } from '../../contexts/EventsContext.js';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import Loading from '../../components/Loading/Loading.jsx';
-import { Link } from 'react-router-dom';
 import css from './EventsPage.module.css';
 import CardEventList from '../../components/CardEventList/CardEventList.jsx';
 
-const ACCESS_KEY = `$2a$10$gTYy/AwiYnRyarOfEWwMjOr6oPAXTi5Pd5Mrg/uFvCXLlKymYd7oa`;
+const ACCESS_KEY_GET = `$2a$10$gTYy/AwiYnRyarOfEWwMjOr6oPAXTi5Pd5Mrg/uFvCXLlKymYd7oa`;
 const MY_BIN_ID = '6724e2e9e41b4d34e44c73cd';
 
 const EventsPage = () => {
+  // const events = useContext(EventsContext);
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -21,7 +23,7 @@ const EventsPage = () => {
           `https://api.jsonbin.io/v3/b/${MY_BIN_ID}`,
           {
             headers: {
-              'X-Master-Key': ACCESS_KEY,
+              'X-Master-Key': ACCESS_KEY_GET,
             },
           }
         );
@@ -31,7 +33,7 @@ const EventsPage = () => {
             idEvent: event.idEvent,
             title: event.title,
             description: event.description,
-            dateEvent: event.event_date,
+            event_date: event.event_date,
             organizer: event.organizer,
           }));
           setEvents(formattedEvents);
