@@ -12,10 +12,10 @@ const CardEventList = ({ events, handleRegister }) => {
               title={event.title}
               description={event.description}
               organizer={event.organizer}
-              dateEvent={event.event_date}
+              event_date={event.event_date}
+              idEvent={event.idEvent}
               participantId={event.participantId}
               handleRegister={handleRegister}
-              viewLink={event.viewLink}
             />
           </li>
         ))}

@@ -10,7 +10,7 @@ export default function EventCard({
   description,
   idEvent,
   organizer,
-  eventDate,
+  event_date,
 }) {
   return (
     <div className={css.eventContainer}>
@@ -24,7 +24,7 @@ export default function EventCard({
         <p className={css.eventName}>Organizer: {organizer}</p>
       </div>
       <div className={css.eventInfo}>
-        <p className={css.eventName}>Date: {eventDate}</p>
+        <p className={css.eventName}>Date: {event_date}</p>
       </div>
       <div className={css.btnContainer}>
         <Link to={`/event/${idEvent}/register`} className={css.btn}>

@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import css from './EventsPage.module.css';
 import CardEventList from '../../components/CardEventList/CardEventList.jsx';
 
-const API_KEY = '$2a$10$G0xTCqlf0n.eU/u68dEKs.14a0dwsMLKMICywBgC6rUGwz/Jk5vFe';
+const ACCESS_KEY = `$2a$10$gTYy/AwiYnRyarOfEWwMjOr6oPAXTi5Pd5Mrg/uFvCXLlKymYd7oa`;
 const MY_BIN_ID = '6724e2e9e41b4d34e44c73cd';
 
 const EventsPage = () => {
@@ -21,7 +21,7 @@ const EventsPage = () => {
           `https://api.jsonbin.io/v3/b/${MY_BIN_ID}`,
           {
             headers: {
-              'X-Master-Key': API_KEY,
+              'X-Master-Key': ACCESS_KEY,
             },
           }
         );
@@ -39,6 +39,9 @@ const EventsPage = () => {
           setEvents([]);
         }
         setLoading(false);
+
+        // console.log('Response data:', response.data);
+        // console.log('Events:', response.data.record.events);
       } catch (error) {
         toast.error('Error fetching events: ' + error.message);
         setLoading(false);

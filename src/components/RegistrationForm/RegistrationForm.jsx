@@ -6,7 +6,9 @@ import { toast } from 'react-hot-toast';
 import { v4 as uuidv4 } from 'uuid';
 import css from './RegistrationForm.module.css';
 
-const API_KEY = '$2a$10$G0xTCqlf0n.eU/u68dEKs.14a0dwsMLKMICywBgC6rUGwz/Jk5vFe';
+const ACCESS_KEY_GET = `$2a$10$gTYy/AwiYnRyarOfEWwMjOr6oPAXTi5Pd5Mrg/uFvCXLlKymYd7oa`;
+const ACCESS_KEY_PUT = `$2a$10$0OY1hsQ73R3Hlid/hgKPnO7wLOXvkG4G1WmjEcwa/trzqCRDLKNJS`;
+
 const MY_BIN_ID = '6724e2e9e41b4d34e44c73cd';
 const RegistrationForm = () => {
   const { eventId } = useParams();
@@ -27,7 +29,7 @@ const RegistrationForm = () => {
           `https://api.jsonbin.io/v3/b/${MY_BIN_ID}`,
           {
             headers: {
-              'X-Master-Key': API_KEY,
+              'X-Access-Key': ACCESS_KEY_GET,
             },
           }
         );
@@ -70,14 +72,14 @@ const RegistrationForm = () => {
 
       const event = events.find(event => event.idEvent === eventId);
       if (event) {
+        event.participants = event.participants || [];
         event.participants.push(dataToSend.participant);
         const response = await axios.put(
           `https://api.jsonbin.io/v3/b/${MY_BIN_ID}`,
           { record: { events } },
           {
             headers: {
-              'X-Master-Key': API_KEY,
-              // 'X-Bin-Name': BIN_NAME,
+              'X-Access-Key': ACCESS_KEY_PUT,
               'Content-Type': 'application/json',
             },
           }

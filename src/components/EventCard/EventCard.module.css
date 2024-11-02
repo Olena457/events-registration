@@ -170,12 +170,13 @@
 }
 .eventName {
   color: #333;
+  font-size: 24px;
 }
 
 .btnContainer {
   display: flex;
-  justify-content: flex-end; /* Вирівнювання кнопок по центру */
-  gap: 10px; /* Відстань між кнопками */
+  justify-content: flex-end;
+  gap: 10px;
 }
 
 .btn {
@@ -202,6 +203,6 @@
 .btn:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-.btnView {
+/* .btn {
   padding: 10px 30px;
-}
+} */

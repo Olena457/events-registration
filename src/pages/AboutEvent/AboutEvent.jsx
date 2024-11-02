@@ -6,7 +6,7 @@ import Loading from '../../components/Loading/Loading.jsx';
 import ParticipantList from '../../components/ParticipantList/ParticipantList.jsx';
 import css from './AboutEvent.module.css';
 
-const API_KEY = '$2a$10$G0xTCqlf0n.eU/u68dEKs.14a0dwsMLKMICywBgC6rUGwz/Jk5vFe';
+const ACCESS_KEY_GET = `$2a$10$gTYy/AwiYnRyarOfEWwMjOr6oPAXTi5Pd5Mrg/uFvCXLlKymYd7oa`;
 const MY_BIN_ID = '6724e2e9e41b4d34e44c73cd';
 
 const AboutEvent = () => {
@@ -22,23 +22,21 @@ const AboutEvent = () => {
           `https://api.jsonbin.io/v3/b/${MY_BIN_ID}`,
           {
             headers: {
-              'X-Master-Key': API_KEY,
+              'X-Access-Key': ACCESS_KEY_GET,
+              'X-JSON-Path': `$.events[?(@.idEvent=='${id}')].participants[*]`,
             },
           }
         );
-        const event = response.data.record.events.find(
-          event => event.idEvent === id
-        );
-        if (event) {
-          if (event.participants.length === 0) {
-            toast.error('No participants registered for this event.');
-            setTimeout(() => {
-              navigate('/events/:id');
-            }, 3000);
-          } else {
-            setParticipants(event.participants);
-          }
+
+        if (response.data.records.length === 0) {
+          toast.error('No participants registered for this event.');
+          setTimeout(() => {
+            navigate(`/events/${id}`);
+          }, 3000);
+        } else {
+          setParticipants(response.data.records);
         }
+
         setLoading(false);
       } catch (error) {
         console.error('Error fetching participants:', error);
