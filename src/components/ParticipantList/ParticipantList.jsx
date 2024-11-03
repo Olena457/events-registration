@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { EventsContext } from '../../contexts/EventsContext.js';
+import { EventsContext } from '../../contexts/EventsContext.jsx';
 import Participant from '../Participant/Participant';
 import css from './ParticipantList.module.css';
 

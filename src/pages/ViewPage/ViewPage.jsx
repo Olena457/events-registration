@@ -5,12 +5,12 @@ import { toast } from 'react-hot-toast';
 import Loading from '../../components/Loading/Loading.jsx';
 import ParticipantList from '../../components/ParticipantList/ParticipantList.jsx';
 import css from './AboutEvent.module.css';
-import { EventsContext } from '../../contexts/EventsContext.js';
+import { EventsContext } from '../../contexts/EventsContext.jsx';
 
 const ACCESS_KEY_GET = `$2a$10$gTYy/AwiYnRyarOfEWwMjOr6oPAXTi5Pd5Mrg/uFvCXLlKymYd7oa`;
 const MY_BIN_ID = '6724e2e9e41b4d34e44c73cd';
 
-const AboutEvent = () => {
+const ViewPage = () => {
   const events = useContext(EventsContext);
   const { idEvent } = useParams();
   const [participants, setParticipants] = useState([]);
@@ -60,10 +60,10 @@ const AboutEvent = () => {
 
   return (
     <div className={css.wrapperCard}>
-      <h2 className={css.title}>Participants for Event {idEvents}</h2>
+      <h2 className={css.title}>Participants for Event {idEvent}</h2>
       <ParticipantList participants={participants} />
     </div>
   );
 };
 
-export default AboutEvent;
+export default ViewPage;

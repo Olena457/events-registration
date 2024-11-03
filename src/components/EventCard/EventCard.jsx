@@ -26,11 +26,8 @@ export default function EventCard({
         </p>
       </div>
       <div className={css.btnContainer}>
-        <Link to={`/event/${idEvent}/register`} className={css.btn}>
-          Register
-        </Link>
-        <Link to={`/event/${idEvent}/participants`} className={css.btn}>
-          View
+        <Link to={`/${idEvent}`} className={css.btn}>
+          Details
         </Link>
       </div>
     </div>

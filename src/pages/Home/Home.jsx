@@ -15,7 +15,7 @@ const Home = () => {
         </p>
       </div>
       <div className={css.buttonWrapper}>
-        <NavLink to="/events/:id" className={css.btnGo}>
+        <NavLink to="/events" className={css.btnGo}>
           Go Events
         </NavLink>
         <NavLink to="/create-event" className={css.btnCreate}>

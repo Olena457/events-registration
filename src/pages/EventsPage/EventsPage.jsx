@@ -1,7 +1,5 @@
-import { Outlet, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
-// import React, { useContext } from 'react';
-// import { EventsContext } from '../../contexts/EventsContext.js';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import Loading from '../../components/Loading/Loading.jsx';
@@ -12,7 +10,6 @@ const ACCESS_KEY_GET = `$2a$10$gTYy/AwiYnRyarOfEWwMjOr6oPAXTi5Pd5Mrg/uFvCXLlKymY
 const MY_BIN_ID = '6724e2e9e41b4d34e44c73cd';
 
 const EventsPage = () => {
-  // const events = useContext(EventsContext);
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -23,7 +20,7 @@ const EventsPage = () => {
           `https://api.jsonbin.io/v3/b/${MY_BIN_ID}`,
           {
             headers: {
-              'X-Master-Key': ACCESS_KEY_GET,
+              'X-Access-Key': ACCESS_KEY_GET,
             },
           }
         );

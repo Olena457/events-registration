@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import css from './RegisterPage.module.css';
 import RegistrationForm from '../../components/RegistrationForm/RegistrationForm.jsx';
 import ContainerWrapper from '../../components/ContainerWrapper/ContainerWrapper.jsx';
-import { EventsContext } from '../../contexts/EventsContext.js';
+import { EventsContext } from '../../contexts/EventsContext.jsx';
 
 const RegisterPage = () => {
   const events = useContext(EventsContext);

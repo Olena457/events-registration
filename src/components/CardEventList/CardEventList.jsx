@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { EventsContext } from '../../contexts/EventsContext.js';
+import { EventsContext } from '../../contexts/EventsContext.jsx';
 import EventCard from './../EventCard/EventCard.jsx';
 import css from './CardEventList.module.css';
 

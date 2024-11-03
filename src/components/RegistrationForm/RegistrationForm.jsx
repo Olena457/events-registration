@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { EventsContext } from '../../contexts/EventsContext.js';
+import { EventsContext } from '../../contexts/EventsContext.jsx';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { format } from 'date-fns';

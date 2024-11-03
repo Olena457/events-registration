@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import EventsProvider from './contexts/EventsContext.js';
+import { EventsProvider } from './contexts/EventsContext.jsx';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx';
 import './index.css';
