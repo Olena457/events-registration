@@ -1,18 +1,19 @@
 import React, { useContext } from 'react';
+import { useParams } from 'react-router-dom';
 import { EventsContext } from '../../contexts/EventsContext.jsx';
 import Participant from '../Participant/Participant';
 import css from './ParticipantList.module.css';
 
-const ParticipantList = () => {
+const ParticipantList = ({ participants }) => {
   const events = useContext(EventsContext);
   const { idEvent } = useParams();
   const event = events.find(event => event.idEvent === idEvent);
 
   return (
     <div className={css.cardListContainer}>
-      <h2>Participants for {event.title}</h2>
+      <h2>Participants for {idEvent}</h2>
       <ul className={css.participantList}>
-        {event.participants.map(participant => (
+        {participants.map(participant => (
           <li key={participant.participantId} className={css.participantItem}>
             <Participant
               participantId={participant.participantId}

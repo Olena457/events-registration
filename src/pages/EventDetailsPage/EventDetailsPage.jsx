@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link, Outlet } from 'react-router-dom';
+import { useParams, Outlet, NavLink } from 'react-router-dom';
 import axios from 'axios';
 import css from './EventDetailsPage.module.css';
+// import Loading from '../../components/Loading/Loading.jsx';
 
 const ACCESS_KEY_GET = `$2a$10$gTYy/AwiYnRyarOfEWwMjOr6oPAXTi5Pd5Mrg/uFvCXLlKymYd7oa`;
 const MY_BIN_ID = '6724e2e9e41b4d34e44c73cd';
@@ -33,36 +34,58 @@ const EventDetailsPage = () => {
   }, [idEvent]);
 
   if (!event) {
-    return <div>Loading...</div>;
+    return <div>loading...</div>;
   }
 
   return (
-    <div className={css.eventContainer}>
-      <div className={css.eventInfo}>
-        <p className={css.eventName}>Title: {event.title}</p>
+    <div className={css.WrapperCard}>
+      <div className={css.eventContainer}>
+        <div className={css.eventInfo}>
+          <p className={css.eventName}>Title: {event.title}</p>
+        </div>
+        <div className={css.eventInfo}>
+          <p className={css.eventDescription}>
+            Description: {event.description}
+          </p>
+        </div>
+        <div className={css.eventInfo}>
+          <p className={css.eventName}>Organizer: {event.organizer}</p>
+        </div>
+        <div className={css.eventInfo}>
+          <p className={`${css.eventDate} ${css.eventName}`}>
+            Date: {event.event_date}
+          </p>
+        </div>
+        <div className={css.btnContainer}>
+          <NavLink to="register" className={css.btn}>
+            Register
+          </NavLink>
+          <NavLink to="participants" className={css.btn}>
+            View
+          </NavLink>
+          <NavLink
+            to="register"
+            className={({ isActive }) =>
+              isActive ? `${css.btn} ${css.active}` : css.btn
+            }
+          >
+            Register
+          </NavLink>
+
+          <NavLink
+            to="participants"
+            className={({ isActive }) =>
+              isActive ? `${css.btn} ${css.active}` : css.btn
+            }
+          >
+            View
+          </NavLink>
+        </div>
+        <Outlet />
       </div>
-      <div className={css.eventInfo}>
-        <p className={css.eventDescription}>Description: {event.description}</p>
-      </div>
-      <div className={css.eventInfo}>
-        <p className={css.eventName}>Organizer: {event.organizer}</p>
-      </div>
-      <div className={css.eventInfo}>
-        <p className={`${css.eventDate} ${css.eventName}`}>
-          Date: {event.event_date}
-        </p>
-      </div>
-      <div className={css.btnContainer}>
-        <Link to={`/${idEvent}/register`} className={css.btn}>
-          Register
-        </Link>
-        <Link to={`/${idEvent}/participants`} className={css.btn}>
-          View
-        </Link>
-      </div>
-      <Outlet />
     </div>
   );
 };
+//  тут до аутлет додала контекст івент
 
 export default EventDetailsPage;

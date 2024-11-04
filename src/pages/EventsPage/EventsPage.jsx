@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
@@ -64,12 +64,11 @@ const EventsPage = () => {
           <p className={css.message}>
             "Hello user! Click the button to return to home"
           </p>
-          <Link to="/" className={css.btn}>
+          <NavLink to="/" className={css.btn}>
             Return to home
-          </Link>
+          </NavLink>
         </div>
       )}
-      <Outlet />
     </>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { EventsContext } from '../../contexts/EventsContext.jsx';
-import { useParams } from 'react-router-dom';
+import { useParams, useOutletContext } from 'react-router-dom';
 import axios from 'axios';
 import { format } from 'date-fns';
 import { toast } from 'react-hot-toast';
@@ -9,19 +9,20 @@ import css from './RegistrationForm.module.css';
 
 const ACCESS_KEY_GET = `$2a$10$gTYy/AwiYnRyarOfEWwMjOr6oPAXTi5Pd5Mrg/uFvCXLlKymYd7oa`;
 const ACCESS_KEY_PUT = `$2a$10$0OY1hsQ73R3Hlid/hgKPnO7wLOXvkG4G1WmjEcwa/trzqCRDLKNJS`;
-
 const MY_BIN_ID = '6724e2e9e41b4d34e44c73cd';
 
 const RegistrationForm = () => {
   const contextEvents = useContext(EventsContext);
-  const { eventId } = useParams();
+  const { idEvent } = useParams();
+  const event = useOutletContext();
+
   const [formData, setFormData] = useState({
     participantId: uuidv4(),
     fullName: '',
     email: '',
     dateOfBirth: '',
     source: 'Social Media',
-    idEvent: eventId,
+    idEvent: idEvent,
   });
   const [localEvents, setLocalEvents] = useState([]);
 
@@ -74,8 +75,8 @@ const RegistrationForm = () => {
       };
 
       const event =
-        contextEvents.find(event => event.idEvent === eventId) ||
-        localEvents.find(event => event.idEvent === eventId);
+        contextEvents.find(event => event.idEvent === idEvent) ||
+        localEvents.find(event => event.idEvent === idEvent);
       if (event) {
         event.participants = event.participants || [];
         event.participants.push(dataToSend.participant);
@@ -98,7 +99,7 @@ const RegistrationForm = () => {
           email: '',
           dateOfBirth: '',
           source: 'Social Media',
-          idEvent: eventId,
+          idEvent: idEvent,
         });
       } else {
         toast.error('Event not found.');
