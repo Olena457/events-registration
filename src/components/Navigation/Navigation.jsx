@@ -14,15 +14,15 @@ const Navigation = () => {
       <NavLink className={activeLink} to="/events">
         Events
       </NavLink>
-      <NavLink className={activeLink} to={`/${idEvent}`}>
+      {/* <NavLink className={activeLink} to={`/${idEvent}`}>
         Details
-      </NavLink>
-      <NavLink className={activeLink} to={`register`}>
+      </NavLink> */}
+      {/* <NavLink className={activeLink} to={`register`}>
         Register
       </NavLink>
       <NavLink className={activeLink} to={`participants`}>
         View
-      </NavLink>
+      </NavLink> */}
       <NavLink className={activeLink} to="/create-event">
         Create
       </NavLink>

@@ -1,13 +1,11 @@
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { EventsContext } from '../../contexts/EventsContext.jsx';
 import Participant from '../Participant/Participant';
 import css from './ParticipantList.module.css';
 
 const ParticipantList = ({ participants }) => {
-  const events = useContext(EventsContext);
   const { idEvent } = useParams();
-  const event = events.find(event => event.idEvent === idEvent);
+  const events = events.find(event => event.idEvent === idEvent);
 
   return (
     <div className={css.cardListContainer}>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { EventsContext } from '../../contexts/EventsContext.jsx';
-import { useParams, useOutletContext } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { format } from 'date-fns';
 import { toast } from 'react-hot-toast';
@@ -14,7 +14,6 @@ const MY_BIN_ID = '6724e2e9e41b4d34e44c73cd';
 const RegistrationForm = () => {
   const contextEvents = useContext(EventsContext);
   const { idEvent } = useParams();
-  const event = useOutletContext();
 
   const [formData, setFormData] = useState({
     participantId: uuidv4(),
@@ -26,25 +25,25 @@ const RegistrationForm = () => {
   });
   const [localEvents, setLocalEvents] = useState([]);
 
-  useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.jsonbin.io/v3/b/${MY_BIN_ID}`,
-          {
-            headers: {
-              'X-Access-Key': ACCESS_KEY_GET,
-            },
-          }
-        );
-        setLocalEvents(response.data.record.events);
-      } catch (error) {
-        toast.error('Error fetching events.');
-      }
-    };
+  // useEffect(() => {
+  //   const fetchEvents = async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         `https://api.jsonbin.io/v3/b/${MY_BIN_ID}`,
+  //         {
+  //           headers: {
+  //             'X-Access-Key': ACCESS_KEY_GET,
+  //           },
+  //         }
+  //       );
+  //       setLocalEvents(response.data.record.events);
+  //     } catch (error) {
+  //       toast.error('Error fetching events.');
+  //     }
+  //   };
 
-    fetchEvents();
-  }, []);
+  //   fetchEvents();
+  // }, []);
 
   const handleChange = e => {
     const { name, value } = e.target;

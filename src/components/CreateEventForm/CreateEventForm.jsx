@@ -39,16 +39,16 @@ const CreateEventForm = () => {
       };
       console.log('Data to send:', eventData);
 
-      const response = await axios.post(
-        `https://api.jsonbin.io/v3/b/${MY_BIN_ID}`,
-        { record: eventData },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            'X-Access-Key': ACCESS_KEY,
-          },
-        }
-      );
+      // const response = await axios.post(
+      //   `https://api.jsonbin.io/v3/b/${MY_BIN_ID}`,
+      //   { record: eventData },
+      //   {
+      //     headers: {
+      //       'Content-Type': 'application/json',
+      //       'X-Access-Key': ACCESS_KEY,
+      //     },
+      //   }
+      // );
       console.log('Event created:', response.data);
 
       toast.success('Event created successfully!');

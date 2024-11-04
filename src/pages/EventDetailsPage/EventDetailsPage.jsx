@@ -4,34 +4,34 @@ import axios from 'axios';
 import css from './EventDetailsPage.module.css';
 // import Loading from '../../components/Loading/Loading.jsx';
 
-const ACCESS_KEY_GET = `$2a$10$gTYy/AwiYnRyarOfEWwMjOr6oPAXTi5Pd5Mrg/uFvCXLlKymYd7oa`;
-const MY_BIN_ID = '6724e2e9e41b4d34e44c73cd';
+// const ACCESS_KEY_GET = `$2a$10$gTYy/AwiYnRyarOfEWwMjOr6oPAXTi5Pd5Mrg/uFvCXLlKymYd7oa`;
+// const MY_BIN_ID = '6724e2e9e41b4d34e44c73cd';
 
-const EventDetailsPage = () => {
-  const { idEvent } = useParams();
-  const [event, setEvent] = useState(null);
+// const EventDetailsPage = () => {
+//   const { idEvent } = useParams();
+//   const [event, setEvent] = useState(null);
 
-  useEffect(() => {
-    const fetchEvent = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.jsonbin.io/v3/b/${MY_BIN_ID}`,
-          {
-            headers: {
-              'X-Access-Key': ACCESS_KEY_GET,
-            },
-          }
-        );
-        const eventsData = response.data.record.events;
-        const foundEvent = eventsData.find(event => event.idEvent === idEvent);
-        setEvent(foundEvent);
-      } catch (error) {
-        console.error('Error fetching event:', error);
-      }
-    };
+//   useEffect(() => {
+//     const fetchEvent = async () => {
+//       try {
+//         const response = await axios.get(
+//           `https://api.jsonbin.io/v3/b/${MY_BIN_ID}`,
+//           {
+//             headers: {
+//               'X-Access-Key': ACCESS_KEY_GET,
+//             },
+//           }
+//         );
+//         const eventsData = response.data.record.events;
+//         const foundEvent = eventsData.find(event => event.idEvent === idEvent);
+//         setEvent(foundEvent);
+//       } catch (error) {
+//         console.error('Error fetching event:', error);
+//       }
+//     };
 
-    fetchEvent();
-  }, [idEvent]);
+  //   fetchEvent();
+  // }, [idEvent]);
 
   if (!event) {
     return <div>loading...</div>;
