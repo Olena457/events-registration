@@ -5,7 +5,7 @@ import css from './EventCard.module.css';
 export default function EventCard({
   title,
   description,
-  idEvent,
+  id,
   organizer,
   event_date,
 }) {
@@ -26,10 +26,23 @@ export default function EventCard({
         </p>
       </div>
       <div className={css.btnContainer}>
-        <Link to={`/${idEvent}`} className={css.btn}>
-          Details
+        <Link to={`/events/${id}/register`} className={css.btn}>
+          Registration
+        </Link>
+      </div>
+      <div className={css.btnContainer}>
+        <Link to={`/events/${id}/participants`} className={css.btn}>
+          View
         </Link>
       </div>
     </div>
   );
 }
+
+// import { useParams } from 'react-router-dom';
+
+// export function Book() {
+//   const { id } = useParams();
+
+//   return <h1>Book {id}</h1>;
+// }

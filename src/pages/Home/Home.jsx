@@ -9,18 +9,18 @@ const Home = () => {
       <h4 className={css.title}> Hello user!Welcome to the event board!</h4>
       <div className={css.contWrapper}>
         <p className={css.message}>
-          Create your event now!
-          <br />
           Choose the event you watn to attend!
+          <br />
+          Register so you dont miss out!
         </p>
       </div>
       <div className={css.buttonWrapper}>
         <NavLink to="/events" className={css.btnGo}>
           Go Events
         </NavLink>
-        <NavLink to="/create-event" className={css.btnCreate}>
+        {/* <NavLink to="/create-event" className={css.btnCreate}>
           Create Event
-        </NavLink>
+        </NavLink> */}
       </div>
     </ContainerWrapper>
   );

@@ -1,193 +1,224 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { EventsContext } from '../../contexts/EventsContext.jsx';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
-import { format } from 'date-fns';
-import { toast } from 'react-hot-toast';
-import { v4 as uuidv4 } from 'uuid';
-import css from './RegistrationForm.module.css';
+import styles from './RegistrationForm.module.css';
 
-const ACCESS_KEY_GET = `$2a$10$gTYy/AwiYnRyarOfEWwMjOr6oPAXTi5Pd5Mrg/uFvCXLlKymYd7oa`;
-const ACCESS_KEY_PUT = `$2a$10$0OY1hsQ73R3Hlid/hgKPnO7wLOXvkG4G1WmjEcwa/trzqCRDLKNJS`;
-const MY_BIN_ID = '6724e2e9e41b4d34e44c73cd';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import { useId } from 'react';
+import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+// import { registerEvents } from '../../redux/teachers/operationsTeachers.js';
+import { toast } from 'react-toastify';
+const emailRegExp = /^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
+const phoneNumberRegExp = /^\+?[\d\s-]{7,15}$/;
 
-const RegistrationForm = () => {
-  const contextEvents = useContext(EventsContext);
-  const { idEvent } = useParams();
+const registerSchema = yup.object({
+  question: yup.string().required('Please select an option!'),
+  fullname: yup.string().required('Name is required!'),
+  email: yup
+    .string()
+    .required('Email is requred!')
+    .matches(emailRegExp, 'Email is not valid.')
+    .email('Email is not valid.'),
+  phoneNumber: yup
+    .string()
+    .required('Phone number is required!')
+    .matches(
+      phoneNumberRegExp,
+      'The phone number format +XX XXXXX XXXXX. Must contain hyphens and spaces.'
+    ),
+});
 
-  const [formData, setFormData] = useState({
-    participantId: uuidv4(),
-    fullName: '',
-    email: '',
-    dateOfBirth: '',
-    source: 'Social Media',
-    idEvent: idEvent,
+const RegistrationForm = ({ eventCard }) => {
+  const dispatch = useDispatch();
+  const fullnameId = useId();
+  const emailId = useId();
+  const phoneNumberId = useId();
+  const socialMediaId = useId();
+  const friendsId = useId();
+  const myselfId = useId();
+
+  const {
+    register,
+    handleSubmit,
+
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(registerSchema),
+    defaultValues: {
+      fullname: '',
+      email: '',
+      phoneNumber: '',
+      question: '',
+    },
   });
-  const [localEvents, setLocalEvents] = useState([]);
 
-  // useEffect(() => {
-  //   const fetchEvents = async () => {
-  //     try {
-  //       const response = await axios.get(
-  //         `https://api.jsonbin.io/v3/b/${MY_BIN_ID}`,
-  //         {
-  //           headers: {
-  //             'X-Access-Key': ACCESS_KEY_GET,
-  //           },
-  //         }
-  //       );
-  //       setLocalEvents(response.data.record.events);
-  //     } catch (error) {
-  //       toast.error('Error fetching events.');
-  //     }
-  //   };
-
-  //   fetchEvents();
-  // }, []);
-
-  const handleChange = e => {
-    const { name, value } = e.target;
-    setFormData(prevData => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = async e => {
-    e.preventDefault();
-
-    if (!formData.fullName || !formData.email || !formData.dateOfBirth) {
-      toast.error('Please fill in all fields.');
-      return;
-    }
-
-    try {
-      const formattedDate = format(
-        new Date(formData.dateOfBirth),
-        'yyyy-MM-dd'
-      ).toString();
-      const dataToSend = {
-        participant: {
-          ...formData,
-          dateOfBirth: formattedDate,
-        },
-      };
-
-      const event =
-        contextEvents.find(event => event.idEvent === idEvent) ||
-        localEvents.find(event => event.idEvent === idEvent);
-      if (event) {
-        event.participants = event.participants || [];
-        event.participants.push(dataToSend.participant);
-        const response = await axios.put(
-          `https://api.jsonbin.io/v3/b/${MY_BIN_ID}`,
-          { record: { events: localEvents } },
-          {
-            headers: {
-              'X-Access-Key': ACCESS_KEY_PUT,
-              'Content-Type': 'application/json',
-            },
-          }
-        );
-
-        console.log('Registration successful:', response.data);
-        toast.success('Registration successful!');
-        setFormData({
-          participantId: uuidv4(),
-          fullName: '',
-          email: '',
-          dateOfBirth: '',
-          source: 'Social Media',
-          idEvent: idEvent,
+  const onSubmit = data => {
+    dispatch(registerEvent({ ...data, eventID: eventCard.id }))
+      .unwrap()
+      .then(() =>
+        toast.success('Register request sent!', {
+          position: 'top-center',
+        })
+      )
+      .catch(() => {
+        toast.error('Error. Try again later.', {
+          position: 'top-center',
         });
-      } else {
-        toast.error('Event not found.');
-      }
-    } catch (error) {
-      console.error('Error registering:', error);
-      toast.error('Error registering: ' + error.message);
-    }
+      });
   };
 
   return (
-    <form onSubmit={handleSubmit} className={css.registrationForm}>
-      <label className={css.label}>
-        Full Name:
-        <input
-          type="text"
-          name="fullName"
-          value={formData.fullName}
-          onChange={handleChange}
-          className={css.inputField}
-          required
-        />
-      </label>
-      <label className={css.label}>
-        Email:
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          className={css.inputField}
-          required
-        />
-      </label>
-      <label className={css.label}>
-        Date of Birth:
-        <input
-          type="date"
-          name="dateOfBirth"
-          value={formData.dateOfBirth}
-          onChange={handleChange}
-          className={css.inputField}
-          required
-        />
-      </label>
-      <label className={css.label}>
-        Where did you hear about this event?
-        <div className={css.radioWrapper}>
-          <label className={css.radio}>
-            Social Media
-            <input
-              type="radio"
-              name="source"
-              value="Social Media"
-              checked={formData.source === 'Social Media'}
-              onChange={handleChange}
-              className={css.radioInput}
-            />
-          </label>
+    <div className={styles.container}>
+      <h3 className={styles.title} id="register-title">
+        Event registration
+      </h3>
+      <p className={styles.text} id="register-description">
+        To register for the event, please answer a few questions.
+      </p>
 
-          <label className={css.radio}>
-            Friends
-            <input
-              type="radio"
-              name="source"
-              value="Friends"
-              checked={formData.source === 'Friends'}
-              onChange={handleChange}
-              className={css.radioInput}
-            />
-          </label>
-
-          <label className={css.radio}>
-            Myself
-            <input
-              type="radio"
-              name="source"
-              value="Myself"
-              checked={formData.source === 'Myself'}
-              onChange={handleChange}
-              className={css.radioInput}
-            />
-          </label>
+      <div className={styles.imageWrapper}>
+        <img
+          src={organizer['avatar_url']}
+          alt={`${organizer.name} ${organizer.surname}`}
+          className={styles.image}
+        />
+        <div className={styles.imageTextWrapper}>
+          <h6 className={styles.imageTitle}> Event organizer</h6>
+          <p
+            className={styles.imageText}
+          >{`${organizer.name} ${organizer.surname}`}</p>
         </div>
-      </label>
-      <button type="submit" className={css.submitButton}>
-        Register
-      </button>
-    </form>
+      </div>
+
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className={styles.form}
+        aria-labelledby="register-title"
+        aria-describedby="register-description"
+      >
+        <div className={styles.fieldsetWrapper}>
+          <fieldset className={styles.fieldset}>
+            <legend className={styles.legend}>
+              Where did you hear about this event?
+            </legend>
+
+            <div className={styles.radioWrapper}>
+              <>
+                <div className={styles.inputWrapper}>
+                  <input
+                    {...register('question')}
+                    type="radio"
+                    value="SocialMedia"
+                    id={socialMediaId}
+                    className={styles.radio}
+                    aria-labelledby={`social-media`}
+                  />
+                  <label
+                    htmlFor={socialMediaId}
+                    className={styles.label}
+                    id={`social-media`}
+                  >
+                    Social MediaId
+                  </label>
+                </div>
+
+                <div className={styles.inputWrapper}>
+                  <input
+                    {...register('question')}
+                    type="radio"
+                    value="friends"
+                    id={friendsId}
+                    className={styles.radio}
+                    aria-labelledby={`friends-label`}
+                  />
+                  <label
+                    htmlFor={friendsId}
+                    className={styles.label}
+                    id={`friends-label`}
+                  >
+                    Friends
+                  </label>
+                </div>
+
+                <div className={styles.inputWrapper}>
+                  <input
+                    {...register('question')}
+                    type="radio"
+                    value="myself"
+                    id={myselfId}
+                    className={styles.radio}
+                    aria-labelledby={`myself-label`}
+                  />
+                  <label
+                    htmlFor={myselfId}
+                    className={styles.label}
+                    id={`myself-label`}
+                  >
+                    Myself
+                  </label>
+                </div>
+              </>
+            </div>
+          </fieldset>
+
+          <p className={styles.errorText}>{errors.question?.message}</p>
+        </div>
+
+        <div className={styles.userInfo}>
+          <>
+            <div className={styles.nameWrapper}>
+              <label htmlFor={fullnameId} className={styles.label}>
+                Full name
+              </label>
+              <input
+                id={fullnameId}
+                {...register('fullname')}
+                className={styles.input}
+                placeholder="Full name"
+                aria-required="true"
+              />
+              <p className={styles.errorText}>{errors.fullname?.message}</p>
+            </div>
+
+            <div className={styles.emailWrapper}>
+              <label htmlFor={emailId} className={styles.label}>
+                Email
+              </label>
+              <input
+                id={emailId}
+                {...register('email')}
+                className={styles.input}
+                placeholder="Email"
+                autoComplete="email"
+                aria-required="true"
+              />
+              <p className={styles.errorText}>{errors.email?.message}</p>
+            </div>
+
+            <div className={styles.dateWrapper}>
+              <label htmlFor={phoneNumberId} className={styles.label}>
+                Phone number
+              </label>
+              <input
+                id={phoneNumberId}
+                {...register('phoneNumber')}
+                className={styles.input}
+                placeholder="Phone number"
+                aria-required="true"
+              />
+              <p className={styles.errorText}>{errors.phoneNumber?.message}</p>
+            </div>
+          </>
+        </div>
+
+        <button
+          type="submit"
+          className={styles.submitBtn}
+          aria-label="register"
+        >
+          Register
+        </button>
+      </form>
+    </div>
   );
 };
 
