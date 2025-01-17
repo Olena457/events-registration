@@ -25,17 +25,13 @@
 //   );
 // };
 
-import React from 'react';
 import { useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
 import Participant from './Participant';
 import styles from './ParticipantList.module.css';
 import defaultAvatar from '../../assets/icons/user.svg';
 import { selectIsLoggedIn } from '../../redux/auth/selectorsAuth.js';
 
 const ParticipantList = ({ participants }) => {
-  const isLoggedIn = useSelector(selectIsLoggedIn);
-
   return (
     <ul className={styles.participantList}>
       {participants.map((participant, id) => (

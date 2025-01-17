@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import React, { Suspense, lazy } from 'react';
+import { Suspense, lazy } from 'react';
 import 'modern-normalize';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

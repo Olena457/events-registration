@@ -1,4 +1,3 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Home.module.css';
 import ContainerWrapper from '../../components/ContainerWrapper/ContainerWrapper.jsx';

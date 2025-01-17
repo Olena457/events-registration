@@ -3,7 +3,7 @@
 import ParticipantList from '../../components/ParticipantList/ParticipantList.jsx';
 import styles from './ViewParticipantsPage.module.css';
 
-const ViewParticipantsPage = () => {
+const ViewParticipantsPage = ({ participants }) => {
   // const { cardId } = useParams();
   // const [participants, setParticipants] = useState([]);
   // const [loading, setLoading] = useState(true);

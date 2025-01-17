@@ -9,7 +9,7 @@ const CardsPage = () => {
     <>
       {loading ? (
         <Loader />
-      ) : events.length > 0 ? (
+      ) : cards.length > 0 ? (
         <div className={styles.wrapperCard}>
           <CardsList cards={cards} />
         </div>

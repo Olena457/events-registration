@@ -14,7 +14,6 @@
 // };
 
 // export default Participant;
-import React from 'react';
 import styles from './Participant.module.css';
 
 const Participant = ({ participantId, email, fullName, avatar }) => {
