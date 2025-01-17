@@ -1,4 +1,4 @@
-.eventContainer {
+.cardContainer {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -14,28 +14,28 @@
   transition: transform 0.5s ease;
   outline-offset: -20px;
 }
-.eventContainer:hover {
+.cardContainer:hover {
   transform: scale(1.17);
 }
 
-.eventDescription {
+.cardDescription {
   max-height: 100px;
   overflow-y: auto;
   color: #333;
   font-weight: bold;
 }
 
-.eventInfo {
+.cardInfo {
   display: flex;
   font-weight: bold;
   font-size: 18px;
   align-items: flex-start;
 }
-.eventName {
+.cardName {
   color: #333;
   font-size: 18px;
 }
-.eventDate {
+.cardDate {
   color: #333;
   font-size: 18px;
   font-weight: bold;

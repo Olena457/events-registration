@@ -109,7 +109,7 @@
   width: 100%;
 }
 
-.galleryEvent {
+.galleryCard {
   flex: 0 0 calc(100% / 3 - 65px);
   margin-right: 20px;
   background-color: #f0f0f0;
@@ -119,38 +119,39 @@
   flex-direction: column;
   justify-content: center;
 }
-.galleryEvent:first-child {
-  margin-left: 20px; /* Застосовує відступ зліва тільки до першого елемента */
+.galleryCard:first-child {
+  margin-left: 20px;
 }
-.partCard {
+/* styles participants card */
+/* .partCard {
   display: flex;
   flex-direction: column;
   gap: 4px;
   color: black;
   background: linear-gradient(to right, #61a8eb, #bfdbfe);
   box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
-    10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5); /* Додає тіні */
-  height: 150px; /* Зменшено висоту */
+    10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5); 
+  height: 150px;
   width: auto;
-  justify-content: center; /* Центрування по вертикалі */
-  align-items: center; /* Центрування по горизонталі */
+  justify-content: center;
+  align-items: center;
 }
 
 .partName {
   color: #333;
   font-weight: bold;
-  text-align: center; /* Центрування тексту */
+  text-align: center;
 }
 
 .partInfo {
   display: flex;
   align-items: center;
-  justify-content: center; /* Центрування іконок */
-}
+  justify-content: center; 
 
 @media (max-width: 768px) {
   .containerList {
     width: 100%;
     padding: 8px;
   }
-}
+} 
+} */

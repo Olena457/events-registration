@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
-const EventLayout = () => {
+const CardLayout = () => {
   return (
     <>
       <nav>
@@ -20,4 +20,4 @@ const EventLayout = () => {
   );
 };
 
-export default EventLayout;
+export default CardLayout;

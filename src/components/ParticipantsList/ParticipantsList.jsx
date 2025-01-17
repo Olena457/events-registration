@@ -1,14 +1,11 @@
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import Participant from '../Participant/Participant';
 import styles from './ParticipantList.module.css';
 
-const ParticipantList = ({ participants }) => {
-  const { idEvent } = useParams();
-  const events = events.find(event => event.idEvent === idEvent);
-
+const ParticipantsList = ({ participants }) => {
   return (
     <div className={styles.cardListContainer}>
-      <h2>Participants for {idEvent}</h2>
+      <h2>Participants for {card}</h2>
       <ul className={styles.participantList}>
         {participants.map(participant => (
           <li
@@ -27,4 +24,4 @@ const ParticipantList = ({ participants }) => {
   );
 };
 
-export default ParticipantList;
+export default ParticipantsList;

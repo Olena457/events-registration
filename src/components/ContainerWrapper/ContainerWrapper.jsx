@@ -1,5 +1,5 @@
-import css from './ContainerWrapper.module.css';
+import styles from './ContainerWrapper.module.css';
 const ContainerWrapper = ({ children }) => {
-  return <div className={css.container}>{children}</div>;
+  return <div className={styles.container}>{children}</div>;
 };
 export default ContainerWrapper;

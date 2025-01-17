@@ -66,7 +66,7 @@ const SignIn = () => {
       <h2 className={styles.title}>Log In</h2>
       <p className={styles.text}>
         Welcome back! Please enter your credentials to access your account and
-        continue your search for an teacher.
+        continue your search for an events.
       </p>
 
       <form

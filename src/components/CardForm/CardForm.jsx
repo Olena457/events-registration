@@ -1,11 +1,11 @@
-import styles from './RegistrationForm.module.css';
+import styles from './CardForm.module.css';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useId } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-// import { registerEvents } from '../../redux/teachers/operationsTeachers.js';
+// import { registerCards } from '../../redux/cards/operationsCards.js';
 import { toast } from 'react-toastify';
 const emailRegExp = /^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
 const phoneNumberRegExp = /^\+?[\d\s-]{7,15}$/;
@@ -27,7 +27,7 @@ const registerSchema = yup.object({
     ),
 });
 
-const RegistrationForm = ({ eventCard }) => {
+const CardForm = ({ card }) => {
   const dispatch = useDispatch();
   const fullnameId = useId();
   const emailId = useId();
@@ -52,7 +52,7 @@ const RegistrationForm = ({ eventCard }) => {
   });
 
   const onSubmit = data => {
-    dispatch(registerEvent({ ...data, eventID: eventCard.id }))
+    dispatch(registerEvent({ ...data, cardID: card.id }))
       .unwrap()
       .then(() =>
         toast.success('Register request sent!', {
@@ -222,4 +222,4 @@ const RegistrationForm = ({ eventCard }) => {
   );
 };
 
-export default RegistrationForm;
+export default CardForm;

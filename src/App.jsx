@@ -3,7 +3,7 @@ import React, { Suspense, lazy } from 'react';
 import 'modern-normalize';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Loading from './components/Loading/Loading.jsx';
+import Loader from './components/Loader/Loader.jsx';
 import Layout from './components/Layout/Layout.jsx';
 import EventLayout from './components/EventLayout/EventLayout.jsx';
 
@@ -12,11 +12,11 @@ const LogInPage = lazy(() => import('./pages/LogInPage/LogInPage'));
 const RegistrationPage = lazy(() =>
   import('./pages/RegistrationPage/Registrationpage.jsx')
 );
-const EventFormPage = lazy(() =>
-  import('./pages/EventFormPage/EventFormPage.jsx')
+const CardFormPage = lazy(() =>
+  import('./pages/CardFormPage/CardFormPage.jsx')
 );
-const EventDetailsPage = lazy(() =>
-  import('./pages/EventDetailsPage/EventDetailsPage.jsx')
+const CardDetailsPage = lazy(() =>
+  import('./pages/CardDetailsPage/CardDetailsPage.jsx')
 );
 const ViewPage = lazy(() => import('./pages/ViewPage/ViewPage.jsx'));
 const PageNotFound = lazy(() =>
@@ -32,17 +32,17 @@ const PageNotFound = lazy(() =>
 const App = () => {
   return (
     <>
-      <Suspense fallback={<Loading />}>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="/login" element={<LogInPage />} />
             <Route path="/register-user" element={<RegistrationPage />} />
 
-            <Route path="/card" element={<EventLayout />}>
-              <Route path=":id" element={<EventDetailsPage />} />
-              <Route path="register" element={<EventFormPage />} />
-              <Route path="participants" element={<ViewPage />} />
+            <Route path="/cards" element={<CardLayout />}>
+              <Route path=":id" element={<CardDetailsPage />} />
+              <Route path="register" element={<CardFormPage />} />
+              <Route path="participants" element={<ViewParticipantsPage />} />
             </Route>
 
             <Route path="*" element={<PageNotFound />} />

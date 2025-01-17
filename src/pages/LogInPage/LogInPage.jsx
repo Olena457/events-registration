@@ -1,7 +1,7 @@
 import React from 'react';
-import SignIn from './../../components/SignIn/SignIn';
 import styles from './LogInPage.module.css';
 import ContainerWrapper from '../../components/ContainerWrapper/ContainerWrapper.jsx';
+import SignIn from '../../components/SignIn/SignIn.jsx';
 
 const LogInPage = () => {
   return (

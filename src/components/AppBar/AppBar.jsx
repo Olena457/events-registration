@@ -1,14 +1,12 @@
 import Navigation from '../Navigation/Navigation.jsx';
-import css from './AppBar.module.css';
-import { useParams } from 'react-router-dom';
+import styles from './AppBar.module.css';
 
 export const AppBar = () => {
-  const { id } = useParams();
   return (
     <>
-      <div className={css.header}>
-        <h2 className={css.title}>Event Board</h2>
-        <Navigation id={id} />
+      <div className={styles.header}>
+        <h2 className={styles.title}>Event Board</h2>
+        <Navigation />
       </div>
     </>
   );

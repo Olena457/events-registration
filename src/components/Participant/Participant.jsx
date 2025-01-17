@@ -1,13 +1,13 @@
-import css from './Participant.module.css';
+import styles from './Participant.module.css';
 
 const Participant = ({ participantId, email, fullName }) => {
   return (
-    <div className={css.partCard}>
-      <div className={css.partInfo}>
-        <p className={css.partName}>{fullName}</p>
+    <div className={styles.partCard}>
+      <div className={styles.partInfo}>
+        <p className={styles.partName}>{fullName}</p>
       </div>
-      <div className={css.partInfo}>
-        <p className={css.partName}>{email}</p>
+      <div className={styles.partInfo}>
+        <p className={styles.partName}>{email}</p>
       </div>
     </div>
   );

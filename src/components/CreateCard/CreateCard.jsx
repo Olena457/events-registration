@@ -3,7 +3,7 @@
 // import { v4 as uuidv4 } from 'uuid';
 // import css from './CreateEventForm.module.css';
 
-// const CreateEventForm = () => {
+// const CreateAction = () => {
 //   const [formData, setFormData] = useState({
 //     idEvent: uuidv4(),
 //     title: '',

@@ -102,23 +102,23 @@ padding-bottom: 20px; */
   background: linear-gradient(to right, #61a8eb, #bfdbfe);
   box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
     10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
-  height: 140px; /* Зменшено висоту */
+  height: 140px;
   width: 260px;
 
-  justify-content: center; /* Центрування по вертикалі */
-  align-items: stretch; /* Центрування по горизонталі */
+  justify-content: center;
+  align-items: stretch;
 }
 
 .partName {
   color: #333;
   font-weight: bold;
-  text-align: center; /* Центрування тексту */
+  text-align: center;
 }
 
 .partInfo {
   display: flex;
   align-items: center;
-  justify-content: center; /* Центрування іконок */
+  justify-content: center;
 }
 
 /* @media (max-width: 768px) {

@@ -67,7 +67,7 @@ const SignUp = () => {
   return (
     <div className={styles.container}>
       <h2 className={styles.title} id="sign-up-title">
-        Registration
+        Registration in the application
       </h2>
       <p className={styles.text} id="sign-up-description">
         Thank you for your interest in our platform! In order to register, we
@@ -138,7 +138,7 @@ const SignUp = () => {
                 height={20}
                 className={styles.eye}
                 role="button"
-                fillColor="#121417"
+                fillColor="#e44848"
                 inert="falce"
               />
             )}

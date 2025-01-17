@@ -1,17 +1,17 @@
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
-import css from './Navigation.module.css';
+import styles from './Navigation.module.css';
 
 const Navigation = () => {
-  const { id } = useParams();
-  const activeLink = ({ isActive }) => clsx(css.link, isActive && css.active);
+  const activeLink = ({ isActive }) =>
+    clsx(styles.link, isActive && styles.active);
 
   return (
-    <div className={css.container}>
+    <div className={styles.container}>
       <NavLink className={activeLink} to="/">
         Home
       </NavLink>
-      <NavLink className={activeLink} to="/card">
+      <NavLink className={activeLink} to="/cards">
         Events
       </NavLink>
 
