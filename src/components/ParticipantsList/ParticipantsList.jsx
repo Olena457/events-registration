@@ -1,27 +1,55 @@
-// import { useParams } from 'react-router-dom';
-import Participant from '../Participant/Participant';
-import styles from './ParticipantList.module.css';
+// import React from 'react';
+// import { useSelector } from 'react-redux';
+// import { selectIsLoggedIn } from '../../redux/auth/selectorsAuth.js';
+// import Participant from './Participant';
+// import styles from './Participants.module.css';
 
-const ParticipantsList = ({ participants }) => {
+// const Participants = ({ participants }) => {
+//   const isLoggedIn = useSelector(selectIsLoggedIn);
+
+//   if (!isLoggedIn) {
+//     return <p>Please log in to view participants.</p>;
+//   }
+
+//   return (
+//     <div className={styles.participantsContainer}>
+//       {participants.map(participant => (
+//         <Participant
+//           key={participant.id}
+//           participantId={participant.id}
+//           email={participant.email}
+//           fullName={participant.fullName}
+//         />
+//       ))}
+//     </div>
+//   );
+// };
+
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
+import Participant from './Participant';
+import styles from './ParticipantList.module.css';
+import defaultAvatar from '../../assets/icons/user.svg';
+import { selectIsLoggedIn } from '../../redux/auth/selectorsAuth.js';
+
+const ParticipantList = ({ participants }) => {
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+
   return (
-    <div className={styles.cardListContainer}>
-      <h2>Participants for {card}</h2>
-      <ul className={styles.participantList}>
-        {participants.map(participant => (
-          <li
-            key={participant.participantId}
-            className={styles.participantItem}
-          >
-            <Participant
-              participantId={participant.participantId}
-              email={participant.email}
-              fullName={participant.fullName}
-            />
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ul className={styles.participantList}>
+      {participants.map((participant, id) => (
+        <li key={id} className={styles.participantItem}>
+          <Participant
+            participantId={participant.id}
+            email={participant.email}
+            fullName={participant.fullName || participant['participant_name']}
+            avatar={participant.avatar || defaultAvatar}
+          />
+        </li>
+      ))}
+    </ul>
   );
 };
 
-export default ParticipantsList;
+export default ParticipantList;
