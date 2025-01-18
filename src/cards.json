@@ -1,415 +1,396 @@
 {
-  "events": [
-    {
-      "idEvent": "1",
-      "title": "Tech Conference 2024",
+  "cards": {
+    "-MplZP_bZf8PlbbQQ6Z5": {
+      "title": "Tech Conference 2025",
       "description": "A conference exploring the latest in technology and innovation.",
-      "event_date": "2024-11-15",
-      "organizer": "Tech World Inc.",
-      "participants": [
-        {
-          "participantId": "13",
-          "fullName": "Mary Martin",
-          "email": "steven65@morales.com",
-          "dateOfBirth": "1982-07-30",
-          "source": "Social Media"
+      "date": "2025-01-23T22:25:57.010+00:00",
+      "organizer": {
+        "full_name": "Anna Shevchenko",
+        "avatar_url": "https://ftp.goit.study/img/avatars/23.jpg"
+      },
+      "participants": {
+        "-LkfZJ_syY8QbbbYY6QY": {
+          "full_name": "Mark Kyrt",
+          "email": "maark@example.com",
+          "tel": "+38034567892",
+          "source": "Myself"
         },
-        {
-          "participantId": "14",
-          "fullName": "Donald Anderson",
-          "email": "cynthiaruiz@simmons-dunn.com",
-          "dateOfBirth": "1976-09-22",
-          "source": "Social Media"
-        }
-      ]
-    },
-    {
-      "idEvent": "2",
-      "title": "Health & Wellness Expo",
-      "description": "Join health experts and enthusiasts for a day of wellness activities.",
-      "event_date": "2024-12-01",
-      "organizer": "Wellness Gurus",
-      "participants": [
-        {
-          "participantId": "15",
-          "fullName": "Rachel Morrow",
-          "email": "phillipswilliam@gmail.com",
-          "dateOfBirth": "1968-02-23",
-          "source": "Social Media"
-        },
-        {
-          "participantId": "16",
-          "fullName": "Adam Bryant",
-          "email": "sandraacosta@gmail.com",
-          "dateOfBirth": "2000-01-23",
+        "-MplZP_bZf8PlbbZZ6ZZ": {
+          "full_name": "Natali Shevchenko",
+          "email": "natali@example.com",
+          "tel": "+38033445566",
           "source": "Friends"
         }
-      ]
+      }
     },
-    {
-      "idEvent": "3",
-      "title": "Tech Conference 2024",
-      "description": "A conference exploring the latest in technology and innovation.",
-      "event_date": "2024-11-15",
-      "organizer": "Tech World Inc.",
-      "participants": [
-        {
-          "participantId": "17",
-          "fullName": "Mary Martin",
-          "email": "steven65@morales.com",
-          "dateOfBirth": "1982-07-30",
-          "source": "Social Media"
-        },
-        {
-          "participantId": "18",
-          "fullName": "Donald Anderson",
-          "email": "cynthiaruiz@simmons-dunn.com",
-          "dateOfBirth": "1976-09-22",
-          "source": "Social Media"
-        }
-      ]
-    },
-    {
-      "idEvent": "4",
+    "-PplZP_aZf8PlbbZZ538": {
       "title": "Health & Wellness Expo",
       "description": "Join health experts and enthusiasts for a day of wellness activities.",
-      "event_date": "2024-12-01",
-      "organizer": "Wellness Gurus",
-      "participants": [
-        {
-          "participantId": "19",
-          "fullName": "Rachel Morrow",
-          "email": "phillipswilliam@gmail.com",
-          "dateOfBirth": "1968-02-23",
+      "date": "2025-02-10T10:00:00.000+00:00",
+      "organizer": {
+        "full_name": "Olena Petrenko",
+        "avatar_url": "https://ftp.goit.study/img/avatars/37.jpeg"
+      },
+      "participants": {
+        "-PplQL_aZf90lbbZZ533": {
+          "full_name": "Donna Mann",
+          "email": "jason13@gmail.com",
+          "tel": "+38033445577",
           "source": "Social Media"
         },
-        {
-          "participantId": "20",
-          "fullName": "Adam Bryant",
-          "email": "sandraacosta@gmail.com",
-          "dateOfBirth": "2000-01-23",
-          "source": "Friends"
+        "-PrlMI_aZf90lbbZQ539": {
+          "full_name": "Lindsay Walker",
+          "email": "snyderalbert@yahoo.com",
+          "tel": "+38033445521",
+          "source": "Social Media"
         }
-      ]
+      }
     },
-    {
-      "idEvent": "5",
+    "-TplZQ_cZf8PlbbZZ531": {
       "title": "Non-Profit Fundraising Gala",
       "description": "An evening of philanthropy to support various non-profit organizations.",
-      "event_date": "2024-11-28",
-      "organizer": "Global Charity Network",
-      "participants": [
-        {
-          "participantId": "21",
-          "fullName": "Ryan Turner",
-          "email": "brian65@yahoo.com",
-          "dateOfBirth": "2004-05-02",
-          "source": "Myself"
+      "date": "2025-03-15T17:00:00.000+00:00",
+      "organizer": {
+        "full_name": "Maria Kovalenko",
+        "avatar_url": "https://ftp.goit.study/img/avatars/10.jpg"
+      },
+      "participants": {
+        "-Pdonald5Qfj8PbbRZQ6p": {
+          "full_name": "Mary Martin",
+          "email": "steven65@morales.com",
+          "tel": "+38033445566",
+          "source": "Social Media"
+        },
+        "-Pdonald7Q4j8RbbRQ6Qg": {
+          "participantId": "18",
+          "full_name": "Donald Anderson",
+          "email": "cynthiaruiz@simmons-dunn.com",
+          "tel": "+38033445569",
+          "source": "Social Media"
         }
-      ]
+      }
     },
-    {
-      "idEvent": "6",
+    "-NoplZP_cZf8PlbbYY6113": {
       "title": "Art & Design Workshop",
       "description": "A hands-on workshop for aspiring artists and designers.",
-      "event_date": "2024-10-18",
-      "organizer": "Creative Minds",
-      "participants": [
-        {
-          "participantId": "22",
-          "fullName": "Kathryn Romero",
-          "email": "jordannelson@barron.net",
-          "dateOfBirth": "2003-08-27",
-          "source": "Friends"
+      "date": "2025-04-21T13:30:00.000+00:00",
+      "organizer": {
+        "full_name": "Iryna Vasylchenko",
+        "avatar_url": "https://ftp.goit.study/img/avatars/25.jpg"
+      },
+      "participants": {
+        "-Pmickey5ZnC8NbbRQ8KH": {
+          "full_name": "Ryan Turner",
+          "email": "brian65@yahoo.com",
+          "tel": "+38053445500",
+          "source": "Myself"
         },
-        {
-          "participantId": "23",
-          "fullName": "Michael Horne",
-          "email": "llewis@acevedo.info",
-          "dateOfBirth": "1966-05-22",
-          "source": "Social Media"
+        "-Pgoofy6ZnF9PccRQ9LM": {
+          "full_name": "Kathryn Romero",
+          "email": "jordannelson@barron.net",
+          "tel": "+38053445561",
+          "source": "Friends"
         }
-      ]
+      }
     },
-    {
-      "idEvent": "7",
+    "-HgplZP_aZf8PlbbYY7801": {
       "title": "Business Networking Event",
       "description": "Expand your professional network with industry leaders.",
-      "event_date": "2024-11-30",
-      "organizer": "Global Entrepreneurs",
-      "participants": [
-        {
-          "participantId": "24",
-          "fullName": "Jennifer Hughes",
-          "email": "hgarcia@hotmail.com",
-          "dateOfBirth": "1998-06-03",
+      "date": "2025-05-07T09:00:00.000+00:00",
+      "organizer": {
+        "full_name": "Kateryna Boyko",
+        "avatar_url": "https://ftp.goit.study/img/avatars/30.jpg"
+      },
+      "participants": {
+        "-PdonduckQfj8RbbRQ8Ff": {
+          "full_name": "Rachel Morrow",
+          "email": "phillipswilliam@gmail.com",
+          "tel": "+38053445566",
           "source": "Social Media"
         },
-        {
-          "participantId": "25",
-          "fullName": "Anthony Andrews",
-          "email": "thomas25@hotmail.com",
-          "dateOfBirth": "1998-07-12",
-          "source": "Friends"
-        },
-        {
-          "participantId": "26",
-          "fullName": "Susan Hale",
-          "email": "vruiz@spence.com",
-          "dateOfBirth": "1967-01-04",
+        "-Pmickey3ZnT7RbbRQ7GH": {
+          "full_name": "Adam Bryant",
+          "email": "sandraacosta@gmail.com",
+          "tel": "+38037445566",
           "source": "Friends"
         }
-      ]
+      }
     },
-    {
-      "idEvent": "8",
+    "-FgplZP_cZf8PlbbYY8502": {
       "title": "Environmental Summit",
       "description": "A summit discussing environmental issues and sustainable solutions.",
-      "event_date": "2024-12-05",
-      "organizer": "Green Earth Org.",
-      "participants": [
-        {
-          "participantId": "27",
-          "fullName": "Erin Tanner",
-          "email": "michael49@jackson.org",
-          "dateOfBirth": "2005-12-02",
-          "source": "Friends"
+      "date": "2025-06-22T17:45:00.000+00:00",
+      "organizer": {
+        "full_name": "Valeriia Dybinka",
+        "avatar_url": "https://ftp.goit.study/img/avatars/21.jpg"
+      },
+      "participants": {
+        "-Pmickey8ZnE7NbbRQ7KK": {
+          "full_name": "Michael Horne",
+          "email": "llewis@acevedo.info",
+          "tel": "+38053715566",
+          "source": "Social Media"
         },
-        {
-          "participantId": "28",
-          "fullName": "Edward Jordan",
-          "email": "clydekent@yahoo.com",
-          "dateOfBirth": "1997-09-06",
-          "source": "Myself"
+        "-Pdonald9ZnF4BbbRQ4MM": {
+          "full_name": "Jennifer Hughes",
+          "email": "hgarcia@hotmail.com",
+          "tel": "+38010445566",
+          "source": "Friends"
         }
-      ]
+      }
     },
-    {
-      "idEvent": "9",
+    "-LqplZP_bZf8PlbbYY9810": {
       "title": "Music Festival 2025",
       "description": "A weekend full of music from various genres and artists.",
-      "event_date": "2025-03-15",
-      "organizer": "Music Fest Productions",
-      "participants": [
-        {
-          "participantId": "29",
-          "fullName": "Anthony Andrews",
+      "date": "2025-07-15T20:00:00.000+00:00",
+      "organizer": {
+        "full_name": "Tetyana Horbatenko",
+        "avatar_url": "https://ftp.goit.study/img/avatars/16.jpg"
+      },
+      "participants": {
+        "-Pgoofy4ZnB5JbbRQ6NN": {
+          "full_name": "Anthony Andrews",
           "email": "thomas25@hotmail.com",
-          "dateOfBirth": "1998-07-12",
+          "tel": "+38053722566",
+          "source": "Social Media"
+        },
+        "-Pdonald6ZnM7CbbRQ2OO": {
+          "full_name": "Susan Hale",
+          "email": "vruiz@spence.com",
+          "tel": "+38010415560",
           "source": "Friends"
         }
-      ]
+      }
     },
-    {
-      "idEvent": "10",
+    "-TpplZQ_cZf8PlbbYY7453": {
       "title": "Coding Bootcamp",
       "description": "A two-week intensive bootcamp for aspiring software developers.",
-      "event_date": "2024-11-07",
-      "organizer": "Code Academy",
-      "participants": [
-        {
-          "participantId": "30",
-          "fullName": "Michael Horne",
-          "email": "llewis@acevedo.info",
-          "dateOfBirth": "1966-05-22",
+      "date": "2025-08-11T09:00:00.000+00:00",
+      "organizer": {
+        "full_name": "Oksana Melnyk",
+        "avatar_url": "https://ftp.goit.study/img/avatars/38.jpeg"
+      },
+      "participants": {
+        "-MkY9jNYuI5zXkVD-123": {
+          "full_name": "Erin Tanner",
+          "email": "michael49@jackson.org",
+          "tel": "+38053322596",
           "source": "Social Media"
+        },
+        "-PplU8Z_Af8ArbbYY458": {
+          "full_name": "Edward Jordan",
+          "email": "clydekent@yahoo.com",
+          "tel": "+38010404566",
+          "source": "Friends"
         }
-      ]
+      }
     },
-    {
-      "idEvent": "11",
+    "-JmplZP_cZf8PlbbYY2764": {
       "title": "Film Screening & Discussion",
       "description": "Watch an indie film followed by a panel discussion with the creators.",
-      "event_date": "2024-12-12",
-      "organizer": "Indie Film Collective",
-      "participants": [
-        {
-          "participantId": "31",
-          "fullName": "Julie Tyler",
-          "email": "hvaldez@nicholson-chavez.com",
-          "dateOfBirth": "1968-09-19",
+      "date": "2025-09-19T18:00:00.000+00:00",
+      "organizer": {
+        "full_name": "Larysa Honcharuk",
+        "avatar_url": "https://ftp.goit.study/img/avatars/14.jpg"
+      },
+      "participants": {
+        "-XlkD0Qa_h9MlbYZ784": {
+          "full_name": "Anthony Andrews",
+          "email": "thomas25@hotmail.com",
+          "tel": "+38053921596",
           "source": "Social Media"
-        }
-      ]
-    },
-    {
-      "idEvent": "12",
-      "title": "Fitness Challenge",
-      "description": "A community-driven fitness challenge with prizes for top performers.",
-      "event_date": "2025-01-10",
-      "organizer": "FitLife",
-      "participants": [
-        {
-          "participantId": "32",
-          "fullName": "Thomas Klein",
-          "email": "mhernandez@yahoo.com",
-          "dateOfBirth": "1986-07-22",
-          "source": "Friends"
         },
-        {
-          "participantId": "33",
-          "fullName": "Brenda Nelson",
-          "email": "danieladams@clayton.net",
-          "dateOfBirth": "1981-03-15",
-          "source": "Myself"
+        "-ZqlR3Kb_Q6sVczZZ457": {
+          "full_name": "Michael Horne",
+          "email": "llewis@acevedo.info",
+          "tel": "+38017404565",
+          "source": "Friends"
         }
-      ]
+      }
     },
-
-    {
-      "idEvent": "13",
+    "-VgplZP_cZf8PlbbYY6185": {
       "title": "Blockchain Symposium",
       "description": "Experts discuss the future of blockchain technology and its applications.",
-      "event_date": "2024-12-18",
-      "organizer": "Crypto Innovators",
-      "participants": [
-        {
-          "participantId": "34",
-          "fullName": "Adam Bryant",
-          "email": "sandraacosta@gmail.com",
-          "dateOfBirth": "2000-01-23",
-          "source": "Friends"
+      "date": "2025-10-23T10:00:00.000+00:00",
+      "organizer": {
+        "full_name": "Mariia Kovalenko",
+        "avatar_url": "https://ftp.goit.study/img/avatars/18.jpg"
+      },
+      "participants": {
+        "-ErlF9cA_b8QmWdYY012": {
+          "full_name": "Julie Tyler",
+          "email": "hvaldez@nicholson-chavez.com",
+          "tel": "+38053921511",
+          "source": "Social Media"
         },
-        {
-          "participantId": "35",
-          "fullName": "Crystal Hawkins",
-          "email": "michaelpollard@yahoo.com",
-          "dateOfBirth": "1985-10-25",
-          "source": "Myself"
+        "-MrlW3VZ_a7PtIbZZ345": {
+          "full_name": "Thomas Klein",
+          "email": "mhernandez@yahoo.com",
+          "tel": "+38017404305",
+          "source": "Friends"
         }
-      ]
+      }
     },
-    {
-      "idEvent": "14",
+    "-KrlX4LQ_g6UtMcYY678": {
+      "title": "Fitness Challenge",
+      "description": "A community-driven fitness challenge with prizes for top performers.",
+      "date": "2025-10-24T10:00:00.000+00:00",
+      "organizer": {
+        "full_name": "Kateryna Petrenko",
+        "avatar_url": "https://ftp.goit.study/img/avatars/8.jpg"
+      },
+      "participants": {
+        "-BqlC8TZ_d4QpYczZY342": {
+          "full_name": "Mark Tyler",
+          "email": "markez@nicholson-chavez.com",
+          "tel": "+38053821571",
+          "source": "Social Media"
+        },
+        "-LtlG2JA_b7RhYfYY567": {
+          "full_name": "Toma Kelin",
+          "email": "toma@yahoo.com",
+          "tel": "+38017401308",
+          "source": "Friends"
+        }
+      }
+    },
+    "-RtlJ5DZ_e9UvQbYY901": {
       "title": "Culinary Arts Masterclass",
       "description": "Learn from top chefs in this immersive culinary experience.",
-      "event_date": "2025-02-20",
-      "organizer": "Master Chefs Association",
-      "participants": [
-        {
-          "participantId": "36",
-          "fullName": "Jessica Harrison",
-          "email": "claykevin@watson-yang.com",
-          "dateOfBirth": "1980-11-01",
-          "source": "Friends"
-        },
-        {
-          "participantId": "37",
-          "fullName": "Donna Mann",
-          "email": "jason13@gmail.com",
-          "dateOfBirth": "1991-07-01",
+      "date": "2025-10-24T10:00:00.000+00:00",
+      "organizer": {
+        "full_name": "Anastasiia Zinchenko",
+        "avatar_url": "https://ftp.goit.study/img/avatars/12.jpg"
+      },
+      "participants": {
+        "-HqlP4BZ_f6YtPdYY332": {
+          "full_name": "Marina kyler",
+          "email": "marinka@chavez.com",
+          "tel": "+38011121571",
           "source": "Social Media"
+        },
+        "-NqlQ3LQ_g8UtQdZZ455": {
+          "full_name": "Roma Relin",
+          "email": "roma@yahoo.com",
+          "tel": "+38017402228",
+          "source": "Friends"
         }
-      ]
+      }
     },
-    {
-      "idEvent": "15",
+    "-PlkT2BB_d5XsMcZZ678": {
       "title": "Photography Exhibition",
       "description": "Showcase of works by local and international photographers.",
-      "event_date": "2024-12-25",
-      "organizer": "PhotoArt Gallery",
-      "participants": [
-        {
-          "participantId": "38",
-          "fullName": "Lindsay Walker",
-          "email": "snyderalbert@yahoo.com",
-          "dateOfBirth": "1988-12-07",
+      "date": "2025-10-27T10:00:00.000+00:00",
+      "organizer": {
+        "full_name": "Yuliia Moroz",
+        "avatar_url": "https://ftp.goit.study/img/avatars/31.jpeg"
+      },
+      "participants": {
+        "-TqlF3DZ_f7QrVcYY901": {
+          "full_name": "July Shuler",
+          "email": "july@chavez.com",
+          "tel": "+38011121661",
           "source": "Social Media"
         },
-        {
-          "participantId": "39",
-          "fullName": "Joshua Knight",
-          "email": "wrightlinda@mcdowell-chavez.com",
-          "dateOfBirth": "1983-12-23",
-          "source": "Myself"
+        "-TqlF3DZ_f7QrVcYY903": {
+          "full_name": "Roma Relin",
+          "email": "roma@yahoo.com",
+          "tel": "+38017402213",
+          "source": "Friends"
         }
-      ]
+      }
     },
-    {
-      "idEvent": "16",
+    "-MqsfRv_V1XpDjYY3456": {
       "title": "Robotics Competition",
       "description": "Teams compete in building and programming autonomous robots.",
-      "event_date": "2025-03-01",
-      "organizer": "Robotics Club",
-      "participants": [
-        {
-          "participantId": "40",
-          "fullName": "Philip Scott",
-          "email": "frank35@coleman.com",
-          "dateOfBirth": "1992-02-04",
-          "source": "Friends"
+      "date": "2025-10-26T10:00:00.000+00:00",
+      "organizer": {
+        "full_name": "Olena Kryvko",
+        "avatar_url": "https://ftp.goit.study/img/avatars/32.jpeg"
+      },
+      "participants": {
+        "-PrlF_tZ_h6XpYdZZ5432": {
+          "full_name": "Niky laky",
+          "email": "niky@chavez.com",
+          "tel": "+38013331661",
+          "source": "Myself"
         },
-        {
-          "participantId": "41",
-          "fullName": "Stephanie George",
-          "email": "matthew96@butler-hernandez.info",
-          "dateOfBirth": "1975-08-21",
-          "source": "Friends"
+        "-CrlF_aLQ_g5UqMcYY2385": {
+          "full_name": "Foma Felin",
+          "email": "foma@yahoo.com",
+          "tel": "+380175555214",
+          "source": "Myself"
         }
-      ]
+      }
     },
-    {
-      "idEvent": "17",
+    "-NqlF_cXQ_j7VrWdYY7811": {
       "title": "Marketing Strategy Workshop",
       "description": "Learn modern marketing strategies to grow your business.",
-      "event_date": "2025-02-15",
-      "organizer": "Marketing Pros",
-      "participants": [
-        {
-          "participantId": "42",
-          "fullName": "Edward Jordan",
+      "date": "2025-10-26T10:00:00.000+00:00",
+      "organizer": {
+        "full_name": "Natalia Melnyk",
+        "avatar_url": "https://ftp.goit.study/img/avatars/35.jpeg"
+      },
+      "participants": {
+        "-FrlF_eDZ_i8XsVcYY1245": {
+          "full_name": "Edward Jordan",
           "email": "clydekent@yahoo.com",
-          "dateOfBirth": "1997-09-06",
+          "tel": "+38013331061",
           "source": "Myself"
         },
-        {
-          "participantId": "43",
-          "fullName": "Tracey Greene",
+        "-HqlF_bA_d7XuTcZZ3476": {
+          "full_name": "Tracey Greene",
           "email": "cassandra31@yahoo.com",
-          "dateOfBirth": "1996-06-14",
+          "tel": "+380175505214",
           "source": "Myself"
         }
-      ]
+      }
     },
-    {
-      "idEvent": "18",
+    "-JqlF_PTZ_b8QtBcYY7408": {
       "title": "AI & Machine Learning Conference",
       "description": "Industry experts discuss the future of AI and machine learning.",
-      "event_date": "2024-12-10",
-      "organizer": "AI Research Group",
-      "participants": [
-        {
-          "participantId": "44",
-          "fullName": "Brenda Nelson",
-          "email": "danieladams@clayton.net",
-          "dateOfBirth": "1981-03-15",
+      "date": "2025-10-29T10:00:00.000+00:00",
+      "organizer": {
+        "full_name": "Iryna Holovko",
+        "avatar_url": "https://ftp.goit.study/img/avatars/40.jpeg"
+      },
+      "participants": {
+        "-RqlF_QbZ_k9ZrNcYY2846": {
+          "full_name": "Venda Kelson",
+          "email": "venda@clayton.net",
+          "tel": "+38017331268",
+          "source": "Myself"
+        },
+        "-TqlF_DQZ_r5PpQdYY9165": {
+          "full_name": "Michel Vilson",
+          "email": "michee@davis.com",
+          "tel": "+380195508408",
           "source": "Myself"
         }
-      ]
+      }
     },
-    {
-      "idEvent": "19",
+    "-QqlF_FDZ_t8XrPdYY3284": {
       "title": "Craft Beer Festival",
       "description": "Sample craft beers from local and regional breweries.",
-      "event_date": "2025-01-25",
-      "organizer": "Brew Masters Association",
-      "participants": [
-        {
-          "participantId": "45",
-          "fullName": "Michael Johnson",
-          "email": "nichole09@davis.com",
-          "dateOfBirth": "1979-01-05",
-          "source": "Social Media"
+      "date": "2025-11-29T10:00:00.000+00:00",
+      "organizer": {
+        "full_name": "Tetyana Rudenko",
+        "avatar_url": "https://ftp.goit.study/img/avatars/39.jpeg"
+      },
+      "participants": {
+        "-VqlF_HyZ_k4StNdYY5489": {
+          "full_name": "Velanda Chelson",
+          "email": "velanda@clayson.net",
+          "tel": "+38017533268",
+          "source": "Myself"
+        },
+        "-XqlF_JHZ_b6UtYdYY7612": {
+          "full_name": "Mikell Vilsok",
+          "email": "vichek@dakis.com",
+          "tel": "+380175508508",
+          "source": "Myself"
         }
-      ]
-    },
-    {
-      "idEvent": "20",
-      "title": "Fashion Show",
-      "description": "Showcasing the latest fashion trends from top designers.",
-      "event_date": "2025-03-10",
-      "organizer": "Fashion Forward",
-      "participants": []
+      }
     }
-  ]
+  }
 }
