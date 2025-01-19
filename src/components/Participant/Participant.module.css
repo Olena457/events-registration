@@ -1,35 +1,3 @@
-/* .partCard {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  flex-wrap: wrap;
-  color: black;
-  background: linear-gradient(to right, #61a8eb, #bfdbfe);
-  padding-top: 150px;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 20px;
-  box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
-    10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
-}
-
-.partName {
-  color: #333;
-  font-weight: bold;
-}
-
-.partInfo {
-  display: flex;
-  align-items: center;
-}
-
-@media (max-width: 768px) {
-  .eventContainer {
-    width: 100%;
-    padding: 8px;
-  }
-} */
-
 /* _______________________________________________ */
 /* .partCard {
   display: flex;
@@ -108,7 +76,18 @@ padding-bottom: 20px; */
   justify-content: center;
   align-items: stretch;
 }
-
+.title {
+  font-size: 18px;
+  font-weight: 500;
+  color: red;
+}
+.partName {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--gray-color);
+  margin-bottom: 2px;
+}
 .partName {
   color: #333;
   font-weight: bold;
@@ -120,7 +99,17 @@ padding-bottom: 20px; */
   align-items: center;
   justify-content: center;
 }
-
+.participantAvatar {
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+.iconParticipantWrapper {
+  margin-bottom: 16px;
+  display: flex;
+  gap: 12px;
+}
 /* @media (max-width: 768px) {
   .eventContainer {
     width: 100%;

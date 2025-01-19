@@ -1,51 +1,42 @@
-// import React from 'react';
 // import { useSelector } from 'react-redux';
-// import { selectIsLoggedIn } from '../../redux/auth/selectorsAuth.js';
 // import Participant from './Participant';
-// import styles from './Participants.module.css';
+// import styles from './ParticipantList.module.css';
+// import defaultAvatar from '../../assets/icons/user.svg';
+// import { selectIsLoggedIn } from '../../redux/auth/selectorsAuth.js';
 
-// const Participants = ({ participants }) => {
-//   const isLoggedIn = useSelector(selectIsLoggedIn);
-
-//   if (!isLoggedIn) {
-//     return <p>Please log in to view participants.</p>;
-//   }
-
+// const ParticipantList = ({ participants }) => {
 //   return (
-//     <div className={styles.participantsContainer}>
-//       {participants.map(participant => (
-//         <Participant
-//           key={participant.id}
-//           participantId={participant.id}
-//           email={participant.email}
-//           fullName={participant.fullName}
-//         />
+//     <ul className={styles.participantList}>
+//       {participants.map((participant, id) => (
+//         <li key={id} className={styles.participantItem}>
+//           <Participant
+//             participantId={participant.id}
+//             email={participant.email}
+//             fullName={participant.fullName || participant['participant_name']}
+//             avatar={participant.avatar || defaultAvatar}
+//           />
+//         </li>
 //       ))}
-//     </div>
+//     </ul>
 //   );
 // };
 
-import { useSelector } from 'react-redux';
+// export default ParticipantList;
 import Participant from './Participant';
 import styles from './ParticipantList.module.css';
-import defaultAvatar from '../../assets/icons/user.svg';
-import { selectIsLoggedIn } from '../../redux/auth/selectorsAuth.js';
 
-const ParticipantList = ({ participants }) => {
-  return (
-    <ul className={styles.participantList}>
-      {participants.map((participant, id) => (
-        <li key={id} className={styles.participantItem}>
-          <Participant
-            participantId={participant.id}
-            email={participant.email}
-            fullName={participant.fullName || participant['participant_name']}
-            avatar={participant.avatar || defaultAvatar}
-          />
-        </li>
-      ))}
-    </ul>
-  );
-};
+const ParticipantList = ({ participants }) => (
+  <ul className={styles.participantList}>
+    {Object.entries(participants).map(([id, participant]) => (
+      <li key={id} className={styles.participantItem}>
+        <Participant
+          participantId={id}
+          email={participant.email}
+          fullName={participant.full_name}
+        />
+      </li>
+    ))}
+  </ul>
+);
 
 export default ParticipantList;

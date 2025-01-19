@@ -78,7 +78,7 @@
   color: red;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .container {
     width: 438px;
   }
@@ -86,4 +86,4 @@
   .input {
     width: 438px;
   }
-}
+} */

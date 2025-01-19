@@ -1,88 +1,3 @@
-/* .containerList {
-  max-width: 1440px;
-  height: auto;
-  flex-wrap: nowrap;
-  overflow-y: auto;
-}
-
-.participantList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  max-width: 1440px;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
-  margin: 0 auto;
-}
-
-.participantItem {
-  border: 1px solid red;
-  flex-direction: column;
-  align-items: center;
-  flex: 0 0 calc(33.33% - 24px);
-} */
-/* ______________________________________________ */
-/* .containerList {
-  max-width: 1440px; 
-   height: auto;
-  max-height: 600px; 
-  overflow-y: auto;
-} */
-/* ___________________________________________________________ */
-/* .participantList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-
-  justify-content: center;
-  align-items: center;
-  list-style: none;
-  margin: 0 auto;
-  overflow-y: auto;
-}
-
-.participantItem {
-  border: 1px solid red;
-  flex-direction: column;
-  align-items: center;
-  flex: 0 0 calc(33.33% - 24px);
-  max-width: calc(33.33% - 24px);
-} */
-/* ця що зверху була остання */
-/* .participantList {
-  display: flex;
-  flex-direction: column; 
-  gap: 24px;
-  max-width: 1440px;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
-  margin: 0 auto;
-  overflow-x: auto; 
-}
-
-.participantItem {
-  border: 1px solid red;
-  flex-direction: column;
-  align-items: center;
-  flex: 0 0 calc(50% - 24px); 
-  max-width: calc(50% - 24px);
-}   */
-/* .cardList {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  overflow-y: hidden;
-  width: 100%;
-  max-width: 100%;
-}
-
-.cardList .card {
-  flex: 0 0 calc(100% / 12);
-  gap: 24px;
-  box-sizing: border-box;
-} */
 /* пердостанній__________________________________ */
 /* .cardListContainer {
   display: flex;
@@ -133,21 +48,21 @@ flex-wrap: wrap; */
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       } */
 /* _________________________________________________________ */
-.cardListContainer {
+/* .cardListContainer {
   display: flex;
   justify-content: space-evenly;
   width: auto;
-}
-.participantItem {
-  flex: 0 0 calc(100% / 5 - 10px);
-  margin-right: 10px;
-  background-color: #f0f0f0;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+} */
 .participantList {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 10px;
   list-style: none;
+}
+.participantItem {
+  flex: 0 0 calc(100% / 5 - 10px);
+  margin-right: 10px;
+  background-color: #d549e8;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

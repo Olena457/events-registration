@@ -1,19 +1,19 @@
 import Card from './../Card/Card.jsx';
 import styles from './cardsList.module.css';
 
-const CardsList = () => {
+const CardsList = ({ cards }) => {
   return (
     <div className={styles.containerList}>
       <ul className={styles.gallery}>
         {cards.map(card => (
           <li key={card.id} className={styles.galleryCard}>
             <Card
+              key={card.id}
               title={card.title}
               description={card.description}
               organizer={card.organizer}
-              card_date={card.card_date}
-              idcard={card.id}
-              participantId={card.participantId}
+              date={card.card_date}
+              participants={card.participantId}
             />
           </li>
         ))}
