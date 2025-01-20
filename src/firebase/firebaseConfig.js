@@ -22,5 +22,5 @@ const firebaseConfig = {
 console.log(import.meta.env);
 
 export const app = initializeApp(firebaseConfig);
-export const database = getDatabase();
+export const database = getDatabase(app);
 export const auth = getAuth(app);

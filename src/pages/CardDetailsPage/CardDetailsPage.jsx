@@ -62,15 +62,17 @@
 
 // export default EventDetailsPage;
 
-import styles from './EventDetailsPage.module.css';
+import styles from './CardDetailsPage.module.css';
 import Card from '../../components/Card/Card.jsx';
-const CardDetailsPage = ({ cardId }) => {
+
+const CardDetailsPage = ({ card }) => {
   return (
     <>
       <div className={styles.WrapperCard}>
-        <Card />
+        <Card card={card} />
       </div>
     </>
   );
 };
+
 export default CardDetailsPage;
