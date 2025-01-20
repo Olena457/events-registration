@@ -5,13 +5,13 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loader from './components/Loader/Loader.jsx';
 import Layout from './components/Layout/Layout.jsx';
-import CardLayout from './components/EventLayout/EventLayout.jsx';
+import CardLayout from './components/CardLayout/CardLayout.jsx';
 import PrivateRoute from './components/PrivateRoute.jsx';
 
 const Home = lazy(() => import('./pages/Home/Home.jsx'));
 const LogInPage = lazy(() => import('./pages/LogInPage/LogInPage'));
-const RegistrationPage = lazy(() =>
-  import('./pages/RegistrationPage/Registrationpage.jsx')
+const RegistrationUserPage = lazy(() =>
+  import('./pages/RegistrationUserPage/RegistrationUserPage.jsx')
 );
 const CardFormPage = lazy(() =>
   import('./pages/CardFormPage/CardFormPage.jsx')
@@ -33,7 +33,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="/register-user" element={<RegistrationPage />} />
+            <Route path="/register-user" element={<RegistrationUserPage />} />
             <Route path="/login" element={<LogInPage />} />
 
             <Route path="/cards" element={<CardLayout />}>
@@ -67,3 +67,4 @@ export default App;
   /* <Route path="/create-event" element={<CreateEventPage />} /> */
 }
 // import CreateEventPage from './pages/CreateEventPage/CreateEventPage.jsx';
+import Card from './components/Card/Card';
