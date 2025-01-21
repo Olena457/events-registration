@@ -48,7 +48,6 @@ const CardsSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       });
-
   },
 });
 

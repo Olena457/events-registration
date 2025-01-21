@@ -1,19 +1,27 @@
-import { Link } from 'react-router-dom';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
+import { Link, useHistory } from 'react-router-dom';
+import { selectIsLoggedIn } from '../../redux/selectors';
 import styles from './Card.module.css';
 
 export default function Card({ card }) {
+  const history = useHistory();
   const { title, description, date, organizer } = card;
   const organizerImage = card.organizer.avatar_url;
-  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
-  if (!isLoggedIn) {
-    toast.info('Login first to view participants!', {
-      position: 'top-center',
-    });
-    return null;
-  }
+  const handleViewParticipants = () => {
+    if (!isLoggedIn) {
+      toast.info('Login first to view participants!', {
+        position: 'top-center',
+      });
+      history.push('/login');
+    } else {
+      history.push(`/cards/${card.id}/participants`);
+    }
+  };
+
   return (
     <div className={styles.cardContainer}>
       <div className={styles.cardInfo}>
@@ -42,9 +50,9 @@ export default function Card({ card }) {
         </Link>
       </div>
       <div className={styles.btnContainer}>
-        <Link to={`/cards/${card.id}/participants`} className={styles.btn}>
-          View
-        </Link>
+        <button onClick={handleViewParticipants} className={styles.btn}>
+          View Participants
+        </button>
       </div>
     </div>
   );
