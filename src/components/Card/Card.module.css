@@ -32,9 +32,9 @@
 }
 .cardInfoTeacher {
   display: flex;
-  flex-direction: column; /* Arrange items in a column */
-  align-items: center; /* Center items horizontally */
-  gap: 10px; /* Space between image and text */
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 .organizerTextContainer {
   display: flex;
