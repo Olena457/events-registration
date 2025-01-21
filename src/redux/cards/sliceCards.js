@@ -13,8 +13,8 @@ const initialState = {
   error: null,
 };
 
-const CardsSlice = createSlice({
-  name: 'Cards',
+const cardsSlice = createSlice({
+  name: 'cards',
   initialState,
   reducers: {
     setFilteredCards(state, action) {
@@ -40,7 +40,7 @@ const CardsSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchCardsPaginated.fulfilled, (state, action) => {
-        state.data = [...state.data, ...action.payload.Cards];
+        state.data = [...state.data, ...action.payload.cards];
         state.lastKey = action.payload.lastKey;
         state.loading = false;
       })
@@ -51,17 +51,17 @@ const CardsSlice = createSlice({
   },
 });
 
-export const cardsReducer = CardsSlice.reducer;
+export const cardsReducer = cardsSlice.reducer;
 
 // ___________________________________________________________________________not  use
-// export const { setFilteredCards } = CardsSlice.actions;
+// export const { setFilteredCards } = cardsSlice.actions;
 //   .addCase(fetchFilteredCards.pending, state => {
 //     state.loading = true;
 //     state.error = null;
 //   })
 //   .addCase(fetchFilteredCards.fulfilled, (state, action) => {
 //     state.loading = false;
-//     state.filtered = action.payload.Cards;
+//     state.filtered = action.payload.cards;
 //     state.lastKey = action.payload.lastKey;
 //   })
 //   .addCase(fetchFilteredCards.rejected, (state, action) => {

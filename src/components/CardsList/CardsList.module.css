@@ -35,8 +35,8 @@
 /*tn */
 /* .cardContainer {
   display: flex;
-  flex-wrap: nowrap; 
-  justify-content: flex-start; 
+  flex-wrap: nowrap;
+  justify-content: flex-start;
   padding: 20px;
   overflow-x: auto;
   gap: 20px;
@@ -48,8 +48,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-width: 300px; 
-  max-width: 300px; 
+  min-width: 300px;
+  max-width: 300px;
   margin: 10px;
 } */
 
@@ -69,8 +69,8 @@
 /* .containerList {
   height: 600px;
   display: flex;
-  flex-wrap: nowrap; 
-  overflow-x: auto; 
+  flex-wrap: nowrap;
+  overflow-x: auto;
   padding: 10px;
 }
 
@@ -111,7 +111,7 @@
 
 .galleryCard {
   flex: 0 0 calc(100% / 3 - 65px);
-  margin-right: 20px;
+  margin-right: 17px;
   background-color: #f0f0f0;
   padding: 10px 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); /* Додає тіні */
@@ -119,9 +119,7 @@
   flex-direction: column;
   justify-content: center;
 }
-.galleryCard:first-child {
-  margin-left: 20px;
-}
+
 /* styles participants card */
 /* .partCard {
   display: flex;
@@ -130,7 +128,7 @@
   color: black;
   background: linear-gradient(to right, #61a8eb, #bfdbfe);
   box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
-    10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5); 
+    10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
   height: 150px;
   width: auto;
   justify-content: center;
@@ -146,12 +144,12 @@
 .partInfo {
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
 
 @media (max-width: 768px) {
   .containerList {
     width: 100%;
     padding: 8px;
   }
-} 
+}
 } */

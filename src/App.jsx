@@ -5,7 +5,6 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loader from './components/Loader/Loader.jsx';
 import Layout from './components/Layout/Layout.jsx';
-import CardLayout from './components/CardLayout/CardLayout.jsx';
 import PrivateRoute from './components/PrivateRoute.jsx';
 
 const Home = lazy(() => import('./pages/Home/Home.jsx'));
@@ -15,9 +14,6 @@ const RegistrationUserPage = lazy(() =>
 );
 const CardFormPage = lazy(() =>
   import('./pages/CardFormPage/CardFormPage.jsx')
-);
-const CardDetailsPage = lazy(() =>
-  import('./pages/CardDetailsPage/CardDetailsPage.jsx')
 );
 const ViewParticipantsPage = lazy(() =>
   import('./pages/ViewParticipantsPage/ViewParticipantsPage.jsx')
@@ -36,11 +32,10 @@ const App = () => {
             <Route index element={<Home />} />
             <Route path="/register-user" element={<RegistrationUserPage />} />
             <Route path="/login" element={<LogInPage />} />
-            <Route path="/cards" element={<CardsPage />} />
-            <Route path="/cards/:id" element={<CardDetailsPage />}>
-              <Route path="register/:eventId" element={<CardFormPage />} />
+            <Route path="/cards" element={<CardsPage />}>
+              <Route path=":id/register" element={<CardFormPage />} />
               <Route
-                path="participants/*"
+                path=":id/participants"
                 element={<PrivateRoute component={ViewParticipantsPage} />}
               />
             </Route>

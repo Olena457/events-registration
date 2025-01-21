@@ -1,10 +1,9 @@
 .cardContainer {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  justify-content: space-between;
   font-size: 18px;
   color: black;
-  justify-content: space-evenly;
   padding: 30px 50px;
   background: linear-gradient(to right, #a3d4f8, #e0f1ff);
   box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
@@ -15,7 +14,7 @@
   outline-offset: -20px;
 }
 .cardContainer:hover {
-  transform: scale(1.17);
+  transform: scale(1.1);
 }
 
 .cardDescription {
@@ -32,7 +31,15 @@
   align-items: flex-start;
 }
 .cardInfoTeacher {
-  font-size: 22px;
+  display: flex;
+  flex-direction: column; /* Arrange items in a column */
+  align-items: center; /* Center items horizontally */
+  gap: 10px; /* Space between image and text */
+}
+.organizerTextContainer {
+  display: flex;
+  align-items: center; /* Align items vertically */
+  gap: 5px; /* Space between label and name */
 }
 .cardName {
   color: #333;
@@ -47,11 +54,13 @@
   width: 96px;
   height: 96px;
   border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.2);
 }
+
 .btnContainer {
-  display: flex;
+  display: inline-flex;
   justify-content: flex-end;
-  gap: 10px;
+  gap: 50px;
 }
 
 .btn {
@@ -73,4 +82,11 @@
 .btn:hover {
   color: #c61f30;
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* New styles for labels */
+.label {
+  color: #ed3413; /* Tomato color */
+  font-family: 'Arial', sans-serif; /* Change font */
+  font-weight: bold;
 }

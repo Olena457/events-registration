@@ -24,34 +24,38 @@ export default function Card({ card }) {
 
   return (
     <div className={styles.cardContainer}>
-      <div className={styles.cardInfo}>
-        <p className={styles.cardName}>Title: {title}</p>
-      </div>
-      <div className={styles.cardInfo}>
-        <p className={styles.cardDescription}>Description: {description}</p>
-      </div>
-      <div className={styles.cardInfo}>
-        <p className={`${styles.cardDate} ${styles.cardName}`}>
-          Date: {new Date(date).toLocaleString()}
-        </p>
-      </div>
       <div className={styles.cardInfoTeacher}>
         <img
           src={organizerImage}
           alt={`Organizer ${organizer.full_name}`}
           className={styles.organizerImage}
         />
-        <p className={styles.cardName}>Organizer: {organizer.full_name}</p>
+        <div className={styles.organizerTextContainer}>
+          <p className={styles.label}>Organizer:</p>
+          <p className={styles.cardName}>{organizer.full_name}</p>
+        </div>
+      </div>
+
+      <div className={styles.cardInfo}>
+        <p className={styles.label}>Title:</p>
+        <p className={styles.cardName}>{title}</p>
+      </div>
+      <div className={styles.cardInfo}>
+        <p className={styles.label}>Description:</p>
+        <p className={styles.cardDescription}>{description}</p>
+      </div>
+      <div className={styles.cardInfo}>
+        <p className={styles.label}>Date:</p>
+        <p className={styles.cardDate}>{new Date(date).toLocaleString()}</p>
       </div>
 
       <div className={styles.btnContainer}>
         <Link to={`/cards/${card.id}/register`} className={styles.btn}>
           Registration
         </Link>
-      </div>
-      <div className={styles.btnContainer}>
+
         <button onClick={handleViewParticipants} className={styles.btn}>
-          View Participants
+          Participants
         </button>
       </div>
     </div>

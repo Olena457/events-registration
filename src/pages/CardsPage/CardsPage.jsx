@@ -7,13 +7,15 @@ import {
 } from '../../redux/cards/selectorsCards.js';
 import Loader from '../../components/Loader/Loader.jsx';
 import CardsList from '../../components/CardsList/CardsList.jsx';
-import { NavLink } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 import styles from './CardsPage.module.css';
 
 const CardsPage = () => {
   const dispatch = useDispatch();
   const cards = useSelector(selectCards);
   const loading = useSelector(selectCardsLoading);
+  const { id } = useParams();
+  const card = cards.find(card => card.id === id);
 
   useEffect(() => {
     dispatch(fetchCards());
@@ -26,16 +28,11 @@ const CardsPage = () => {
       ) : cards.length > 0 ? (
         <div className={styles.wrapperCard}>
           <CardsList cards={cards} />
+          <Outlet context={{ card }} />
         </div>
       ) : (
         <div className={styles.wrapperNoEvent}>
           <h4 className={styles.title}>No events found</h4>
-          <p className={styles.message}>
-            "Hello user! Click the button to return to home"
-          </p>
-          <NavLink to="/" className={styles.btn}>
-            Return to home
-          </NavLink>
         </div>
       )}
     </>
