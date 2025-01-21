@@ -26,17 +26,3 @@ const Navigation = () => {
 };
 
 export default Navigation;
-
-{
-  /* <NavLink className={activeLink} to={`/${idEvent}`}>
-        Details
-      </NavLink> */
-}
-{
-  /* <NavLink className={activeLink} to={`register`}>
-        Register
-      </NavLink>
-      <NavLink className={activeLink} to={`participants`}>
-        View
-      </NavLink> */
-}

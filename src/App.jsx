@@ -25,6 +25,7 @@ const ViewParticipantsPage = lazy(() =>
 const PageNotFound = lazy(() =>
   import('./pages/PageNotFound/PageNotFound.jsx')
 );
+const CardsPage = lazy(() => import('./pages/CardsPage/CardsPage.jsx'));
 
 const App = () => {
   return (
@@ -35,16 +36,14 @@ const App = () => {
             <Route index element={<Home />} />
             <Route path="/register-user" element={<RegistrationUserPage />} />
             <Route path="/login" element={<LogInPage />} />
-
-            <Route path="/cards" element={<CardLayout />}>
-              <Route path=":id" element={<CardDetailsPage />} />
-              <Route path="register" element={<CardFormPage />} />
+            <Route path="/cards" element={<CardsPage />} />
+            <Route path="/cards/:id" element={<CardDetailsPage />}>
+              <Route path="register/:eventId" element={<CardFormPage />} />
               <Route
-                path="participants"
+                path="participants/*"
                 element={<PrivateRoute component={ViewParticipantsPage} />}
               />
             </Route>
-
             <Route path="*" element={<PageNotFound />} />
           </Route>
         </Routes>
@@ -55,16 +54,3 @@ const App = () => {
 };
 
 export default App;
-
-// import Home from './pages/Home/Home.jsx';
-// import RegisterPage from './pages/RegisterPage/RegisterPage.jsx';
-// import EventDetailsPage from './pages/EventDetailsPage/EventDetailsPage.jsx';
-// import ViewPage from './pages/ViewPage/ViewPage.jsx';
-// import PageNotFound from './pages/PageNotFound/PageNotFound.jsx';
-
-// <Route path="details" element={<EventDetailsPage />}>
-{
-  /* <Route path="/create-event" element={<CreateEventPage />} /> */
-}
-// import CreateEventPage from './pages/CreateEventPage/CreateEventPage.jsx';
-import Card from './components/Card/Card';

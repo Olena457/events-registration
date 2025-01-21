@@ -41,7 +41,7 @@ export const fetchCards = createAsyncThunk(
 
 // __________________register card
 
-export const bookcard = createAsyncThunk(
+export const registerCard = createAsyncThunk(
   'cards/register',
   async ({ fullname, email, phoneNumber, question, cardID }, thunkAPI) => {
     try {

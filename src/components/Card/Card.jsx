@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import { Link, useHistory } from 'react-router-dom';
-import { selectIsLoggedIn } from '../../redux/selectors';
+import { Link, useNavigate } from 'react-router-dom';
+import { selectIsLoggedIn } from '../../redux/auth/selectorsAuth.js';
 import styles from './Card.module.css';
 
 export default function Card({ card }) {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { title, description, date, organizer } = card;
   const organizerImage = card.organizer.avatar_url;
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -16,9 +16,9 @@ export default function Card({ card }) {
       toast.info('Login first to view participants!', {
         position: 'top-center',
       });
-      history.push('/login');
+      navigate('/login');
     } else {
-      history.push(`/cards/${card.id}/participants`);
+      navigate(`/cards/${card.id}/participants`);
     }
   };
 

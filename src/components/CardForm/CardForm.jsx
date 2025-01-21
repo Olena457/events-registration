@@ -4,7 +4,7 @@ import * as yup from 'yup';
 import { useId } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-// import { registerCards } from '../../redux/cards/operationsCards.js';
+import { registerCard } from '../../redux/cards/operationsCards.js';
 import { toast } from 'react-toastify';
 const emailRegExp = /^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
 const phoneNumberRegExp = /^\+?[\d\s-]{7,15}$/;
@@ -27,13 +27,13 @@ const registerSchema = yup.object({
 });
 
 const CardForm = ({ card }) => {
+  const socialMediaId = useId();
+  const friendsId = useId();
+  const myselfId = useId();
   const dispatch = useDispatch();
   const fullnameId = useId();
   const emailId = useId();
   const phoneNumberId = useId();
-  const socialMediaId = useId();
-  const friendsId = useId();
-  const myselfId = useId();
 
   const {
     register,
@@ -51,7 +51,7 @@ const CardForm = ({ card }) => {
   });
 
   const onSubmit = data => {
-    dispatch(registerEvent({ ...data, cardID: card.id }))
+    dispatch(registerCard({ ...data, cardID: card.id }))
       .unwrap()
       .then(() =>
         toast.success('Register request sent!', {
@@ -76,15 +76,13 @@ const CardForm = ({ card }) => {
 
       <div className={styles.imageWrapper}>
         <img
-          src={organizer['avatar_url']}
-          alt={`${organizer.name} ${organizer.surname}`}
+          src={card.organizer.avatar_url}
+          alt={`${card.organizer.full_name}`}
           className={styles.image}
         />
         <div className={styles.imageTextWrapper}>
           <h6 className={styles.imageTitle}> Event organizer</h6>
-          <p
-            className={styles.imageText}
-          >{`${organizer.name} ${organizer.surname}`}</p>
+          <p className={styles.imageText}>{`${card.organizer.full_name}`}</p>
         </div>
       </div>
 
@@ -116,7 +114,7 @@ const CardForm = ({ card }) => {
                     className={styles.label}
                     id={`social-media`}
                   >
-                    Social MediaId
+                    Social Media
                   </label>
                 </div>
 

@@ -1,10 +1,24 @@
-import { NavLink } from 'react-router-dom';
-// import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCards } from '../../redux/cards/operationsCards.js';
+import {
+  selectCards,
+  selectCardsLoading,
+} from '../../redux/cards/selectorsCards.js';
 import Loader from '../../components/Loader/Loader.jsx';
-import styles from './EventsPage.module.styles';
 import CardsList from '../../components/CardsList/CardsList.jsx';
+import { NavLink } from 'react-router-dom';
+import styles from './CardsPage.module.css';
 
 const CardsPage = () => {
+  const dispatch = useDispatch();
+  const cards = useSelector(selectCards);
+  const loading = useSelector(selectCardsLoading);
+
+  useEffect(() => {
+    dispatch(fetchCards());
+  }, [dispatch]);
+
   return (
     <>
       {loading ? (

@@ -19,14 +19,7 @@ const firebaseConfig = {
   messagingSenderId: MESSAGING_SENDER_ID,
   appId: APP_ID,
 };
-console.log(import.meta.env.VITE_API_KEY);
-console.log(import.meta.env.VITE_AUTH_DOMAIN);
-console.log(import.meta.env.VITE_DATABASE_URL);
-console.log(import.meta.env.VITE_PROJECT_ID);
-console.log(import.meta.env.VITE_STORAGE_BUCKET);
-console.log(import.meta.env.VITE_MESSAGING_SENDER_ID);
-console.log(import.meta.env.VITE_APP_ID);
 
 export const app = initializeApp(firebaseConfig);
-export const database = getDatabase();
-export const auth = getAuth();
+export const database = getDatabase(app);
+export const auth = getAuth(app);
