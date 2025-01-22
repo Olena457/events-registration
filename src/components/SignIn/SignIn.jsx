@@ -3,6 +3,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import styles from './SignIn.module.css';
 import { useId, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import clsx from 'clsx';
 import Icon from '../Icon/Icon.jsx';
 import eyeIcon from '../../assets/icons/eye.svg';
@@ -30,6 +31,7 @@ const signInSchema = yup.object({
 
 const SignIn = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [isPassword, setIsPassword] = useState(true);
 
   const emailId = useId();
@@ -49,11 +51,12 @@ const SignIn = () => {
   const onSubmit = async data => {
     dispatch(loginUser({ email: data.email, password: data.password }))
       .unwrap()
-      .then(() =>
+      .then(() => {
         toast.success('User logged in successfully!', {
           position: 'top-center',
-        })
-      )
+        });
+        navigate('/cards');
+      })
       .catch(errMessage => {
         toast.error(errMessage, {
           position: 'top-center',
@@ -66,7 +69,7 @@ const SignIn = () => {
       <h2 className={styles.title}>Log In</h2>
       <p className={styles.text}>
         Welcome back! Please enter your credentials to access your account and
-        continue your search for an events.
+        continue your search for events.
       </p>
 
       <form

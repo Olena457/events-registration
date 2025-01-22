@@ -9,8 +9,7 @@ const Home = () => {
       <div className={styles.contWrapper}>
         <p className={styles.message}>
           Choose the event you watn to attend!
-          <br />
-          Register for the event so you do not miss out!
+          <br /> Register for the event so you do not miss out!
         </p>
       </div>
       <div className={styles.buttonWrapper}>

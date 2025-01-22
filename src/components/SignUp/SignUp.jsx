@@ -9,8 +9,9 @@ import Icon from '../Icon/Icon.jsx';
 import eyeIcon from '../../assets/icons/eye.svg';
 import { toast } from 'react-toastify';
 import { registerUser } from '../../redux/auth/operationsAuth.js';
-const emailRegExp = /^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
+import { useNavigate } from 'react-router-dom';
 
+const emailRegExp = /^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
 const minPasswordLength = 7;
 const maxPasswordLength = 22;
 
@@ -32,6 +33,7 @@ const signUpSchema = yup.object({
 
 const SignUp = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [isPassword, setIsPassword] = useState(true);
 
   const nameId = useId();
@@ -52,11 +54,12 @@ const SignUp = () => {
   const onSubmit = async data => {
     dispatch(registerUser(data))
       .unwrap()
-      .then(() =>
+      .then(() => {
         toast.success('User registered successfully!', {
           position: 'top-center',
-        })
-      )
+        });
+        navigate('/login');
+      })
       .catch(errMessage => {
         toast.error(errMessage, {
           position: 'top-center',
@@ -149,7 +152,7 @@ const SignUp = () => {
         </div>
 
         <button type="submit" className={styles.submitBtn} aria-label="log in">
-          Log In
+          Register
         </button>
       </form>
     </div>
