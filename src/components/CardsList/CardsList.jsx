@@ -92,18 +92,20 @@ const CardsList = ({ cards }) => {
   }
 
   return (
-    <div className={styles.containerList}>
-      <ul className={styles.gallery}>
-        {visibleCards.map(card => (
-          <li key={card.id} className={styles.galleryCard}>
-            <Card card={card} />
-          </li>
-        ))}
-      </ul>
-      {!loading && cards?.length === 0 && (
-        <p className={styles.message}>No cards found.</p>
-      )}
-    </div>
+    <>
+      <div className={styles.containerList}>
+        <ul className={styles.gallery}>
+          {visibleCards.map(card => (
+            <li key={card.id} className={styles.galleryCard}>
+              <Card card={card} />
+            </li>
+          ))}
+        </ul>
+        {!loading && cards?.length === 0 && (
+          <p className={styles.message}>No cards found.</p>
+        )}
+      </div>
+    </>
   );
 };
 

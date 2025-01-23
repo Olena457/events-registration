@@ -1,16 +1,11 @@
 .header {
   width: 100%;
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
   padding: 0px 30px;
-  /* background-color: #f8f9fa; */
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
-  /* border-bottom: 2px solid #2a363b; */
   box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
     10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
 }
-
 .title {
   margin-right: auto;
   font-size: 24px;
@@ -21,7 +16,6 @@
     4px 4px 0 #ffffff, 5px 5px 0 #555555, 6px 6px 0 #444444, 7px 7px 0 #333333,
     8px 8px 7px #111111;
 }
-
 .sigWrapper {
   display: flex;
   align-items: center;
@@ -36,13 +30,18 @@
   cursor: pointer;
 }
 
-/* .logoutIcon {
-  width: 24px;
-  height: 24px;
-  margin-right: 8px;
-} */
-
 .loginText {
-  font-size: 16px;
-  color: #333;
+  margin-right: 60px;
+  display: inline-block;
+  text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+  color: black;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  cursor: pointer;
+  text-decoration: none;
 }
+/* .loginText.active {
+  padding: 30px 0px;
+  position: relative;
+  color: #e45564;
+} */

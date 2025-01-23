@@ -9,7 +9,7 @@ import Icon from '../Icon/Icon.jsx';
 import eyeIcon from '../../assets/icons/eye.svg';
 import { toast } from 'react-toastify';
 import { registerUser } from '../../redux/auth/operationsAuth.js';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const emailRegExp = /^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
 const minPasswordLength = 7;
@@ -33,7 +33,7 @@ const signUpSchema = yup.object({
 
 const SignUp = () => {
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [isPassword, setIsPassword] = useState(true);
 
   const nameId = useId();
@@ -58,7 +58,7 @@ const SignUp = () => {
         toast.success('User registered successfully!', {
           position: 'top-center',
         });
-        // navigate('/login');
+        navigate('/login');
       })
       .catch(errMessage => {
         toast.error(errMessage, {
@@ -67,7 +67,6 @@ const SignUp = () => {
       })
       .finally(() => {
         reset();
-        modalClose();
       });
   };
 

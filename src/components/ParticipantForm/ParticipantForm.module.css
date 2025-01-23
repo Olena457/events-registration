@@ -1,10 +1,9 @@
 .container {
   display: flex;
   flex-direction: column;
-  max-width: 450px;
+  max-width: 500px;
   margin: 0 auto;
   margin-top: 20px;
-  margin-top: 10px;
   padding: 50px 60px;
   border: 1px solid gray;
   border-radius: 8px;
@@ -58,6 +57,11 @@
   color: var(--red-color, red);
   font-size: 0.8rem;
 }
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 .input {
   border: 1px solid rgba(18, 20, 23, 0.1);
   border-radius: 12px;
@@ -74,7 +78,7 @@
   font-size: 16px;
   line-height: 1.375;
   color: var(--black-color, black);
-  margin-bottom: 8px;
+  /* margin-bottom: 5px; */
 }
 
 .inputWrapper {
@@ -83,6 +87,7 @@
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  margin-top: 8px;
   box-sizing: border-box;
   max-width: 100%;
 }

@@ -1,4 +1,4 @@
-import styles from './FavoritesCardsPage.module.css';
+import styles from './FavoritesCardPage.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import CardsList from '../../components/CardsList/CardsList.jsx';
 import {

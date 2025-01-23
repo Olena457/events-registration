@@ -164,50 +164,48 @@ const ParticipantForm = ({ card }) => {
         </div>
 
         <div className={styles.userInfo}>
-          <>
-            <div className={styles.nameWrapper}>
-              <label htmlFor={fullnameId} className={styles.label}>
-                Full name
-              </label>
-              <input
-                id={fullnameId}
-                {...register('fullname')}
-                className={styles.input}
-                placeholder="Full name"
-                aria-required="true"
-              />
-              <p className={styles.errorText}>{errors.fullname?.message}</p>
-            </div>
+          <div className={styles.nameWrapper}>
+            <label htmlFor={fullnameId} className={styles.label}>
+              Full name
+            </label>
+            <input
+              id={fullnameId}
+              {...register('fullname')}
+              className={styles.input}
+              placeholder="Full name"
+              aria-required="true"
+            />
+            <p className={styles.errorText}>{errors.fullname?.message}</p>
+          </div>
 
-            <div className={styles.emailWrapper}>
-              <label htmlFor={emailId} className={styles.label}>
-                Email
-              </label>
-              <input
-                id={emailId}
-                {...register('email')}
-                className={styles.input}
-                placeholder="Email"
-                autoComplete="email"
-                aria-required="true"
-              />
-              <p className={styles.errorText}>{errors.email?.message}</p>
-            </div>
+          <div className={styles.emailWrapper}>
+            <label htmlFor={emailId} className={styles.label}>
+              Email
+            </label>
+            <input
+              id={emailId}
+              {...register('email')}
+              className={styles.input}
+              placeholder="Email"
+              autoComplete="email"
+              aria-required="true"
+            />
+            <p className={styles.errorText}>{errors.email?.message}</p>
+          </div>
 
-            <div className={styles.dateWrapper}>
-              <label htmlFor={phoneNumberId} className={styles.label}>
-                Phone number
-              </label>
-              <input
-                id={phoneNumberId}
-                {...register('phoneNumber')}
-                className={styles.input}
-                placeholder="Phone number"
-                aria-required="true"
-              />
-              <p className={styles.errorText}>{errors.phoneNumber?.message}</p>
-            </div>
-          </>
+          <div className={styles.dateWrapper}>
+            <label htmlFor={phoneNumberId} className={styles.label}>
+              Phone number
+            </label>
+            <input
+              id={phoneNumberId}
+              {...register('phoneNumber')}
+              className={styles.input}
+              placeholder="Phone number"
+              aria-required="true"
+            />
+            <p className={styles.errorText}>{errors.phoneNumber?.message}</p>
+          </div>
         </div>
 
         <button

@@ -1,175 +1,13 @@
-/* .containerList {
-  width: auto;
-  display: flex;
-  overflow-x: auto;
-  white-space: nowrap;
-  height: auto;
-} */
-
-/* .containerList {
-  width: auto;
-  background-color: aqua;
-  margin-top: 40px;
-  overflow-x: auto;
-  white-space: nowrap;
-  margin-bottom: 40px;
-  height: 600px;
-} */
-/* .gallery {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 24px;
-
-  justify-content: center;
-  align-items: center;
-  list-style: none;
-  margin: 0 auto;
-}
-
-.galleryEvent {
-  border: 1px solid red;
-  flex-direction: column;
-  align-items: center;
-  flex: 0 0 calc(33.33% - 24px);
-} */
-
-/*tn */
-/* .cardContainer {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  padding: 20px;
-  overflow-x: auto;
-  gap: 20px;
-} */
-
-/* .eventCard {
-  flex: 0 0 300px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-width: 300px;
-  max-width: 300px;
-  margin: 10px;
-} */
-
-/* .containerList::-webkit-scrollbar {
-  height: 10px;
-}
-
-.containerList::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 10px;
-}
-
-.containerList::-webkit-scrollbar-thumb:hover {
-  background: #555;
-} */
-/* CardList.css */
-/* .containerList {
-  height: 600px;
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  padding: 10px;
-} */
-
-/* .galleryEvent {
-  flex: 0 0 calc(33.333% - 20px);
-  margin: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  background-color: #fff;
-  padding: 20px;
-} */
-
-/* .card h3 {
-  margin: 0 0 10px;
-}
-
-.card p {
-  margin: 0;
-} */
-/* _____________________________________________________ */
-/* .list {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-} */
-/* .list {
-  display: flex;
-  gap: 32px;
-  justify-content: center;
-  width: 100%;
-  overflow-x: auto;
-  padding: 10px 0;
-  height: 750px;
-}
-.message {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  color: var(--black-color);
-}
-.buttonContainer {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-.moreBtn {
-  display: block;
-  margin: 20px auto 0;
-  padding: 10px 20px;
-  border-radius: 8px;
-  border: 1px solid transparent;
-  font-size: 18px;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #f24e5e;
-  color: #333333;
-  text-align: center;
-  border: 1px solid #474f52;
-  box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
-    10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-}
-.moreBtn:focus,
-.moreBtn:hover {
-  color: #c61f30;
-  outline: 4px auto -webkit-focus-ring-color;
-} */
-/* ______________________________________________________________________ */
-/* .gallery {
-  display: flex;
-  justify-content: space-evenly;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-}
-
-.galleryCard {
-  flex: 0 0 calc(100% / 3 - 65px);
-  margin-right: 17px;
-  background-color: #f0f0f0;
-  padding: 10px 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .containerList {
     width: 100%;
     padding: 8px;
   }
- } */
+ }  */
 .containerList {
   display: flex;
   overflow-x: auto;
-  padding: 20px 10px 20px 0px;
+  padding: 20px 0px 20px 10px;
   height: auto;
 }
 
@@ -182,7 +20,7 @@
 
 .galleryCard {
   flex: 0 0 auto;
-  margin-right: 20px;
+  margin-right: 28px;
 }
 
 .message {
@@ -192,9 +30,9 @@
   color: var(--black-color);
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .containerList {
     width: 100%;
     padding: 8px;
   }
-}
+} */
