@@ -20,12 +20,12 @@
     10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
 }
 
-.arrow {
+/* .arrow {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
+} */
 
 .message {
   padding-top: 150px;

@@ -1,42 +1,62 @@
-import { useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
-import { Link, useNavigate } from 'react-router-dom';
-import {
-  selectIsLoggedIn,
-  selectIsRegistered,
-} from '../../redux/auth/selectorsAuth.js';
+import { Link } from 'react-router-dom';
 import styles from './Card.module.css';
+import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectIsLoggedIn } from '../../redux/auth/selectorsAuth.js';
+import { selectFavoritesIds } from '../../redux/favorites/selectorsFavorites.js';
+import { toggleFavorite } from '../../redux/favorites/operationsFavorites.js';
+import Icon from '../Icon/Icon.jsx';
 
 export default function Card({ card }) {
-  const navigate = useNavigate();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const favoriteIndexes = useSelector(selectFavoritesIds);
+  const dispatch = useDispatch();
+  const [isLiked, setLiked] = useState(favoriteIndexes.includes(card.id));
   const { title, description, date, organizer } = card;
   const organizerImage = card.organizer.avatar_url;
-  const isLoggedIn = useSelector(selectIsLoggedIn);
-  const isRegistered = useSelector(selectIsRegistered);
 
-  const handleViewParticipants = () => {
-    if (!isRegistered) {
-      toast.info('Register first to view participants!', {
+  const handleLike = useCallback(() => {
+    if (!isLoggedIn) {
+      toast.info('Login first to save favorites!', {
         position: 'top-center',
       });
-      navigate('/register-user');
-    } else if (!isLoggedIn) {
-      toast.info('Login first to view participants!', {
-        position: 'top-center',
-      });
-      navigate('/login');
     } else {
-      navigate(`/cards/${card.id}/participants`);
+      setLiked(prev => !prev);
+      dispatch(toggleFavorite(card));
     }
-  };
+  }, [isLoggedIn, dispatch, card]);
+
   return (
     <div className={styles.cardContainer}>
       <div className={styles.cardInfo}>
-        <p className={styles.label}></p>
+        <p className={styles.label}>Title:</p>
         <p className={styles.cardName}>{title}</p>
       </div>
+      <button type="button" onClick={handleLike} aria-label="button like">
+        {isLiked ? (
+          <Icon
+            id="heart-full"
+            role="button"
+            width={26}
+            height={26}
+            className={`heartIconFull ${styles.heartIconFull}`}
+            fillColor="#f00b0b"
+            inert="false"
+          />
+        ) : (
+          <Icon
+            id="heart-transparent"
+            role="button"
+            width={26}
+            height={26}
+            className={`heartIcon ${styles.heartIcon}`}
+            fillColor="#121417"
+            inert="false"
+          />
+        )}
+      </button>
       <div className={styles.cardInfo}>
-        <p className={styles.label}></p>
+        <p className={styles.label}>Description:</p>
         <p className={styles.cardDescription}>{description}</p>
       </div>
       <div className={styles.cardInfoTeacher}>
@@ -50,20 +70,17 @@ export default function Card({ card }) {
           <p className={styles.cardName}>{organizer.full_name}</p>
         </div>
       </div>
-
       <div className={styles.cardInfo}>
         <p className={styles.label}>Date:</p>
         <p className={styles.cardDate}>{new Date(date).toLocaleString()}</p>
       </div>
-
       <div className={styles.btnContainer}>
         <Link to={`/cards/${card.id}/register`} className={styles.btn}>
           Registration
         </Link>
-
-        <button onClick={handleViewParticipants} className={styles.btn}>
+        <Link to={`/cards/${card.id}/participants`} className={styles.btn}>
           Participants
-        </button>
+        </Link>
       </div>
     </div>
   );

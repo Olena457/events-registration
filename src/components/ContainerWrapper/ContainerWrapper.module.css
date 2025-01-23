@@ -1,6 +1,6 @@
 .container {
-  min-width: 1440px;
-  padding: 20px;
+  min-width: 758px;
+  /* padding: 20px; */
   height: 100%;
   margin: 0 auto;
   outline: 1px solid turquoise;

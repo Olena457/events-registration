@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchParticipants } from '../../redux/participants/operationsParticipants.js';
 import {
@@ -15,7 +15,6 @@ const ViewParticipantsPage = () => {
   const dispatch = useDispatch();
   const participants = useSelector(selectParticipants);
   const loading = useSelector(selectParticipantsLoading);
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (cardId) {

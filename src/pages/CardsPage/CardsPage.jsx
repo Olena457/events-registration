@@ -28,7 +28,7 @@ const CardsPage = () => {
       ) : cards.length > 0 ? (
         <div className={styles.wrapperCard}>
           <CardsList cards={cards} />
-          {/* <Outlet context={{ card }} /> */}
+          <Outlet context={{ card }} />
         </div>
       ) : (
         <div className={styles.wrapperNoEvent}>

@@ -1,7 +1,6 @@
 .cardContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
   font-size: 18px;
   color: black;
@@ -9,7 +8,7 @@
   background: linear-gradient(to right, #a3d4f8, #e0f1ff);
   box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
     10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
-  height: 550px;
+  height: 400px;
   outline: 1px solid #ff0000;
   transition: transform 0.5s ease;
   outline-offset: -20px;
@@ -24,24 +23,45 @@
   color: #333;
   font-weight: bold;
 }
+.heartIconFull {
+  cursor: pointer;
+  width: 26px;
+  transition: transform 0.3s ease;
+}
+.heartIconFull:hover,
+.heartIconFull:focus {
+  transform: scale(1.2);
+}
 
+.heartIcon {
+  width: 26px;
+  stroke-width: 2px;
+  cursor: pointer;
+  stroke: var(--dark-gray-color, #a9a9a9);
+}
+.heartIcon:hover,
+.heartIcon:focus {
+  stroke: var(--red-color, #e62828);
+  stroke-width: 2px;
+  cursor: pointer;
+  transition: fill 0.3s ease;
+}
 .cardInfo {
   display: flex;
   font-weight: bold;
   font-size: 18px;
   align-items: flex-start;
-  margin-bottom: 10px;
 }
 .cardInfoTeacher {
   display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-  gap: 10px;
+  flex-direction: column; /* Arrange items in a column */
+  align-items: center; /* Center items horizontally */
+  gap: 10px; /* Space between image and text */
 }
 .organizerTextContainer {
   display: flex;
-  align-items: center;
-  gap: 5px;
+  align-items: center; /* Align items vertically */
+  gap: 5px; /* Space between label and name */
 }
 .cardName {
   color: #333;
@@ -68,8 +88,7 @@
 .btn {
   display: inline-block;
   padding: 10px 20px;
-  border-radius: 12px;
-  margin-bottom: 10px;
+  border-radius: 8px;
   border: 1px solid transparent;
   font-size: 18px;
   font-weight: 500;
@@ -77,7 +96,7 @@
   background-color: #f24e5e;
   color: #333333;
   text-align: center;
-  /* border: 1px solid #474f52; */
+  border: 1px solid #474f52;
   box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
     10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
 }
@@ -87,8 +106,9 @@
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* New styles for labels */
 .label {
-  color: #ed3413;
-  font-family: 'Arial', sans-serif;
+  color: #ed3413; /* Tomato color */
+  font-family: 'Arial', sans-serif; /* Change font */
   font-weight: bold;
 }
