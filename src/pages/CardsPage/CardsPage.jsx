@@ -7,7 +7,7 @@ import {
 } from '../../redux/cards/selectorsCards.js';
 import Loader from '../../components/Loader/Loader.jsx';
 import CardsList from '../../components/CardsList/CardsList.jsx';
-import { useParams } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 import styles from './CardsPage.module.css';
 
 const CardsPage = () => {

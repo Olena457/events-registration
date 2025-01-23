@@ -20,12 +20,12 @@
 // };
 
 // export default CardFormPage;
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCards } from '../../redux/cards/operationsCards.js';
 import { selectCards } from '../../redux/cards/selectorsCards.js';
-import CardForm from '../../components/CardForm/CardForm.jsx';
+import ParticipantForm from '../../components/ParticipantForm/ParticipantForm.jsx';
 import styles from './CardFormPage.module.css';
 
 const CardFormPage = () => {
@@ -50,7 +50,7 @@ const CardFormPage = () => {
     <>
       <div className={styles.formPage}>
         <div className={styles.formContainer}>
-          <CardForm card={card} />
+          <ParticipantForm card={card} />
         </div>
       </div>
     </>
