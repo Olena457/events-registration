@@ -1,15 +1,15 @@
-import styles from './CardForm.module.css';
+import styles from './ParticipantForm.module.css';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useId } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { registerCard } from '../../redux/cards/operationsCards.js';
+import { registerParticipant } from '../../redux/cards/operationsCards.js';
 import { toast } from 'react-toastify';
 const emailRegExp = /^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
 const phoneNumberRegExp = /^\+?[\d\s-]{7,15}$/;
 
-const registerSchema = yup.object({
+const participantSchema = yup.object({
   question: yup.string().required('Please select an option!'),
   fullname: yup.string().required('Name is required!'),
   email: yup
@@ -26,7 +26,7 @@ const registerSchema = yup.object({
     ),
 });
 
-const CardForm = ({ card }) => {
+const ParticipantForm = ({ card }) => {
   const socialMediaId = useId();
   const friendsId = useId();
   const myselfId = useId();
@@ -38,20 +38,20 @@ const CardForm = ({ card }) => {
   const {
     register,
     handleSubmit,
-
+    reset,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(registerSchema),
+    resolver: yupResolver(participantSchema),
     defaultValues: {
+      question: '',
       fullname: '',
       email: '',
       phoneNumber: '',
-      question: '',
     },
   });
 
   const onSubmit = data => {
-    dispatch(registerCard({ ...data, cardID: card.id }))
+    dispatch(registerParticipant({ ...data, cardID: card.id }))
       .unwrap()
       .then(() =>
         toast.success('Register request sent!', {
@@ -62,13 +62,16 @@ const CardForm = ({ card }) => {
         toast.error('Error. Try again later.', {
           position: 'top-center',
         });
+      })
+      .finally(() => {
+        reset();
       });
   };
 
   return (
     <div className={styles.container}>
       <h3 className={styles.title} id="register-title">
-        Event registration
+        Participant registration
       </h3>
       <p className={styles.text} id="register-description">
         To register for the event, please answer a few questions.
@@ -219,4 +222,4 @@ const CardForm = ({ card }) => {
   );
 };
 
-export default CardForm;
+export default ParticipantForm;
