@@ -5,7 +5,7 @@ import defaultAvatar from '../../assets/icons/user.svg';
 const ParticipantList = ({ participants }) => {
   return (
     <div className={styles.participantList}>
-      {participants.map(participant => (
+      {Object.values(participants).map(participant => (
         <div key={participant.email} className={styles.participantCard}>
           <img
             src={defaultAvatar}

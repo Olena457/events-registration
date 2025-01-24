@@ -6,7 +6,8 @@ export const fetchParticipants = createAsyncThunk(
   'participants/fetchParticipants',
   async (cardId, thunkAPI) => {
     try {
-      const participantsRef = ref(database, `cards/${cardId}/participants`);
+      // const participantsRef = ref(database, `cards/${cardId}/participants`);
+      const participantsRef = ref(database, `register/${cardId}`);
       const snapshot = await get(participantsRef);
       if (snapshot.exists()) {
         const data = snapshot.val();

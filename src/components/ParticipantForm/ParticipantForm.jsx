@@ -4,6 +4,7 @@ import * as yup from 'yup';
 import { useId } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { registerParticipant } from '../../redux/cards/operationsCards.js';
 import { toast } from 'react-toastify';
 const emailRegExp = /^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
@@ -27,10 +28,11 @@ const participantSchema = yup.object({
 });
 
 const ParticipantForm = ({ card }) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const socialMediaId = useId();
   const friendsId = useId();
   const myselfId = useId();
-  const dispatch = useDispatch();
   const fullnameId = useId();
   const emailId = useId();
   const phoneNumberId = useId();
@@ -53,11 +55,12 @@ const ParticipantForm = ({ card }) => {
   const onSubmit = data => {
     dispatch(registerParticipant({ ...data, cardID: card.id }))
       .unwrap()
-      .then(() =>
+      .then(() => {
         toast.success('Register request sent!', {
           position: 'top-center',
-        })
-      )
+        });
+        navigate('/cards');
+      })
       .catch(() => {
         toast.error('Error. Try again later.', {
           position: 'top-center',
@@ -70,13 +73,14 @@ const ParticipantForm = ({ card }) => {
 
   return (
     <div className={styles.container}>
-      <h3 className={styles.title} id="register-title">
-        Participant registration
-      </h3>
-      <p className={styles.text} id="register-description">
-        To register for the event, please answer a few questions.
-      </p>
-
+      <div className={styles.titleWrapper}>
+        <h3 className={styles.title} id="register-title">
+          Participant registration
+        </h3>
+        <p className={styles.text} id="register-description">
+          To register for the event, please answer a few questions.
+        </p>
+      </div>
       <div className={styles.imageWrapper}>
         <img
           src={card.organizer.avatar_url}

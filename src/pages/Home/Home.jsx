@@ -4,7 +4,7 @@ import ContainerWrapper from '../../components/ContainerWrapper/ContainerWrapper
 
 const Home = () => {
   return (
-    <>
+    <div className={styles.containerHome}>
       <h4 className={styles.title}> Hello user!Welcome to the events board!</h4>
       <div className={styles.contWrapper}>
         <p className={styles.message}>
@@ -20,7 +20,7 @@ const Home = () => {
           Create Event
         </NavLink> */}
       </div>
-    </>
+    </div>
   );
 };
 

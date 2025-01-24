@@ -22,8 +22,8 @@ const FavoritesCardsPage = () => {
     <div className={styles.main}>
       {isLoading && <Loader />}
 
-      {favoriteTeachers.length > 0 ? (
-        <CardsList teachers={favoriteCards} />
+      {favoriteCards.length > 0 ? (
+        <CardsList cards={favoriteCards} />
       ) : (
         <p>No favorites cards yet.</p>
       )}

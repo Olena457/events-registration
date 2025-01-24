@@ -2,18 +2,24 @@
   display: flex;
   flex-direction: column;
   max-width: 500px;
-  margin: 0 auto;
-  margin-top: 20px;
-  padding: 50px 60px;
+  margin: 0px auto;
+  padding: 30px 50px;
   border: 1px solid gray;
   border-radius: 8px;
   background-color: #f9f9f9;
   box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
     10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  height: 75vh;
+  overflow-y: auto;
+}
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .title {
   font-weight: 500;
-  font-size: 40px;
+  font-size: 32px;
   line-height: 1.2;
   letter-spacing: -0.02em;
   color: var(--black-color, black);

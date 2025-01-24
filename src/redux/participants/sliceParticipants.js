@@ -17,7 +17,7 @@ const participantsSlice = createSlice({
       })
       .addCase(fetchParticipants.fulfilled, (state, action) => {
         state.loading = false;
-        state.data[action.payload.cardId] = action.payload.participants;
+        state.data = action.payload;
       })
       .addCase(fetchParticipants.rejected, (state, action) => {
         state.loading = false;
