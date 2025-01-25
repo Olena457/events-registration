@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styles from './Home.module.css';
-import ContainerWrapper from '../../components/ContainerWrapper/ContainerWrapper.jsx';
+// import ContainerWrapper from '../../components/ContainerWrapper/ContainerWrapper.jsx';
 
 const Home = () => {
   return (
@@ -16,9 +16,9 @@ const Home = () => {
         <NavLink to="/cards" className={styles.btnGo}>
           Go Events
         </NavLink>
-        {/* <NavLink to="/create-event" className={styles.btnCreate}>
+        <NavLink to="/create-card" className={styles.btnCreate}>
           Create Event
-        </NavLink> */}
+        </NavLink>
       </div>
     </div>
   );

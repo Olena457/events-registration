@@ -73,7 +73,7 @@ const SignUp = () => {
   return (
     <div className={styles.container}>
       <h2 className={styles.title} id="sign-up-title">
-        Registration in the application
+        Registration in the application Event board
       </h2>
       <p className={styles.text} id="sign-up-description">
         Thank you for your interest in our platform! In order to register, we

@@ -1,13 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-  fetchCards,
-  fetchCardsPaginated,
-  //   fetchFilteredCards,
-} from './operationsCards.js';
+import { fetchCards, fetchCardsPaginated } from './operationsCards.js';
 
 const initialState = {
   data: [],
-  //   filtered: [],
   lastKey: null,
   loading: false,
   error: null,
@@ -52,19 +47,3 @@ const cardsSlice = createSlice({
 });
 
 export const cardsReducer = cardsSlice.reducer;
-
-// ___________________________________________________________________________not  use
-// export const { setFilteredCards } = cardsSlice.actions;
-//   .addCase(fetchFilteredCards.pending, state => {
-//     state.loading = true;
-//     state.error = null;
-//   })
-//   .addCase(fetchFilteredCards.fulfilled, (state, action) => {
-//     state.loading = false;
-//     state.filtered = action.payload.cards;
-//     state.lastKey = action.payload.lastKey;
-//   })
-//   .addCase(fetchFilteredCards.rejected, (state, action) => {
-//     state.loading = false;
-//     state.error = action.payload;
-//   });

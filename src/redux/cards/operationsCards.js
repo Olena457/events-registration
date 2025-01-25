@@ -7,8 +7,6 @@ import {
   orderByKey,
   startAfter,
   limitToFirst,
-  orderByChild,
-  equalTo,
 } from 'firebase/database';
 import { auth, database } from '../../firebase/firebaseConfig.js';
 
@@ -42,13 +40,13 @@ export const fetchCards = createAsyncThunk(
 // __________________register participant
 
 export const registerParticipant = createAsyncThunk(
-  'cards/register',
+  'cards/participants',
   async ({ fullname, email, phoneNumber, question, cardID }, thunkAPI) => {
     try {
       const user = auth.currentUser;
       const uid = user.uid;
 
-      const contactRef = ref(database, `register/${cardID}/${uid}`);
+      const contactRef = ref(database, `participants/${cardID}/${uid}`);
 
       await set(contactRef, {
         fullname,
@@ -100,64 +98,3 @@ export const fetchCardsPaginated = createAsyncThunk(
     }
   }
 );
-
-// __________________fetch filtered cards__________________________________________________________
-
-// export const fetchFilteredcards = createAsyncThunk(
-//   'cards/fetchFilteredcards',
-//   async (
-//     { lastKey = null, selectedLanguage, selectedLevel, selectedPrice },
-//     thunkAPI
-//   ) => {
-//     try {
-//       const cardsRef = ref(database, 'cards');
-//       let cardsQuery = cardsRef;
-
-//       if (selectedLanguage) {
-//         cardsQuery = query(
-//           cardsRef,
-//           orderByChild('languages'),
-//           equalTo(selectedLanguage)
-//         );
-//       }
-//       if (selectedLevel) {
-//         cardsQuery = query(
-//           cardsRef,
-//           orderByChild('levels'),
-//           equalTo(selectedLevel)
-//         );
-//       }
-//       if (selectedPrice) {
-//         cardsQuery = query(
-//           cardsRef,
-//           orderByChild('price_per_hour'),
-//           equalTo(parseInt(selectedPrice))
-//         );
-//       }
-
-//       const cardsPaginatedQuery = lastKey
-//         ? query(cardsQuery, startAfter(lastKey), limitToFirst(4))
-//         : query(cardsQuery, limitToFirst(4));
-
-//       const snapshot = await get(cardsPaginatedQuery);
-
-//       if (snapshot.exists()) {
-//         const data = snapshot.val();
-//         const cardsArray = Object.keys(data).map(id => ({
-//           id,
-//           ...data[id],
-//         }));
-
-//         const result = {
-//           cards: cardsArray,
-//           lastKey: cardsArray[cardsArray.length - 1]?.id || null,
-//         };
-//         return result;
-//       } else {
-//         return thunkAPI.rejectWithValue('No data available');
-//       }
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );

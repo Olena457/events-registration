@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  max-width: 500px;
+  max-width: 550px;
   margin: 0px auto;
   padding: 30px 50px;
   border: 1px solid gray;
@@ -84,7 +84,6 @@
   font-size: 16px;
   line-height: 1.375;
   color: var(--black-color, black);
-  /* margin-bottom: 5px; */
 }
 
 .inputWrapper {
@@ -150,25 +149,3 @@
   color: red;
   font-size: 12px;
 }
-
-/* .label {
-  margin-bottom: 10px;
-  font-weight: bold;
-} */
-/* .submitBtn {
-  padding: 10px 15px;
-  background-color: #2c3e50;
-  outline: 1px solid transparent;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
-  10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-  color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.submitButton:hover {
-  background-color: #61a8eb;
-} */

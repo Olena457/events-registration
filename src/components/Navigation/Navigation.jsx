@@ -2,12 +2,10 @@ import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
 import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from '../../redux/auth/selectorsAuth.js';
-// import { selectCards } from '../../redux/cards/selectorsCards.js';
 import styles from './Navigation.module.css';
 
 const Navigation = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  // const cards = useSelector(selectCards);
   const activeLink = ({ isActive }) =>
     clsx(styles.link, isActive && styles.active);
 
@@ -19,7 +17,6 @@ const Navigation = () => {
       <NavLink to="/cards" className={activeLink} aria-label="Events">
         Events
       </NavLink>
-
       <NavLink to="/login" className={activeLink} aria-label="Login">
         Login
       </NavLink>
@@ -27,9 +24,22 @@ const Navigation = () => {
         Register
       </NavLink>
       {isLoggedIn && (
-        <NavLink to="/favorites" className={activeLink} aria-label="Favorites">
-          Favorites
-        </NavLink>
+        <>
+          <NavLink
+            to="/favorites"
+            className={activeLink}
+            aria-label="Favorites"
+          >
+            Favorites
+          </NavLink>
+          <NavLink
+            to="/create-card"
+            className={activeLink}
+            aria-label="Create Event"
+          >
+            Create Event
+          </NavLink>
+        </>
       )}
     </div>
   );

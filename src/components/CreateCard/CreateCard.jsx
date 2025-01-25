@@ -1,108 +1,99 @@
-// import { useState } from 'react';
-// import { format } from 'date-fns';
-// import { v4 as uuidv4 } from 'uuid';
-// import css from './CreateEventForm.module.css';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addCard } from '../../redux/createCard/operationsCreateCard.js';
+import styles from './CreateCard.module.css';
+import defaultAvatar from '../../assets/icons/user.svg';
+import { selectIsLoggedIn } from '../../redux/auth/selectorsAuth.js';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
-// const CreateAction = () => {
-//   const [formData, setFormData] = useState({
-//     idEvent: uuidv4(),
-//     title: '',
-//     description: '',
-//     organizer: '',
-//     event_date: '',
-//     participants: [],
-//   });
+const CreateCard = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [eventDate, setEventDate] = useState('');
+  const [organizer, setOrganizer] = useState('');
 
-//   const handleChange = e => {
-//     const { name, value } = e.target;
-//     setFormData({
-//       ...formData,
-//       [name]: value,
-//     });
-//   };
+  const handleSubmit = async e => {
+    e.preventDefault();
 
-//   const handleSubmit = async e => {
-//     e.preventDefault();
-//     try {
-//       const formattedDate = format(new Date(formData.event_date), 'yyyy-MM-dd');
-//       const eventData = {
-//         ...formData,
-//         event_date: formattedDate,
-//         participants: Array.isArray(formData.participants)
-//           ? formData.participants
-//           : [],
-//       };
-//       console.log('Data to send:', eventData);
+    if (!isLoggedIn) {
+      toast.info(
+        'Please register in the application first to create an event!',
+        {
+          position: 'top-center',
+        }
+      );
+      navigate('/register-user');
+      return;
+    }
 
-//       console.log('Event created:', response.data);
+    try {
+      await dispatch(
+        addCard({
+          title,
+          description,
+          event_date: eventDate,
+          organizer: {
+            full_name: organizer,
+            avatar_url: defaultAvatar, // Використовуйте дефолтний аватар
+          },
+          participants: [],
+        })
+      );
+      setTitle('');
+      setDescription('');
+      setEventDate('');
+      setOrganizer('');
+    } catch (error) {
+      console.error('Error creating event:', error);
+    }
+  };
 
-//       setFormData({
-//         idEvent: uuidv4(),
-//         title: '',
-//         description: '',
-//         event_date: '',
-//         organizer: '',
-//         participants: [],
-//       });
-//     } catch (error) {
-//       console.error('Error creating event:', error);
-//     }
-//   };
+  return (
+    <form onSubmit={handleSubmit} className={styles.formContainer}>
+      <label className={styles.label}>
+        Title:
+        <input
+          type="text"
+          value={title}
+          onChange={e => setTitle(e.target.value)}
+          className={styles.input}
+        />
+      </label>
+      <label className={styles.label}>
+        Description:
+        <textarea
+          value={description}
+          onChange={e => setDescription(e.target.value)}
+          className={styles.textarea}
+        />
+      </label>
+      <label className={styles.label}>
+        Event Date:
+        <input
+          type="date"
+          value={eventDate}
+          onChange={e => setEventDate(e.target.value)}
+          className={styles.input}
+        />
+      </label>
+      <label className={styles.label}>
+        Organizer:
+        <input
+          type="text"
+          value={organizer}
+          onChange={e => setOrganizer(e.target.value)}
+          className={styles.input}
+        />
+      </label>
+      <button type="submit" className={styles.registerBtn}>
+        Create Event
+      </button>
+    </form>
+  );
+};
 
-//   return (
-//     <form onSubmit={handleSubmit} className={css.formContainer}>
-//       <label className={css.label}>
-//         Title:
-//         <input
-//           type="text"
-//           name="title"
-//           value={formData.title}
-//           onChange={handleChange}
-//           className={css.input}
-//           required
-//         />
-//       </label>
-//       <label className={css.label}>
-//         Description:
-//         <textarea
-//           name="description"
-//           value={formData.description}
-//           onChange={handleChange}
-//           className={css.textarea}
-//           rows="2"
-//           maxLength="200"
-//           placeholder="Max length 200"
-//           required
-//         />
-//       </label>
-//       <label className={css.label}>
-//         Date:
-//         <input
-//           type="date"
-//           name="event_date"
-//           value={formData.event_date}
-//           onChange={handleChange}
-//           className={css.input}
-//           required
-//         />
-//       </label>
-//       <label className={css.label}>
-//         Organizer:
-//         <input
-//           type="text"
-//           name="organizer"
-//           value={formData.organizer}
-//           onChange={handleChange}
-//           className={css.input}
-//           placeholder="Organization name"
-//           required
-//         />
-//       </label>
-//       <button type="submit" className={css.registerBtn}>
-//         Create Event
-//       </button>
-//     </form>
-//   );
-// };
-
-// export default CreateEventForm;
+export default CreateCard;

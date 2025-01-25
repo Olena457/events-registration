@@ -1,15 +1,16 @@
-// import CreateEventForm from '../../components/CreateEventForm/CreateEventForm.jsx';
-// import css from './CreateEventPage.module.css';
-// import ContainerWrapper from '../../components/ContainerWrapper/ContainerWrapper.jsx';
-// const CreateEventPage = () => {
-//   return (
-//     <>
-//       <ContainerWrapper>
-//         <h2 className={css.title}>Create a New Event!</h2>
-//         <CreateEventForm />
-//       </ContainerWrapper>
-//     </>
-//   );
-// };
+import CreateCard from '../../components/CreateCard/CreateCard.jsx';
+import styles from './CreateCardPage.module.css';
 
-// export default CreateEventPage;
+const CreateCardPage = () => {
+  return (
+    <>
+      <div className={styles.createPage}>
+        <div className={styles.createContainer}>
+          <CreateCard />
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default CreateCardPage;
