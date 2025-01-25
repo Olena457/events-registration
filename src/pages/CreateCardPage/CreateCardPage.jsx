@@ -1,3 +1,4 @@
+import React from 'react';
 import CreateCard from '../../components/CreateCard/CreateCard.jsx';
 import styles from './CreateCardPage.module.css';
 

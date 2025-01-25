@@ -15,6 +15,7 @@
   margin-bottom: 10px;
   font-weight: bold;
 }
+
 .textarea {
   box-sizing: border-box;
   width: 100%;
@@ -33,13 +34,6 @@
   padding-right: 6px;
   margin-top: 5px;
   margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.fieldset {
-  margin-bottom: 15px;
-  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
@@ -66,3 +60,65 @@
   color: red;
   font-size: 12px;
 } */
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 50px;
+  border: 1px solid gray;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
+    10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+}
+
+.label {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.textarea {
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  resize: none;
+}
+
+.input {
+  box-sizing: border-box;
+  max-width: 100%;
+  padding-left: 6px;
+  padding-right: 6px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.registerBtn {
+  padding: 10px 15px;
+  background-color: #2c3e50;
+  outline: 1px solid transparent;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
+    10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+}
+
+.registerBtn:hover {
+  background-color: #61a8eb;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
