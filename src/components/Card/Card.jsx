@@ -61,7 +61,7 @@ export default function Card({ card }) {
             width={26}
             height={26}
             className={styles.heartIconFull}
-            fillColor="#f00b0b"
+            fillColor="#00eeff"
             inert="false"
           />
         ) : (
@@ -71,7 +71,7 @@ export default function Card({ card }) {
             width={26}
             height={26}
             className={styles.heartIcon}
-            fillColor="#121417"
+            fillColor="transparent"
             inert="false"
           />
         )}

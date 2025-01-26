@@ -1,20 +1,38 @@
-.header {
+/* .header {
   width: 100%;
   display: flex;
   align-items: center;
   padding: 0px 30px;
-  box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
-    10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--box-shadow);
+}
+.brand {
+  display: flex;
+  gap: 8px;
 }
 .title {
   margin-right: auto;
-  font-size: 24px;
+  font-size: 26px;
   font-weight: bold;
+  font-family: cursive;
   text-align: center;
-  color: #f24e5e;
-  text-shadow: 1px 1px 0 #000000, 2px 2px 0 #777777, 3px 3px 0 #666666,
-    4px 4px 0 #ffffff, 5px 5px 0 #555555, 6px 6px 0 #444444, 7px 7px 0 #333333,
-    8px 8px 7px #111111;
+  color: #c50fe5;
+  text-shadow: 1px 1px 0 #161316, 2px 2px 0 #c50fe5, 3px 3px 0 #d387ed,
+    4px 4px 0 #191717, 5px 5px 0 #c50fe5, 6px 6px 0 #946e6e, 7px 7px 0 #dcd9d9,
+    8px 8px 7px #4f4a4a;
+}
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.logo {
+  width: 25px;
+  height: 25px;
+  transition: var(--transition);
+}
+.logo:hover,
+.logo:focus {
+  transform: scale(1.2);
 }
 .sigWrapper {
   display: flex;
@@ -33,7 +51,7 @@
 .loginText {
   margin-right: 60px;
   display: inline-block;
-  text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+  text-shadow: 1px 1px 2px black, 0 0 1em rgb(108, 9, 161), 0 0 0.2em blue;
   color: white;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
@@ -42,5 +60,77 @@
 }
 .loginText:hover,
 .loginText:focus {
-  color: #e45564;
+  color: #c50fe5;
+} */
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 30px;
+  box-shadow: var(--box-shadow);
+}
+
+.brand {
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: bold;
+  font-family: cursive;
+  color: #c50fe5;
+  text-shadow: 1px 1px 0 #161316, 2px 2px 0 #c50fe5, 3px 3px 0 #00eeff,
+    4px 4px 0 #191717, 5px 5px 0 #c50fe5, 6px 6px 0 #946e6e, 7px 7px 0 #dcd9d9,
+    8px 8px 7px #4f4a4a;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo {
+  width: 30px;
+  height: 30px;
+  transition: var(--transition);
+}
+
+.logo:hover,
+.logo:focus {
+  transform: scale(1.2);
+}
+
+.sigWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.buttonLogin {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.loginText {
+  margin-right: 60px;
+  display: inline-block;
+  text-shadow: 1px 1px 2px black, 0 0 1em rgb(108, 9, 161), 0 0 0.2em blue;
+  color: white;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.loginText:hover,
+.loginText:focus {
+  color: #c50fe5;
 }

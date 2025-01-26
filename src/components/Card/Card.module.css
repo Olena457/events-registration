@@ -58,6 +58,7 @@
 
 .heartIcon {
   width: 26px;
+  height: 26px;
   top: 10px;
   right: 10px;
   position: absolute;
@@ -69,9 +70,10 @@
 
 .heartIcon:hover,
 .heartIcon:focus {
-  stroke: var(--hover-color, #e194ec);
   stroke-width: 2px;
-  cursor: pointer;
+  stroke: #00eeff;
+  /* stroke: #d105f5; */
+  /* box-shadow: 0 0 15px 5px rgba(242, 238, 243, 0.799); */
 }
 
 .cardInfo {
@@ -139,9 +141,11 @@
   font-weight: 500;
   text-align: center;
   font-family: inherit;
+  box-shadow: var(--box-shadow);
   background: var(--accent-color);
   color: var(--black-color);
-  border: 1px solid var(--accent-color-dark);
+  border: 1px solid #00eeff;
+  /* border: 1px solid var(--accent-color-dark); */
   transition: background-color var(--transition), color var(--transition);
 }
 
@@ -149,8 +153,8 @@
 .btn:hover {
   background: var(--hover-color);
   color: var(--white-color);
-  border: 1px solid var(--white-color);
-  box-shadow: 0 0 15px 5px rgba(215, 62, 246, 0.75);
+  border: 1px solid var(--accent-color-dark);
+  box-shadow: 0 0 15px 5px rgba(93, 25, 106, 0.75);
 }
 
 .label {
@@ -178,7 +182,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #481ede;
+  background-color: #69306d;
+  box-shadow: var(--box-shadow);
   color: var(--white-color);
   border-radius: 50%;
   transition: background-color var(--transition);
@@ -186,11 +191,17 @@
 
 .socialLink:hover,
 .socialLink:focus {
-  background-color: #202a9a;
+  background-color: #cb0cdc;
+  box-shadow: 0 0 15px 5px rgba(93, 25, 106, 0.75);
 }
 
 .socialIcon {
-  fill: #f4f4fd;
+  fill: #00eeff;
+  /* fill: #f4f4fd; */
+}
+.socialIcon:focus,
+.socialIcon:hover {
+  fill: var(--blue-color);
 }
 
 .deleteBtn {

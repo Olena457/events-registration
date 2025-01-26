@@ -8,7 +8,7 @@
 .link {
   margin-right: 60px;
   display: inline-block;
-  text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+  text-shadow: 1px 1px 2px black, 0 0 1em rgb(108, 9, 161), 0 0 0.2em blue;
   color: white;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
@@ -18,7 +18,7 @@
 .link.active {
   padding: 30px 0px;
   position: relative;
-  color: #f24e5e;
+  color: #00eeff;
 }
 .link:after {
   content: '';
@@ -28,7 +28,7 @@
   bottom: -3px;
   width: 0;
   height: 2px;
-  background-color: black;
+  background-color: var(--accent-color);
   transition: width 0.5s;
 }
 
@@ -40,7 +40,7 @@
   left: 0;
   bottom: -3px;
   height: 2px;
-  background-color: red;
+  background-color: #00eeff;
   transition: width 0.5s;
 }
 .hiddenLink {
