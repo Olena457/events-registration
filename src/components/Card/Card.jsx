@@ -2,15 +2,20 @@ import React from 'react';
 import styles from './Card.module.css';
 import Icon from '../Icon/Icon.jsx';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectIsLoggedIn } from '../../redux/auth/selectorsAuth.js';
+import {
+  selectIsLoggedIn,
+  selectUserId,
+} from '../../redux/auth/selectorsAuth.js';
 import { selectFavoritesIds } from '../../redux/favorites/selectorsFavorites.js';
 import { toggleFavorite } from '../../redux/favorites/operationsFavorites.js';
+import { deleteCard } from '../../redux/createCard/operationsCreateCard.js';
 import { toast } from 'react-toastify';
 import { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Card({ card }) {
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const userId = useSelector(selectUserId);
   const favoriteIndexes = useSelector(selectFavoritesIds);
   const dispatch = useDispatch();
   const [isLiked, setLiked] = useState(favoriteIndexes.includes(card.id));
@@ -27,6 +32,19 @@ export default function Card({ card }) {
       dispatch(toggleFavorite(card));
     }
   }, [isLoggedIn, dispatch, card]);
+
+  const handleDelete = async () => {
+    try {
+      await dispatch(deleteCard(card.id)).unwrap();
+      toast.success('Event deleted successfully!', {
+        position: 'top-center',
+      });
+    } catch (error) {
+      toast.error('Error deleting event. Please try again later.', {
+        position: 'top-center',
+      });
+    }
+  };
 
   return (
     <div className={styles.cardContainer}>
@@ -128,6 +146,11 @@ export default function Card({ card }) {
         <Link to={`/cards/${card.id}/participants`} className={styles.btn}>
           Participants
         </Link>
+        {isLoggedIn && organizer.userId === userId && (
+          <button onClick={handleDelete} className={styles.deleteBtn}>
+            Delete
+          </button>
+        )}
       </div>
     </div>
   );

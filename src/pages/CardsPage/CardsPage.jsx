@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCards } from '../../redux/cards/operationsCards.js';
 import {
@@ -15,12 +15,12 @@ const CardsPage = () => {
   const cards = useSelector(selectCards);
   const loading = useSelector(selectCardsLoading);
   const { id } = useParams();
-  const card = cards.find(card => card.id === id);
+  // const card = cards.find(card => card.id === id);
 
   useEffect(() => {
     dispatch(fetchCards());
   }, [dispatch]);
-
+  const card = useMemo(() => cards.find(card => card.id === id), [cards, id]);
   return (
     <>
       {loading ? (

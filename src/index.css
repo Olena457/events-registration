@@ -1,19 +1,25 @@
 :root {
-  --accent-color: #e0a39a;
-  --secondary-color: #f2c0bd;
-  --hover-color: #f7b3b3;
-  --background-color: #fadbdb;
+  --accent-color-dark: #69306d;
+  --accent-color: #c764e4;
+  --secondary-color: #d387ed;
+  --hover-color: #e194ec;
+  --background-color: #f2cbefed;
+  --light-gradient: linear-gradient(90deg, #ffffff, #cb6ce6);
+  --box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
+    10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  /* --dark-gradient: linear-gradient(90deg, #35beec, #cb6ce6); */
 
   --black-color: #121417;
-  --green-color: #38cd3e;
-  --red-color: #e62828;
-  --white-color: #fff;
-  --lightgray-color: #f8f8f8;
+  --blue-color: #0f0338;
+  --brown-color: #695350;
+  --brown-dark-color: #946e6e;
+  --red-color: #c12121;
+  --white-color: #fbf9fa;
+  --lightgray-color: #e0dcde;
   --gray-color: #dcd9d9;
   --dark-gray-color: #a9a9a9;
   --transition: 0.5s ease-in-out;
   --background-color-transition: var(--background-color);
-  --image-url: url('./assets/image/blue-theme.jpg');
 }
 
 body {
@@ -22,7 +28,7 @@ body {
   font-weight: 400;
   font-style: normal;
   transition: background-color var(--transition), color var(--transition);
-  background-color: var(--background-color, #f6f2cc);
+  background-color: var(--background-color, #f2cbefed);
 }
 h1,
 h2,
