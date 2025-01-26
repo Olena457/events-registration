@@ -5,6 +5,10 @@
   gap: 120px;
   align-items: center;
   height: 100vh;
+  background-image: url('../../assets/images/home.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .contWrapper {
   display: flex;
@@ -38,6 +42,7 @@
   width: 173px;
   height: 56px;
   display: flex;
+  margin-left: 50px;
   justify-content: center;
   align-items: center;
   padding: 15px 60px;
@@ -65,7 +70,7 @@
   box-shadow: 0 0 15px 5px rgba(203, 12, 241, 0.75);
 }
 .buttonMargin {
-  margin-right: 50px;
+  margin-left: 50px;
 }
 
 /* .btnCreate {
