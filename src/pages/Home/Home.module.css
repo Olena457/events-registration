@@ -41,8 +41,7 @@
   color: black;
   font-weight: 600;
   align-self: baseline;
-
-  /* text-shadow: 2px 2px 4px rgba(252, 247, 253, 0.968); */
+  text-shadow: 2px 2px 5px #ffffff;
 }
 
 .buttonHome {
@@ -64,7 +63,6 @@
   background: var(--accent-color);
   color: var(--white-color);
   border: 1px solid #00eeff;
-  /* border: 1px solid var(--accent-color-dark); */
   transition: background-color var(--transition), color var(--transition);
   box-shadow: 0 0 15px 5px rgba(242, 238, 243, 0.799);
 }

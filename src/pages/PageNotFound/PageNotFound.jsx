@@ -8,9 +8,9 @@ const PageNotFound = () => {
         <div className={styles.table}>
           <h2 className={styles.titlePage}>Page Not Found 404</h2>
         </div>
-        Press the bottom Home
+        <div className={styles.text}>Press the button Go Home</div>
         <Link to="/" className={styles.btnGo}>
-          Home
+          Go Home
         </Link>
       </div>
     </>

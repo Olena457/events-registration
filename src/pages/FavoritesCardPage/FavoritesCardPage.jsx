@@ -25,7 +25,7 @@ const FavoritesCardsPage = () => {
       {favoriteCards.length > 0 ? (
         <CardsList cards={favoriteCards} />
       ) : (
-        <p>No favorites cards yet.</p>
+        <h3 className={styles.title}>No favorites cards yet.</h3>
       )}
     </div>
   );

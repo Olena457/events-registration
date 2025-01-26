@@ -11,24 +11,27 @@
   border: 1px solid gray;
   border-radius: 8px;
   background-color: #f9f9f9;
-  box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
-    10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--box-shadow);
 }
 
 .title {
   font-weight: 500;
   font-size: 40px;
+  font-family: cursive;
   line-height: 1.2;
   letter-spacing: -0.02em;
-  color: var(--black-color, #121417);
+  color: var(--blue-color);
   margin-bottom: 30px;
+  text-shadow: 1px 1px 0 #161316, 2px 2px 0 #c50fe5, 3px 3px 0 #00eeff,
+    4px 4px 0 #191717, 5px 5px 0 #c50fe5, 6px 6px 0 #946e6e, 7px 7px 0 #dcd9d9,
+    8px 8px 7px #4f4a4a;
 }
 
 .text {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.375;
-  color: var(--black-color, #121417);
+  color: var(--black-color);
   margin-bottom: 20px;
 }
 
@@ -65,16 +68,17 @@
   line-height: 1.55556;
   color: var(--black-color, #121417);
   cursor: pointer;
-  box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
-    10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
-  background-color: var(--accent-color, #9fb7ce);
+  border: 1px solid #00eeff;
+  background-color: var(--accent-color);
+  box-shadow: var(--box-shadow);
   transition: background-color var(--transition), color var(--transition);
 }
-.buttonSign:active,
 .buttonSign:hover,
 .buttonSign:focus {
-  background-color: var(--hover-color, #afc7dc);
-  color: var(--dark-gray-color, #a9a9a9);
+  border: 1px solid var(--accent-color-dark);
+  box-shadow: 0 0 15px 5px rgba(93, 25, 106, 0.75);
+  background-color: var(--hover-color);
+  color: #00eeff;
 }
 .emailWrapper {
   margin-bottom: 18px;
@@ -91,7 +95,7 @@
   position: absolute;
   left: 0;
   bottom: -18px;
-  color: red;
+  color: var(--red-color);
 }
 
 /* @media (min-width: 768px) {

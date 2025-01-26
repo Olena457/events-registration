@@ -8,7 +8,7 @@ const Participants = ({ cards }) => {
 
   return (
     <div className={styles.partCard}>
-      <h2>{card.title} Participants</h2>
+      <h2 className={styles.title}>{card.title} Participants</h2>
       {card.participants &&
         Object.entries(card.participants).map(([id, participant]) => (
           <div key={id} className={styles.iconParticipantWrapper}>

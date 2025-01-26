@@ -6,8 +6,9 @@
 }
 
 .link {
-  margin-right: 60px;
+  /* margin-right: 60px; */
   display: inline-block;
+  padding: 30px 20px 30px 20px;
   text-shadow: 1px 1px 2px black, 0 0 1em rgb(108, 9, 161), 0 0 0.2em blue;
   color: white;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -16,7 +17,7 @@
   text-decoration: none;
 }
 .link.active {
-  padding: 30px 0px;
+  /* padding: 30px 0px; */
   position: relative;
   color: #00eeff;
 }

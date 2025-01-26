@@ -39,7 +39,7 @@ export const fetchParticipants = createAsyncThunk(
           participants: Object.values(data),
         };
       } else {
-        return thunkAPI.rejectWithValue('No participants available');
+        return thunkAPI.rejectWithValue('No registered participants yet');
       }
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

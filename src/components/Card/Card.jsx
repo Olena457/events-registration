@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './Card.module.css';
 import Icon from '../Icon/Icon.jsx';
 import { useSelector, useDispatch } from 'react-redux';

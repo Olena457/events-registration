@@ -11,10 +11,10 @@
   height: 520px;
   width: 485px;
   outline: 1px solid var(--accent-color-dark);
-  /* transition: transform 0.5s ease; */
+  transition: var(--transition);
   outline-offset: -20px;
 }
-/* .cardContainer:focus::before,
+.cardContainer:focus::before,
 .cardContainer:hover::before {
   content: '';
   position: absolute;
@@ -22,10 +22,10 @@
   bottom: -5px;
   left: -5px;
   right: -5px;
-  border: 1px solid #742889;
-  box-shadow: 0 0 15px 5px rgba(215, 62, 246, 0.75);
+  border: 1px solid #a03abc;
+  box-shadow: 0 0 15px 5px #00eeff;
   pointer-events: none;
-} */
+}
 
 .likeBtn {
   position: absolute;
@@ -145,7 +145,6 @@
   background: var(--accent-color);
   color: var(--black-color);
   border: 1px solid #00eeff;
-  /* border: 1px solid var(--accent-color-dark); */
   transition: background-color var(--transition), color var(--transition);
 }
 
@@ -197,7 +196,6 @@
 
 .socialIcon {
   fill: #00eeff;
-  /* fill: #f4f4fd; */
 }
 .socialIcon:focus,
 .socialIcon:hover {
@@ -205,16 +203,22 @@
 }
 
 .deleteBtn {
-  background: var(--accent-color);
-  color: var(--black-color);
-  border: none;
   padding: 8px 16px;
   border-radius: 4px;
   cursor: pointer;
   margin-top: 16px;
+  text-align: center;
+  font-family: inherit;
+  box-shadow: var(--box-shadow);
+  background: var(--accent-color);
+  color: var(--black-color);
+  border: 1px solid #00eeff;
+  transition: background-color var(--transition), color var(--transition);
 }
 
 .deleteBtn:hover {
+  background: var(--hover-color);
   color: var(--white-color);
-  background-color: var(--hover-color);
+  border: 1px solid var(--accent-color-dark);
+  box-shadow: 0 0 15px 5px rgba(93, 25, 106, 0.75);
 }

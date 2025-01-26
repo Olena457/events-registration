@@ -47,7 +47,7 @@ const CreateCard = () => {
           date: formattedDateTime,
           organizer: {
             full_name: organizer,
-            avatar_url: defaultAvatar, //  дефолтний аватар
+            avatar_url: defaultAvatar,
             userId,
           },
           participants: [],
@@ -72,6 +72,8 @@ const CreateCard = () => {
 
   return (
     <form onSubmit={handleSubmit} className={styles.formContainer}>
+      <h2 className={styles.title}>Create Event</h2>
+      <p className={styles.message}>Are you logged in yet?</p>
       <label className={styles.label}>
         Title:
         <input
