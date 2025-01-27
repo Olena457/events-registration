@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './Card.module.css';
 import Icon from '../Icon/Icon.jsx';
 import { useSelector, useDispatch } from 'react-redux';
@@ -21,7 +20,7 @@ export default function Card({ card }) {
   const favoriteIndexes = useSelector(selectFavoritesIds);
   const [isLiked, setLiked] = useState(favoriteIndexes.includes(card.id));
   const { title, description, date, organizer } = card;
-  const organizerImage = organizer.avatar_url || defaultAvatar;
+  const organizerImage = defaultAvatar;
 
   const handleLike = useCallback(() => {
     if (!isLoggedIn) {
@@ -62,7 +61,7 @@ export default function Card({ card }) {
             width={26}
             height={26}
             className={styles.heartIconFull}
-            fillColor="#f00b0b"
+            fillColor="#00eeff"
             inert="false"
           />
         ) : (

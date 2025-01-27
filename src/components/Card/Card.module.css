@@ -40,13 +40,13 @@
   color: var(--blue-color);
   font-size: 20px;
   font-weight: 500;
-  /* max-height: 150px;
-  overflow-y: auto;  */
 }
 
 .heartIconFull {
   cursor: pointer;
   position: absolute;
+  fill: #00eeff;
+  color: #00eeff;
   top: 10px;
   right: 10px;
   width: 26px;
