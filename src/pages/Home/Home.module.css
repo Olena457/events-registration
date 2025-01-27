@@ -11,12 +11,7 @@
   background-position: center;
   background-repeat: no-repeat;
 }
-/* .contWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-} */
+
 .containerWelcome {
   display: flex;
   flex-direction: column;
@@ -77,3 +72,9 @@
 .buttonMargin {
   margin-left: 50px;
 }
+/* .contWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+} */

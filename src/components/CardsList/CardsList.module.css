@@ -19,9 +19,15 @@
 
 .message {
   font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  color: var(--black-color);
+  font-size: 28px;
+  line-height: 1.2;
+  font-family: cursive;
+  letter-spacing: -0.02em;
+  color: var(--red-color);
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 0 #161316, 2px 2px 0 #c50fe5, 3px 3px 0 #00eeff,
+    4px 4px 0 #191717, 5px 5px 0 #c50fe5, 6px 6px 0 #946e6e, 7px 7px 0 #dcd9d9,
+    8px 8px 7px #4f4a4a;
 }
 
 /* @media (max-width: 768px) {

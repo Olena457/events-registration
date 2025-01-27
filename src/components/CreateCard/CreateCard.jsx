@@ -22,6 +22,12 @@ const CreateCard = () => {
   const [eventTime, setEventTime] = useState('');
   const [organizer, setOrganizer] = useState('');
 
+  const handleDescriptionChange = e => {
+    if (e.target.value.length <= 100) {
+      setDescription(e.target.value);
+    }
+  };
+
   const handleSubmit = async e => {
     e.preventDefault();
 
@@ -87,7 +93,7 @@ const CreateCard = () => {
         Description:
         <textarea
           value={description}
-          onChange={e => setDescription(e.target.value)}
+          onChange={handleDescriptionChange}
           className={styles.textarea}
         />
       </label>

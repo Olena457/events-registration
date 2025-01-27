@@ -2,7 +2,7 @@
   display: flex;
   position: relative;
   flex-direction: column;
-  gap: 25px;
+  gap: 15px;
   font-size: 18px;
   color: var(--blue-color);
   padding: 30px 50px;
@@ -40,6 +40,8 @@
   color: var(--blue-color);
   font-size: 20px;
   font-weight: 500;
+  /* max-height: 150px;
+  overflow-y: auto;  */
 }
 
 .heartIconFull {
@@ -72,8 +74,6 @@
 .heartIcon:focus {
   stroke-width: 2px;
   stroke: #00eeff;
-  /* stroke: #d105f5; */
-  /* box-shadow: 0 0 15px 5px rgba(242, 238, 243, 0.799); */
 }
 
 .cardInfo {

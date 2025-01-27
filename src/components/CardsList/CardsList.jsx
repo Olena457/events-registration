@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import {
-  selectCardsError,
-  selectCardsLoading,
-} from '../../redux/cards/selectorsCards.js';
+  selectCreateCardError,
+  selectCreateCardLoading,
+} from '../../redux/createCard/selectorsCreateCard.js';
 import Card from '../Card/Card.jsx';
 import styles from './CardsList.module.css';
 import Loader from '../Loader/Loader.jsx';
 
 const CardsList = ({ cards }) => {
-  const loading = useSelector(selectCardsLoading);
-  const error = useSelector(selectCardsError);
+  const loading = useSelector(selectCreateCardLoading);
+  const error = useSelector(selectCreateCardError);
 
   const [visibleCards, setVisibleCards] = useState(cards || []);
 

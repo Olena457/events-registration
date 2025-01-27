@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from './Card.module.css';
 import Icon from '../Icon/Icon.jsx';
 import { useSelector, useDispatch } from 'react-redux';
@@ -11,15 +12,16 @@ import { deleteCard } from '../../redux/createCard/operationsCreateCard.js';
 import { toast } from 'react-toastify';
 import { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
+import defaultAvatar from '../../assets/icons/user.svg';
 
 export default function Card({ card }) {
+  const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const userId = useSelector(selectUserId);
   const favoriteIndexes = useSelector(selectFavoritesIds);
-  const dispatch = useDispatch();
   const [isLiked, setLiked] = useState(favoriteIndexes.includes(card.id));
   const { title, description, date, organizer } = card;
-  const organizerImage = card.organizer.avatar_url;
+  const organizerImage = organizer.avatar_url || defaultAvatar;
 
   const handleLike = useCallback(() => {
     if (!isLoggedIn) {
@@ -60,7 +62,7 @@ export default function Card({ card }) {
             width={26}
             height={26}
             className={styles.heartIconFull}
-            fillColor="#00eeff"
+            fillColor="#f00b0b"
             inert="false"
           />
         ) : (
@@ -70,7 +72,7 @@ export default function Card({ card }) {
             width={26}
             height={26}
             className={styles.heartIcon}
-            fillColor="transparent"
+            fillColor="#121417"
             inert="false"
           />
         )}

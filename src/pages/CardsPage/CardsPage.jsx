@@ -1,10 +1,10 @@
-import React, { useEffect, useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCards } from '../../redux/cards/operationsCards.js';
+import { fetchCards } from '../../redux/createCard/operationsCreateCard.js';
 import {
-  selectCards,
-  selectCardsLoading,
-} from '../../redux/cards/selectorsCards.js';
+  selectCreateCardData,
+  selectCreateCardLoading,
+} from '../../redux/createCard/selectorsCreateCard.js';
 import Loader from '../../components/Loader/Loader.jsx';
 import CardsList from '../../components/CardsList/CardsList.jsx';
 import { Outlet, useParams } from 'react-router-dom';
@@ -12,15 +12,16 @@ import styles from './CardsPage.module.css';
 
 const CardsPage = () => {
   const dispatch = useDispatch();
-  const cards = useSelector(selectCards);
-  const loading = useSelector(selectCardsLoading);
   const { id } = useParams();
-  // const card = cards.find(card => card.id === id);
+  const cards = useSelector(selectCreateCardData);
+  const loading = useSelector(selectCreateCardLoading);
 
   useEffect(() => {
     dispatch(fetchCards());
   }, [dispatch]);
+
   const card = useMemo(() => cards.find(card => card.id === id), [cards, id]);
+
   return (
     <>
       {loading ? (
