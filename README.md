@@ -6,8 +6,8 @@ up for events that interest them.
 ---
 
 <p>
-  <img src="./src/assets/images/home.jpg" alt="Screenshot 1" width="340" height="200" style="margin-right: 10px;">
-  <img src="./src/assets/images/events.jpg" alt="Screenshot 2" width="340" height="200">
+  <img src="./src/assets/images/home.jpg" alt="Screenshot 1" width="360" height="220" style="margin-right: 10px;">
+  <img src="./src/assets/images/events.jpg" alt="Screenshot 2" width="360" height="220">
 </p>
     
 #### The application has the following pages for the convenience of both organizers and participants:
