@@ -42,22 +42,6 @@
   font-weight: 500;
 }
 
-.heartIconFull {
-  cursor: pointer;
-  position: absolute;
-  fill: #00eeff;
-  color: #00eeff;
-  top: 10px;
-  right: 10px;
-  width: 26px;
-  transition: transform 0.3s ease;
-}
-
-.heartIconFull:hover,
-.heartIconFull:focus {
-  transform: scale(1.2);
-}
-
 .heartIcon {
   width: 26px;
   height: 26px;
@@ -75,7 +59,21 @@
   stroke-width: 2px;
   stroke: #00eeff;
 }
+.heartIconFull {
+  cursor: pointer;
+  position: absolute;
+  fill: #00eeff;
+  color: #00eeff;
+  top: 10px;
+  right: 10px;
+  width: 26px;
+  transition: transform 0.3s ease;
+}
 
+.heartIconFull:hover,
+.heartIconFull:focus {
+  transform: scale(1.2);
+}
 .cardInfo {
   display: flex;
   font-weight: bold;

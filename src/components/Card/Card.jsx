@@ -20,8 +20,7 @@ export default function Card({ card }) {
   const favoriteIndexes = useSelector(selectFavoritesIds);
   const [isLiked, setLiked] = useState(favoriteIndexes.includes(card.id));
   const { title, description, date, organizer } = card;
-  const organizerImage = defaultAvatar;
-
+  const organizerImage = organizer.avatar_url || defaultAvatar;
   const handleLike = useCallback(() => {
     if (!isLoggedIn) {
       toast.info('Login first to save favorites!', {
