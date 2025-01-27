@@ -5,9 +5,11 @@ up for events that interest them.
 
 ---
 
-<img src="./assets/images/home.jpg" alt="Screenshot 1" width="200" height="200" style="margin-right: 10px;">
-<img src="assets/images/events.jpg" alt="Screenshot 2" width="200" height="200">
-
+<p>
+  <img src="./src/assets/images/home.jpg" alt="Screenshot 1" width="340" height="200" style="margin-right: 10px;">
+  <img src="./src/assets/images/events.jpg" alt="Screenshot 2" width="340" height="200">
+</p>
+    
 #### The application has the following pages for the convenience of both organizers and participants:
 
 1. Login Page
