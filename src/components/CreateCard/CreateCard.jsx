@@ -42,8 +42,17 @@ const CreateCard = () => {
       return;
     }
 
+    const dateTime = new Date(`${eventDate}T${eventTime}`);
+    const currentDate = new Date();
+
+    if (dateTime < currentDate) {
+      toast.error('The event date has passed. Please choose another date.', {
+        position: 'top-center',
+      });
+      return;
+    }
+
     try {
-      const dateTime = new Date(`${eventDate}T${eventTime}`);
       const formattedDateTime = formatISO(dateTime);
 
       await dispatch(
