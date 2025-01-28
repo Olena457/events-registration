@@ -56,6 +56,17 @@ const ParticipantForm = ({ card }) => {
   });
 
   const onSubmit = data => {
+    const eventDate = new Date(card.date);
+    const currentDate = new Date();
+
+    if (eventDate < currentDate) {
+      toast.error('The date has passed.Please select a new event.', {
+        position: 'top-center',
+      });
+      navigate('/cards');
+      return;
+    }
+
     if (!isLoggedIn) {
       toast.info('Register in the app first to join the event!', {
         position: 'top-center',

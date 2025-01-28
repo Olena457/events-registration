@@ -17,12 +17,20 @@ const Navigation = () => {
       <NavLink to="/cards" className={activeLink} aria-label="Events">
         Events
       </NavLink>
-      <NavLink to="/login" className={activeLink} aria-label="Login">
-        Login
-      </NavLink>
-      <NavLink to="/register-user" className={activeLink} aria-label="Register">
-        Register
-      </NavLink>
+      {!isLoggedIn && (
+        <>
+          <NavLink to="/login" className={activeLink} aria-label="Login">
+            Login
+          </NavLink>
+          <NavLink
+            to="/register-user"
+            className={activeLink}
+            aria-label="Register"
+          >
+            Register
+          </NavLink>
+        </>
+      )}
       {isLoggedIn && (
         <>
           <NavLink
