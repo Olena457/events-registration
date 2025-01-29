@@ -10,17 +10,19 @@ import { toggleFavorite } from '../../redux/favorites/operationsFavorites.js';
 import { deleteCard } from '../../redux/createCard/operationsCreateCard.js';
 import { toast } from 'react-toastify';
 import { useState, useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import defaultAvatar from '../../assets/icons/user.svg';
 
 export default function Card({ card }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const userId = useSelector(selectUserId);
   const favoriteIndexes = useSelector(selectFavoritesIds);
   const [isLiked, setLiked] = useState(favoriteIndexes.includes(card.id));
   const { title, description, date, organizer } = card;
   const organizerImage = organizer.avatar_url || defaultAvatar;
+
   const handleLike = useCallback(() => {
     if (!isLoggedIn) {
       toast.info('Login first to save favorites!', {
@@ -45,6 +47,25 @@ export default function Card({ card }) {
     }
   };
 
+  const handleRegisterClick = () => {
+    const eventDate = new Date(date);
+    const currentDate = new Date();
+
+    if (eventDate < currentDate) {
+      toast.error('Cannot register. The event has ended.', {
+        position: 'top-center',
+      });
+      navigate('/cards');
+      return;
+    }
+
+    navigate(`/cards/${card.id}/register`);
+  };
+
+  const eventDate = new Date(date);
+  const currentDate = new Date();
+  const isEventPast = eventDate < currentDate;
+
   return (
     <div className={styles.cardContainer}>
       <button
@@ -60,7 +81,7 @@ export default function Card({ card }) {
             width={26}
             height={26}
             className={styles.heartIconFull}
-            fillColor=" #00eeff"
+            fillColor="#00eeff"
             inert="false"
           />
         ) : (
@@ -136,12 +157,14 @@ export default function Card({ card }) {
       </div>
       <div className={styles.cardInfo}>
         <p className={styles.label}>Date:</p>
-        <p className={styles.cardDate}>{new Date(date).toLocaleString()}</p>
+        <p className={styles.cardDate}>
+          {isEventPast ? 'Event ended' : new Date(date).toLocaleString()}
+        </p>
       </div>
       <div className={styles.btnContainer}>
-        <Link to={`/cards/${card.id}/register`} className={styles.btn}>
+        <button onClick={handleRegisterClick} className={styles.btn}>
           Registration
-        </Link>
+        </button>
         <Link to={`/cards/${card.id}/participants`} className={styles.btn}>
           Participants
         </Link>
