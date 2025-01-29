@@ -21,7 +21,7 @@ export default function Card({ card }) {
   const favoriteIndexes = useSelector(selectFavoritesIds);
   const [isLiked, setLiked] = useState(favoriteIndexes.includes(card.id));
   const { title, description, date, organizer } = card;
-  const organizerImage = organizer.avatar_url || defaultAvatar;
+  const organizerAvatar = organizer.avatar_url || defaultAvatar;
 
   const handleLike = useCallback(() => {
     if (!isLoggedIn) {
@@ -104,7 +104,7 @@ export default function Card({ card }) {
       </div>
       <div className={styles.cardInfoTeacher}>
         <img
-          src={organizerImage}
+          src={organizerAvatar}
           alt={`Organizer ${organizer.full_name}`}
           className={styles.organizerImage}
         />
