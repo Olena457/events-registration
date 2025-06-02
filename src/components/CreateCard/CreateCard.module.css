@@ -5,11 +5,16 @@
   margin: 0 auto;
   height: 90vh;
   overflow-y: auto;
-  padding: 50px;
+  padding: 15px;
   border: 1px solid gray;
   border-radius: 8px;
   background-color: #f9f9f9;
   box-shadow: var(--box-shadow);
+}
+@media screen and (min-width: 425px) {
+  .formContainer {
+    padding: 50px;
+  }
 }
 .title {
   font-weight: 500;

@@ -91,11 +91,15 @@
 }
 .label {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1.375;
   color: var(--black-color, black);
 }
-
+@media screen and (min-width: 425px) {
+  .label {
+    font-size: 16px;
+  }
+}
 .inputWrapper {
   padding: 8px;
   margin-top: 5px;

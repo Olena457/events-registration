@@ -10,7 +10,7 @@ const Navigation = () => {
     clsx(styles.link, isActive && styles.active);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.containerLink}>
       <NavLink to="/" className={activeLink} aria-label="Home">
         Home
       </NavLink>

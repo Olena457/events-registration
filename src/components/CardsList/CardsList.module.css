@@ -14,9 +14,14 @@
 
 .galleryCard {
   flex: 0 0 auto;
-  margin-right: 28px;
+  margin-right: 10px;
 }
-
+@media screen and (min-width: 1025px) {
+  .galleryCard {
+    flex: 0 0 auto;
+    margin-right: 28px;
+  }
+}
 .message {
   font-weight: 500;
   font-size: 28px;
