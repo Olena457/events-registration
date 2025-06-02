@@ -5,20 +5,32 @@
   gap: 15px;
   font-size: 16px;
   color: var(--blue-color);
-  padding: 20px 25px;
+  padding: 40px 10px;
   background: var(--light-gradient);
   box-shadow: var(--box-shadow);
   height: auto;
-  width: 90%;
-  max-width: 485px;
+  /* width: 90%; */
+  width: 290px;
   outline: 1px solid var(--accent-color-dark);
+  outline: 1px solid var(--accent-color-dark);
+  transition: var(--transition);
+  outline-offset: -5px;
 }
+@media screen and (min-width: 425px) {
+  .cardContainer {
+    width: 335px;
+  }
+}
+
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .cardContainer {
     padding: 15px;
-    width: 95%;
+    /* width: 95%; */
     font-size: 14px;
     gap: 10px;
+    padding: 30px 10px;
+    width: 620px;
+    outline-offset: -15px;
   }
 }
 @media screen and (min-width: 1025px) {
@@ -71,17 +83,27 @@
   }
 }
 .heartIcon {
-  width: 26px;
-  height: 26px;
-  top: 10px;
-  right: 10px;
+  width: 20px;
+  height: 20px;
+  top: 5px;
+  right: 5px;
   position: absolute;
   stroke-width: 1px;
   cursor: pointer;
   transition: var(--transition);
   stroke: var(--accent-color-dark, #69306d);
 }
-
+@media screen and (min-width: 1025px) {
+  .heartIcon {
+    width: 26px;
+    height: 26px;
+    top: 10px;
+    right: 10px;
+    position: absolute;
+    stroke-width: 1px;
+    cursor: pointer;
+  }
+}
 .heartIcon:hover,
 .heartIcon:focus {
   stroke-width: 2px;
@@ -102,15 +124,15 @@
 .heartIconFull:focus {
   transform: scale(1.2);
 }
-@media screen and (min-width: 1025px) {
-  .cardInfo {
-    display: flex;
-    font-weight: bold;
-    font-size: 16px;
-    align-items: center;
-    text-align: center;
-  }
+.cardInfo {
+  display: flex;
+  font-weight: bold;
+  font-size: 16px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
+
 @media screen and (min-width: 1025px) {
   .cardInfo {
     display: flex;
@@ -147,6 +169,7 @@
   display: flex;
   margin-top: 10px;
   justify-content: center;
+  /* align-items: flex-start; */
   align-items: center;
   gap: 5px;
 }

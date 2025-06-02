@@ -1,8 +1,11 @@
 .wrapperCard {
   display: flex;
   padding: 10px;
-  min-width: 100%;
-  min-height: 600px;
+  width: 100%;
+  /* min-height: 600px; */
+  height: 600px;
+  max-width: 1400px;
+  overflow-y: auto;
 }
 .wrapperNoEvent {
   display: flex;

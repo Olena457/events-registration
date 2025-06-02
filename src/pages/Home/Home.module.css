@@ -33,6 +33,7 @@
     padding: 100px 50px 50px 50px;
     border: 1px solid #00eeff;
     gap: 120px;
+    max-width: 1400px;
     justify-content: space-between;
     align-items: start;
     height: 100vh;
