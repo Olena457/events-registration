@@ -122,16 +122,6 @@ export default function Card({ card }) {
           <div className={styles.socialItem}>
             <a href="#" className={styles.socialLink}>
               <Icon
-                id="twitter"
-                className={styles.socialIcon}
-                width={20}
-                height={20}
-              />
-            </a>
-          </div>
-          <div className={styles.socialItem}>
-            <a href="#" className={styles.socialLink}>
-              <Icon
                 id="facebook"
                 className={styles.socialIcon}
                 width={20}

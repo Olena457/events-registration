@@ -1,25 +1,36 @@
 .wrapperCard {
   display: flex;
-  padding: 10px;
   width: 100%;
-  /* min-height: 600px; */
-  height: 600px;
-  max-width: 1400px;
-  overflow-y: auto;
+}
+@media screen and (min-width: 1025px) {
+  .wrapperCard {
+    padding: 10px;
+    width: 100%;
+    height: 600px;
+    overflow-y: auto;
+  }
 }
 .wrapperNoEvent {
   display: flex;
   flex-direction: column;
-  row-gap: 100px;
-  min-width: 100%;
-  min-height: 700px;
-  align-items: stretch;
+  row-gap: 50px;
+  width: 100%;
+  align-items: center;
+  align-items: center;
+  padding: 20px 0;
 }
+
 .message {
-  font-size: 56px;
+  font-size: 32px;
   color: black;
   font-weight: 600;
-  align-self: baseline;
+  text-align: center;
   margin: 0 auto;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (min-width: 768px) {
+  .message {
+    font-size: 48px;
+  }
 }

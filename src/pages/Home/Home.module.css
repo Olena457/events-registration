@@ -1,7 +1,5 @@
 .containerHome {
   display: flex;
-  min-width: 375px;
-  border-radius: 20px;
   padding: 30px 10px;
   flex-direction: column;
   border: 1px solid #00eeff;
@@ -9,7 +7,7 @@
   justify-content: space-between;
   align-items: start;
   height: 100vh;
-  width: 100wh;
+  width: 100%;
   background-image: url('../../assets/images/photoroom.jpg');
   background-size: cover;
   background-position: 95% 50%;
@@ -21,33 +19,31 @@
     display: flex;
     flex-direction: column;
     border: 1px solid #00eeff;
-    padding: 50px 40px 20px 40px;
+    padding: 50px 40px 20px 30px;
     background-image: url('../../assets/images/photoroom.jpg');
     background-size: cover;
-    background-position: 55% 50%;
+    background-position: 65% 30%;
     background-repeat: no-repeat;
   }
 }
 @media screen and (min-width: 1025px) {
   .containerHome {
-    padding: 100px 50px 50px 50px;
+    padding: 80px 50px 22px 22px;
     border: 1px solid #00eeff;
-    gap: 120px;
-    max-width: 1400px;
+    gap: 100px;
     justify-content: space-between;
     align-items: start;
-    height: 100vh;
     background-image: url('../../assets/images/photoroom.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 40% 50%;
+    background-position: 50% 30%;
   }
 }
 
 .containerWelcome {
   display: flex;
   margin-top: 320px;
-  min-width: 305px;
+  text-align: center;
   flex-direction: column;
   align-items: center;
   gap: 10px;
@@ -57,8 +53,7 @@
     display: flex;
     margin-top: 100px;
     flex-direction: column;
-    align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     gap: 60px;
   }
 }
@@ -66,10 +61,9 @@
 @media screen and (min-width: 1025px) {
   .containerWelcome {
     display: flex;
-    margin-top: 100px;
+    margin-top: 80px;
     flex-direction: column;
     align-items: center;
-    text-align: center;
     justify-content: start;
     gap: 100px;
   }
@@ -84,7 +78,7 @@
 }
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .title {
-    font-size: 46px;
+    font-size: 42px;
   }
 }
 @media screen and (min-width: 1025px) {
@@ -108,28 +102,26 @@
 
 .message {
   font-size: 22px;
-  color: black;
+  color: var(--accent-color-dark);
   font-weight: 700;
-  padding: 0 25px 0px 35px;
   align-self: baseline;
-  text-shadow: 2px 2px 5px #ffffff;
+  text-shadow: 1px 1px 0 #161316, 2px 2px 0 #c50fe5, 3px 3px 0 #00eeff,
+    4px 4px 0 #191717, 5px 5px 0 #c50fe5, 6px 6px 0 #946e6e;
 }
+
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .message {
-    font-size: 24px;
-    padding-left: 10px;
+    font-size: 22px;
   }
 }
 @media screen and (min-width: 1025px) {
   .message {
-    font-size: 43px;
-    /* padding: 0px 40px; */
-
+    font-size: 42px;
     align-self: baseline;
   }
 }
 .buttonHome {
-  width: 100px;
+  width: 120px;
   height: 46px;
   display: flex;
   justify-content: center;
@@ -139,7 +131,7 @@
   order: 1;
   flex-grow: 0;
   border-radius: 12px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 1;
   white-space: nowrap;
